@@ -1,0 +1,196 @@
+table 'dim_data'
+	lineageTag: 9e9e204e-b6f9-55cb-986f-f2332f566677
+
+	column 'data'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 33015cee-d786-593c-a855-82e81c69ea9d
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'rok'
+		dataType: int64
+		lineageTag: a41600ba-7d27-5ac6-b3d3-a82b99613a86
+		summarizeBy: sum
+		sourceColumn: rok
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'miesiac'
+		dataType: int64
+		lineageTag: 2467eff6-b179-5a1d-b76d-18ee0f4077a1
+		summarizeBy: sum
+		sourceColumn: miesiac
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'miesiac_nazwa'
+		dataType: string
+		lineageTag: e886d202-31ad-5e21-bb28-de598dc6f711
+		summarizeBy: none
+		sourceColumn: miesiac_nazwa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'miesiac_skrot'
+		dataType: string
+		lineageTag: c67d367c-7e31-530f-a271-2ed4f965fdc8
+		summarizeBy: none
+		sourceColumn: miesiac_skrot
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'miesiac_poczatek'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 358bbb29-4b9d-5fea-b34b-db5cfbed40fa
+		summarizeBy: none
+		sourceColumn: miesiac_poczatek
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'okres_rrrrmm'
+		dataType: int64
+		lineageTag: 2ca87c3c-0fa0-576c-a058-19fab04abe5b
+		summarizeBy: sum
+		sourceColumn: okres_rrrrmm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'dzien_tygodnia_nr'
+		dataType: int64
+		lineageTag: 7eac635d-38e2-56bf-93f4-83bb52e586bb
+		summarizeBy: sum
+		sourceColumn: dzien_tygodnia_nr
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'dzien_tygodnia_nazwa'
+		dataType: string
+		lineageTag: 89ee4684-9469-5158-a831-8aa5a12e8e96
+		summarizeBy: none
+		sourceColumn: dzien_tygodnia_nazwa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'tydzien_iso'
+		dataType: int64
+		lineageTag: 287ac1dc-2143-5f88-b868-7243f742c286
+		summarizeBy: sum
+		sourceColumn: tydzien_iso
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'rok_finansowy'
+		dataType: string
+		lineageTag: 4df85f88-3140-5610-af3b-b9de4ad7522f
+		summarizeBy: none
+		sourceColumn: rok_finansowy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'rok_finansowy_nr'
+		dataType: int64
+		lineageTag: 8a3a23ab-7f57-5cbb-81f8-13410c251e47
+		summarizeBy: sum
+		sourceColumn: rok_finansowy_nr
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kwartal_finansowy'
+		dataType: string
+		lineageTag: 200c04f9-6b48-5ea4-b0d5-deb6d1b02b87
+		summarizeBy: none
+		sourceColumn: kwartal_finansowy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kwartal_finansowy_pelny'
+		dataType: string
+		lineageTag: b7fc69f2-99ca-57da-8fbe-75dbfc1a91da
+		summarizeBy: none
+		sourceColumn: kwartal_finansowy_pelny
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kwartal_finansowy_sort'
+		dataType: int64
+		lineageTag: dbf79d63-4ce3-5c2b-b242-2ae7a3266031
+		summarizeBy: sum
+		sourceColumn: kwartal_finansowy_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'polrocze_finansowe'
+		dataType: string
+		lineageTag: e7c6a737-17b7-5e70-945f-76f5333d42fe
+		summarizeBy: none
+		sourceColumn: polrocze_finansowe
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'miesiac_finansowy_nr'
+		dataType: int64
+		lineageTag: 1a67ac0d-46f8-564a-9fa2-5f7a28cd5e80
+		summarizeBy: sum
+		sourceColumn: miesiac_finansowy_nr
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'czy_swieto_pl'
+		dataType: boolean
+		lineageTag: a4213afb-f684-534f-b908-ddbf21372fde
+		summarizeBy: none
+		sourceColumn: czy_swieto_pl
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'nazwa_swieta'
+		dataType: string
+		lineageTag: af7bb814-a858-5b84-a23f-a9c3f6b8e8cb
+		summarizeBy: none
+		sourceColumn: nazwa_swieta
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'czy_niedziela_handlowa_pl'
+		dataType: boolean
+		lineageTag: 3a7614b2-8ae6-5f76-b8cc-cafc962e4e16
+		summarizeBy: none
+		sourceColumn: czy_niedziela_handlowa_pl
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'czy_dzien_handlowy_pl'
+		dataType: boolean
+		lineageTag: 9a8bc902-719f-50ba-a0a7-7e4ec72859e8
+		summarizeBy: none
+		sourceColumn: czy_dzien_handlowy_pl
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'czy_black_friday'
+		dataType: boolean
+		lineageTag: 299a50c4-39e6-5d83-b57d-dadc4ffbfa90
+		summarizeBy: none
+		sourceColumn: czy_black_friday
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'czy_miesiac_zamkniety'
+		dataType: boolean
+		lineageTag: 3556608d-d701-5b63-bbf9-b199ab7bcb04
+		summarizeBy: none
+		sourceColumn: czy_miesiac_zamkniety
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim_data' = entity
+		mode: directLake
+		source
+			entityName: dim_data
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

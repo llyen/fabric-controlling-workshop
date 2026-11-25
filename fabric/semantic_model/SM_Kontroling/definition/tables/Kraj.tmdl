@@ -1,0 +1,47 @@
+/// Słownik krajów działalności z walutą lokalną i regionem. Centrala jest przypisana do Polski.
+table 'Kraj'
+	lineageTag: ad407d83-801a-5451-ab8b-f0b7254e04d4
+
+	/// Dwuliterowy kod kraju, np. PL, DE, SE.
+	column 'Kod kraju'
+		dataType: string
+		lineageTag: 094b760e-a747-5829-aae1-0e8aa31535bd
+		summarizeBy: none
+		sourceColumn: kraj_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nazwa kraju po polsku.
+	column 'Kraj'
+		dataType: string
+		lineageTag: 7f493305-f3c1-53c3-a5c4-af6ac3ad2c0d
+		summarizeBy: none
+		sourceColumn: kraj_nazwa
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Waluta lokalna kraju. Kwoty w modelu są zawsze w PLN.
+	column 'Waluta lokalna'
+		dataType: string
+		lineageTag: 212213d3-21e7-5067-822f-f072f77f09f6
+		summarizeBy: none
+		sourceColumn: waluta_lokalna
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Region sprzedaży.
+	column 'Region'
+		dataType: string
+		lineageTag: 626be359-2bdb-59e6-973b-ebb54f61c932
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Kraj' = entity
+		mode: directLake
+		source
+			entityName: dim_kraj
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

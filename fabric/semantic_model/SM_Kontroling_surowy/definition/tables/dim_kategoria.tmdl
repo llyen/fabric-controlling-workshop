@@ -1,0 +1,34 @@
+table 'dim_kategoria'
+	lineageTag: a1280322-87fb-5c93-ae4c-cd26f3474593
+
+	column 'kategoria_kod'
+		dataType: string
+		lineageTag: 6d4abc00-a3e4-51de-96d2-817482d5e96f
+		summarizeBy: none
+		sourceColumn: kategoria_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kategoria_nazwa'
+		dataType: string
+		lineageTag: f11f257e-9853-5e63-9482-3bae7c155f73
+		summarizeBy: none
+		sourceColumn: kategoria_nazwa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'grupa'
+		dataType: string
+		lineageTag: 2ab0e65f-f075-59e9-ac94-beb864fe26a7
+		summarizeBy: none
+		sourceColumn: grupa
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim_kategoria' = entity
+		mode: directLake
+		source
+			entityName: dim_kategoria
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

@@ -1,0 +1,68 @@
+/// Plan kont rachunku wyników (P&L). Kwoty w faktach są dodatnie, a kolumna Znak mówi, czy pozycja zwiększa wynik (1, przychody) czy go zmniejsza (-1, koszty). Marża brutto, EBITDA i EBIT są liczone miarami.
+table 'Konto'
+	lineageTag: 3c4cfd4e-fc4c-5de9-b8ee-49f198e030e2
+
+	/// Numer konta jako tekst, np. 4010 przychody, 5120 czynsze, 5220 logistyka e-commerce.
+	column 'Numer konta'
+		dataType: string
+		lineageTag: 402706bb-f9c6-5d3f-9806-19e9701dc206
+		summarizeBy: none
+		sourceColumn: konto_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nazwa pozycji rachunku wyników, np. Czynsze.
+	column 'Konto'
+		dataType: string
+		lineageTag: 25ae05e9-b952-51c7-9b56-b86809d661b2
+		summarizeBy: none
+		sourceColumn: konto_nazwa
+		sortByColumn: 'Kolejność konta'
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Sekcja rachunku wyników: Przychody, Koszt własny, Koszty operacyjne, Amortyzacja.
+	column 'Sekcja P&L'
+		dataType: string
+		lineageTag: befbeea4-53ec-5010-9fc6-4b684613060c
+		summarizeBy: none
+		sourceColumn: sekcja
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Grupa pozycji, np. koszty sklepów, e-commerce, centrali.
+	column 'Grupa kosztów'
+		dataType: string
+		lineageTag: 56ed09ca-4d1c-5eb9-9062-fb29b944f534
+		summarizeBy: none
+		sourceColumn: grupa_kosztow
+
+		annotation SummarizationSetBy = Automatic
+
+	/// 1 dla przychodów, -1 dla kosztów.
+	column 'Znak'
+		dataType: int64
+		isHidden
+		lineageTag: 823858fb-dcb9-5476-b3dc-e5965666297c
+		summarizeBy: none
+		sourceColumn: znak
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Kolejność pozycji w rachunku wyników.
+	column 'Kolejność konta'
+		dataType: int64
+		isHidden
+		lineageTag: ee3abc0d-467f-55ba-bc67-99ef288ec0ca
+		summarizeBy: none
+		sourceColumn: kolejnosc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Konto' = entity
+		mode: directLake
+		source
+			entityName: dim_konto
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

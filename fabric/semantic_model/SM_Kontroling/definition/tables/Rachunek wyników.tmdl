@@ -1,0 +1,461 @@
+/// Miesięczny rachunek wyników (P&L) na poziomie MPK, konta i scenariusza, w PLN. Wykonanie (ACT) obejmuje tylko miesiące zamknięte, od kwietnia 2023 do listopada 2026. Budżet (BUD) obejmuje lata finansowe 2024/25, 2025/26 i 2026/27. Prognoza (FC 8+4) obejmuje rok 2026/27. Używaj miar, nie sumuj kwot bez filtra scenariusza i konta.
+table 'Rachunek wyników'
+	lineageTag: f801fe69-93c9-57c7-99f6-a437e8d3c0d3
+
+	/// Suma kwot rachunku wyników dla dokładnie jednego scenariusza wybranego filtrem. Bez filtra scenariusza zwraca pustą wartość, żeby nie dodawać wykonania do budżetu. Kwoty są dodatnie, także koszty.
+	measure 'Kwota (jeden scenariusz)' = IF ( HASONEVALUE ( 'Scenariusz'[Kod scenariusza] ), SUM ( 'Rachunek wyników'[kwota_pln] ) )
+		formatString: #,0
+		displayFolder: 0. Pomocnicze
+		lineageTag: 5a8c32fa-123e-551e-8e6a-710fbcfe3b73
+
+	/// Kwota w PLN dla scenariusza wykonanie (ACT), tylko miesiące zamknięte do listopada 2026. Działa dla dowolnego konta lub grupy kont wybranych filtrem tabeli Konto, np. czynsze to konto 5120. Koszty są dodatnie.
+	measure 'Kwota ACT' = CALCULATE ( SUM ( 'Rachunek wyników'[kwota_pln] ), REMOVEFILTERS ( 'Scenariusz' ), 'Scenariusz'[Kod scenariusza] = "ACT" )
+		formatString: #,0
+		displayFolder: 1. Wykonanie (ACT)
+		lineageTag: 79460134-4456-55d5-a6e7-8ec68fa8cb56
+
+	/// Przychody ze sprzedaży netto (konto 4010) w PLN, wykonanie (ACT), tylko miesiące zamknięte do listopada 2026.
+	measure 'Sprzedaż netto ACT' = CALCULATE ( [Kwota ACT], REMOVEFILTERS ( 'Konto' ), 'Konto'[Numer konta] = "4010" )
+		formatString: #,0
+		displayFolder: 1. Wykonanie (ACT)
+		lineageTag: 333c17c1-a77f-5c9e-8eb2-e55a64961d90
+
+	/// Koszt własny sprzedaży (konto 4510) w PLN, wykonanie (ACT), tylko miesiące zamknięte do listopada 2026.
+	measure 'Koszt własny ACT' = CALCULATE ( [Kwota ACT], REMOVEFILTERS ( 'Konto' ), 'Konto'[Numer konta] = "4510" )
+		formatString: #,0
+		displayFolder: 1. Wykonanie (ACT)
+		lineageTag: 746b7056-1f9e-53ae-96cb-ed22f474b67a
+
+	/// Marża brutto w PLN (sprzedaż netto minus koszt własny), wykonanie (ACT), tylko miesiące zamknięte do listopada 2026.
+	measure 'Marża brutto ACT' = [Sprzedaż netto ACT] - [Koszt własny ACT]
+		formatString: #,0
+		displayFolder: 1. Wykonanie (ACT)
+		lineageTag: cd8011f5-8279-5f11-ad53-1f9f08b1123c
+
+	/// Marża brutto jako procent sprzedaży netto, wykonanie (ACT), tylko miesiące zamknięte do listopada 2026.
+	measure 'Marża brutto % ACT' = DIVIDE ( [Marża brutto ACT], [Sprzedaż netto ACT] )
+		formatString: 0.0%
+		displayFolder: 1. Wykonanie (ACT)
+		lineageTag: fac8d359-5961-5064-bd2c-a88c0e6bb59b
+
+	/// Suma kosztów operacyjnych w PLN, wykonanie (ACT), tylko miesiące zamknięte do listopada 2026.
+	measure 'Koszty operacyjne ACT' = CALCULATE ( [Kwota ACT], REMOVEFILTERS ( 'Konto' ), 'Konto'[Sekcja P&L] = "Koszty operacyjne" )
+		formatString: #,0
+		displayFolder: 1. Wykonanie (ACT)
+		lineageTag: c5b02147-12a9-5c7b-80c2-d8e9e35d9a02
+
+	/// EBITDA w PLN: marża brutto minus koszty operacyjne, wykonanie (ACT), tylko miesiące zamknięte do listopada 2026.
+	measure 'EBITDA ACT' = [Marża brutto ACT] - [Koszty operacyjne ACT]
+		formatString: #,0
+		displayFolder: 1. Wykonanie (ACT)
+		lineageTag: 1eb05cca-d017-5b81-b63c-24cc09e78e9b
+
+	/// Marża EBITDA jako procent sprzedaży netto, wykonanie (ACT), tylko miesiące zamknięte do listopada 2026.
+	measure 'EBITDA % ACT' = DIVIDE ( [EBITDA ACT], [Sprzedaż netto ACT] )
+		formatString: 0.0%
+		displayFolder: 1. Wykonanie (ACT)
+		lineageTag: 973c3c3e-6b5b-5e73-b818-0b529fc1d51a
+
+	/// Amortyzacja w PLN, wykonanie (ACT), tylko miesiące zamknięte do listopada 2026.
+	measure 'Amortyzacja ACT' = CALCULATE ( [Kwota ACT], REMOVEFILTERS ( 'Konto' ), 'Konto'[Sekcja P&L] = "Amortyzacja" )
+		formatString: #,0
+		displayFolder: 1. Wykonanie (ACT)
+		lineageTag: cc924f2f-76e8-56f6-ac87-d9da96787149
+
+	/// EBIT w PLN: EBITDA minus amortyzacja, wykonanie (ACT), tylko miesiące zamknięte do listopada 2026.
+	measure 'EBIT ACT' = [EBITDA ACT] - [Amortyzacja ACT]
+		formatString: #,0
+		displayFolder: 1. Wykonanie (ACT)
+		lineageTag: 2be8cca8-057c-52b3-aa17-4a19cf5f5464
+
+	/// Kwota w PLN dla scenariusza budżet (BUD) dla lat finansowych 2024/25, 2025/26 i 2026/27. Działa dla dowolnego konta lub grupy kont wybranych filtrem tabeli Konto, np. czynsze to konto 5120. Koszty są dodatnie.
+	measure 'Kwota BUD' = CALCULATE ( SUM ( 'Rachunek wyników'[kwota_pln] ), REMOVEFILTERS ( 'Scenariusz' ), 'Scenariusz'[Kod scenariusza] = "BUD" )
+		formatString: #,0
+		displayFolder: 2. Budżet (BUD)
+		lineageTag: 65687a6c-2036-5b23-ae2c-ae6c093e8581
+
+	/// Przychody ze sprzedaży netto (konto 4010) w PLN, budżet (BUD) dla lat finansowych 2024/25, 2025/26 i 2026/27.
+	measure 'Sprzedaż netto BUD' = CALCULATE ( [Kwota BUD], REMOVEFILTERS ( 'Konto' ), 'Konto'[Numer konta] = "4010" )
+		formatString: #,0
+		displayFolder: 2. Budżet (BUD)
+		lineageTag: 7a973b2b-426c-5ddd-bf4d-4fdd78323376
+
+	/// Koszt własny sprzedaży (konto 4510) w PLN, budżet (BUD) dla lat finansowych 2024/25, 2025/26 i 2026/27.
+	measure 'Koszt własny BUD' = CALCULATE ( [Kwota BUD], REMOVEFILTERS ( 'Konto' ), 'Konto'[Numer konta] = "4510" )
+		formatString: #,0
+		displayFolder: 2. Budżet (BUD)
+		lineageTag: 7d5a8dd1-2732-5a2f-950c-3b4d3059c8dc
+
+	/// Marża brutto w PLN (sprzedaż netto minus koszt własny), budżet (BUD) dla lat finansowych 2024/25, 2025/26 i 2026/27.
+	measure 'Marża brutto BUD' = [Sprzedaż netto BUD] - [Koszt własny BUD]
+		formatString: #,0
+		displayFolder: 2. Budżet (BUD)
+		lineageTag: f103aa95-b561-51d0-83d4-aa3cd6cacdce
+
+	/// Marża brutto jako procent sprzedaży netto, budżet (BUD) dla lat finansowych 2024/25, 2025/26 i 2026/27.
+	measure 'Marża brutto % BUD' = DIVIDE ( [Marża brutto BUD], [Sprzedaż netto BUD] )
+		formatString: 0.0%
+		displayFolder: 2. Budżet (BUD)
+		lineageTag: 8b79f502-479d-5ff7-b7d3-790d932eed0a
+
+	/// Suma kosztów operacyjnych w PLN, budżet (BUD) dla lat finansowych 2024/25, 2025/26 i 2026/27.
+	measure 'Koszty operacyjne BUD' = CALCULATE ( [Kwota BUD], REMOVEFILTERS ( 'Konto' ), 'Konto'[Sekcja P&L] = "Koszty operacyjne" )
+		formatString: #,0
+		displayFolder: 2. Budżet (BUD)
+		lineageTag: 4e12bf89-e473-5343-bfe4-56b22e76e6f7
+
+	/// EBITDA w PLN: marża brutto minus koszty operacyjne, budżet (BUD) dla lat finansowych 2024/25, 2025/26 i 2026/27.
+	measure 'EBITDA BUD' = [Marża brutto BUD] - [Koszty operacyjne BUD]
+		formatString: #,0
+		displayFolder: 2. Budżet (BUD)
+		lineageTag: 515905e6-6bf9-5e80-ade1-0cd7c4ecaf5d
+
+	/// Marża EBITDA jako procent sprzedaży netto, budżet (BUD) dla lat finansowych 2024/25, 2025/26 i 2026/27.
+	measure 'EBITDA % BUD' = DIVIDE ( [EBITDA BUD], [Sprzedaż netto BUD] )
+		formatString: 0.0%
+		displayFolder: 2. Budżet (BUD)
+		lineageTag: 2eb62ecf-5a58-57d6-b53f-0eda5945215f
+
+	/// Amortyzacja w PLN, budżet (BUD) dla lat finansowych 2024/25, 2025/26 i 2026/27.
+	measure 'Amortyzacja BUD' = CALCULATE ( [Kwota BUD], REMOVEFILTERS ( 'Konto' ), 'Konto'[Sekcja P&L] = "Amortyzacja" )
+		formatString: #,0
+		displayFolder: 2. Budżet (BUD)
+		lineageTag: 79d5ad4f-e978-53cb-a587-b21d2bfb083c
+
+	/// EBIT w PLN: EBITDA minus amortyzacja, budżet (BUD) dla lat finansowych 2024/25, 2025/26 i 2026/27.
+	measure 'EBIT BUD' = [EBITDA BUD] - [Amortyzacja BUD]
+		formatString: #,0
+		displayFolder: 2. Budżet (BUD)
+		lineageTag: e3b4e97b-d4be-57ae-9fd0-79caf68040d3
+
+	/// Kwota w PLN dla scenariusza prognoza 8+4 (FC) dla roku finansowego 2026/27. Działa dla dowolnego konta lub grupy kont wybranych filtrem tabeli Konto, np. czynsze to konto 5120. Koszty są dodatnie.
+	measure 'Kwota FC' = CALCULATE ( SUM ( 'Rachunek wyników'[kwota_pln] ), REMOVEFILTERS ( 'Scenariusz' ), 'Scenariusz'[Kod scenariusza] = "FC" )
+		formatString: #,0
+		displayFolder: 3. Prognoza (FC)
+		lineageTag: 9af3d8fa-befc-5d07-bc25-6a098533dee4
+
+	/// Przychody ze sprzedaży netto (konto 4010) w PLN, prognoza 8+4 (FC) dla roku finansowego 2026/27.
+	measure 'Sprzedaż netto FC' = CALCULATE ( [Kwota FC], REMOVEFILTERS ( 'Konto' ), 'Konto'[Numer konta] = "4010" )
+		formatString: #,0
+		displayFolder: 3. Prognoza (FC)
+		lineageTag: ecaffdc5-1693-5afb-bb85-aaf410dc490d
+
+	/// Koszt własny sprzedaży (konto 4510) w PLN, prognoza 8+4 (FC) dla roku finansowego 2026/27.
+	measure 'Koszt własny FC' = CALCULATE ( [Kwota FC], REMOVEFILTERS ( 'Konto' ), 'Konto'[Numer konta] = "4510" )
+		formatString: #,0
+		displayFolder: 3. Prognoza (FC)
+		lineageTag: 8ccf66a5-1222-5151-9c13-ec3feafb0ead
+
+	/// Marża brutto w PLN (sprzedaż netto minus koszt własny), prognoza 8+4 (FC) dla roku finansowego 2026/27.
+	measure 'Marża brutto FC' = [Sprzedaż netto FC] - [Koszt własny FC]
+		formatString: #,0
+		displayFolder: 3. Prognoza (FC)
+		lineageTag: 89028a83-3e25-582c-9517-3d92b3d5a04e
+
+	/// Marża brutto jako procent sprzedaży netto, prognoza 8+4 (FC) dla roku finansowego 2026/27.
+	measure 'Marża brutto % FC' = DIVIDE ( [Marża brutto FC], [Sprzedaż netto FC] )
+		formatString: 0.0%
+		displayFolder: 3. Prognoza (FC)
+		lineageTag: 63a70286-d9c3-5832-95ec-8a29e378ef85
+
+	/// Suma kosztów operacyjnych w PLN, prognoza 8+4 (FC) dla roku finansowego 2026/27.
+	measure 'Koszty operacyjne FC' = CALCULATE ( [Kwota FC], REMOVEFILTERS ( 'Konto' ), 'Konto'[Sekcja P&L] = "Koszty operacyjne" )
+		formatString: #,0
+		displayFolder: 3. Prognoza (FC)
+		lineageTag: e4237197-2511-5219-a8cf-3f2b874b00a0
+
+	/// EBITDA w PLN: marża brutto minus koszty operacyjne, prognoza 8+4 (FC) dla roku finansowego 2026/27.
+	measure 'EBITDA FC' = [Marża brutto FC] - [Koszty operacyjne FC]
+		formatString: #,0
+		displayFolder: 3. Prognoza (FC)
+		lineageTag: fee7d65b-0009-5f8c-bc4e-52821670ff29
+
+	/// Marża EBITDA jako procent sprzedaży netto, prognoza 8+4 (FC) dla roku finansowego 2026/27.
+	measure 'EBITDA % FC' = DIVIDE ( [EBITDA FC], [Sprzedaż netto FC] )
+		formatString: 0.0%
+		displayFolder: 3. Prognoza (FC)
+		lineageTag: 93c01938-3759-58cb-8d4c-4d642f066cfd
+
+	/// Amortyzacja w PLN, prognoza 8+4 (FC) dla roku finansowego 2026/27.
+	measure 'Amortyzacja FC' = CALCULATE ( [Kwota FC], REMOVEFILTERS ( 'Konto' ), 'Konto'[Sekcja P&L] = "Amortyzacja" )
+		formatString: #,0
+		displayFolder: 3. Prognoza (FC)
+		lineageTag: 5043bcf5-1210-5e79-9439-4a840e5026f5
+
+	/// EBIT w PLN: EBITDA minus amortyzacja, prognoza 8+4 (FC) dla roku finansowego 2026/27.
+	measure 'EBIT FC' = [EBITDA FC] - [Amortyzacja FC]
+		formatString: #,0
+		displayFolder: 3. Prognoza (FC)
+		lineageTag: 44464765-0ea8-5c65-99eb-524c9e895f8c
+
+	/// Kwota według budżetu ograniczona do miesięcy zamkniętych, czyli tych, dla których istnieje wykonanie. Służy do porównania wykonania z budżetem za ten sam okres.
+	measure 'Kwota BUD (miesiące zamknięte)' = CALCULATE ( [Kwota BUD], KEEPFILTERS ( 'Data'[Miesiąc zamknięty] = TRUE () ) )
+		formatString: #,0
+		displayFolder: 4. Odchylenia
+		lineageTag: 84108c2d-90f9-5f21-9922-7574c84fd7d0
+
+	/// Sprzedaż netto według budżetu ograniczona do miesięcy zamkniętych, czyli tych, dla których istnieje wykonanie. Służy do porównania wykonania z budżetem za ten sam okres.
+	measure 'Sprzedaż netto BUD (miesiące zamknięte)' = CALCULATE ( [Sprzedaż netto BUD], KEEPFILTERS ( 'Data'[Miesiąc zamknięty] = TRUE () ) )
+		formatString: #,0
+		displayFolder: 4. Odchylenia
+		lineageTag: f5cf860d-43a8-5c8f-994b-9059002dfff3
+
+	/// Marża brutto według budżetu ograniczona do miesięcy zamkniętych, czyli tych, dla których istnieje wykonanie. Służy do porównania wykonania z budżetem za ten sam okres.
+	measure 'Marża brutto BUD (miesiące zamknięte)' = CALCULATE ( [Marża brutto BUD], KEEPFILTERS ( 'Data'[Miesiąc zamknięty] = TRUE () ) )
+		formatString: #,0
+		displayFolder: 4. Odchylenia
+		lineageTag: f4b18636-7f76-5b0c-91ae-d0b96fa53f75
+
+	/// Koszty operacyjne według budżetu ograniczona do miesięcy zamkniętych, czyli tych, dla których istnieje wykonanie. Służy do porównania wykonania z budżetem za ten sam okres.
+	measure 'Koszty operacyjne BUD (miesiące zamknięte)' = CALCULATE ( [Koszty operacyjne BUD], KEEPFILTERS ( 'Data'[Miesiąc zamknięty] = TRUE () ) )
+		formatString: #,0
+		displayFolder: 4. Odchylenia
+		lineageTag: 7a6f859b-0138-50d6-9545-89d89c0daabc
+
+	/// EBITDA według budżetu ograniczona do miesięcy zamkniętych, czyli tych, dla których istnieje wykonanie. Służy do porównania wykonania z budżetem za ten sam okres.
+	measure 'EBITDA BUD (miesiące zamknięte)' = CALCULATE ( [EBITDA BUD], KEEPFILTERS ( 'Data'[Miesiąc zamknięty] = TRUE () ) )
+		formatString: #,0
+		displayFolder: 4. Odchylenia
+		lineageTag: 476db7f4-3184-52f8-9d1d-015e76ce2085
+
+	/// Wykonanie minus budżet w PLN dla pozycji Sprzedaż netto, tylko za miesiące zamknięte. Wartość ujemna oznacza wynik poniżej budżetu.
+	measure 'Odchylenie sprzedaży ACT vs BUD' = [Sprzedaż netto ACT] - [Sprzedaż netto BUD (miesiące zamknięte)]
+		formatString: #,0
+		displayFolder: 4. Odchylenia
+		lineageTag: e5446a19-b79f-5ac4-a425-8af47dbd31a5
+
+	/// Odchylenie wykonania od budżetu dla pozycji Sprzedaż netto jako procent budżetu, tylko miesiące zamknięte.
+	measure 'Odchylenie sprzedaży ACT vs BUD %' = DIVIDE ( [Odchylenie sprzedaży ACT vs BUD], [Sprzedaż netto BUD (miesiące zamknięte)] )
+		formatString: 0.0%
+		displayFolder: 4. Odchylenia
+		lineageTag: e36dd082-c1c1-5131-b99c-6ffa97a0bc32
+
+	/// Wykonanie minus budżet w PLN dla pozycji Marża brutto, tylko za miesiące zamknięte. Wartość ujemna oznacza wynik poniżej budżetu.
+	measure 'Odchylenie marży brutto ACT vs BUD' = [Marża brutto ACT] - [Marża brutto BUD (miesiące zamknięte)]
+		formatString: #,0
+		displayFolder: 4. Odchylenia
+		lineageTag: f8ad52f4-d14c-55a6-9c4e-34365e1638bf
+
+	/// Odchylenie wykonania od budżetu dla pozycji Marża brutto jako procent budżetu, tylko miesiące zamknięte.
+	measure 'Odchylenie marży brutto ACT vs BUD %' = DIVIDE ( [Odchylenie marży brutto ACT vs BUD], [Marża brutto BUD (miesiące zamknięte)] )
+		formatString: 0.0%
+		displayFolder: 4. Odchylenia
+		lineageTag: 77710cb3-d2a9-5db0-9bd0-a5a5579e280b
+
+	/// Wykonanie minus budżet w PLN dla pozycji Koszty operacyjne, tylko za miesiące zamknięte. Dla kosztów wartość dodatnia oznacza przekroczenie budżetu.
+	measure 'Odchylenie kosztów operacyjnych ACT vs BUD' = [Koszty operacyjne ACT] - [Koszty operacyjne BUD (miesiące zamknięte)]
+		formatString: #,0
+		displayFolder: 4. Odchylenia
+		lineageTag: 2768658c-2f80-5a1d-88a1-6923cb311352
+
+	/// Odchylenie wykonania od budżetu dla pozycji Koszty operacyjne jako procent budżetu, tylko miesiące zamknięte.
+	measure 'Odchylenie kosztów operacyjnych ACT vs BUD %' = DIVIDE ( [Odchylenie kosztów operacyjnych ACT vs BUD], [Koszty operacyjne BUD (miesiące zamknięte)] )
+		formatString: 0.0%
+		displayFolder: 4. Odchylenia
+		lineageTag: 3045ae50-b799-5791-97ca-b5fe2f5f9840
+
+	/// Wykonanie minus budżet w PLN dla pozycji EBITDA, tylko za miesiące zamknięte. Wartość ujemna oznacza wynik poniżej budżetu.
+	measure 'Odchylenie EBITDA ACT vs BUD' = [EBITDA ACT] - [EBITDA BUD (miesiące zamknięte)]
+		formatString: #,0
+		displayFolder: 4. Odchylenia
+		lineageTag: 989fc0a3-9947-50e0-bde0-c6db78a81c05
+
+	/// Odchylenie wykonania od budżetu dla pozycji EBITDA jako procent budżetu, tylko miesiące zamknięte.
+	measure 'Odchylenie EBITDA ACT vs BUD %' = DIVIDE ( [Odchylenie EBITDA ACT vs BUD], ABS ( [EBITDA BUD (miesiące zamknięte)] ) )
+		formatString: 0.0%
+		displayFolder: 4. Odchylenia
+		lineageTag: 6aa63d65-a678-5c06-aae2-45ed00a30618
+
+	/// Wykonanie minus budżet w PLN dla pozycji Kwota, tylko za miesiące zamknięte. Dla kosztów wartość dodatnia oznacza przekroczenie budżetu.
+	measure 'Odchylenie kwoty ACT vs BUD' = [Kwota ACT] - [Kwota BUD (miesiące zamknięte)]
+		formatString: #,0
+		displayFolder: 4. Odchylenia
+		lineageTag: 990e5d2f-e60b-502e-8462-5113451be83c
+
+	/// Odchylenie wykonania od budżetu dla pozycji Kwota jako procent budżetu, tylko miesiące zamknięte.
+	measure 'Odchylenie kwoty ACT vs BUD %' = DIVIDE ( [Odchylenie kwoty ACT vs BUD], [Kwota BUD (miesiące zamknięte)] )
+		formatString: 0.0%
+		displayFolder: 4. Odchylenia
+		lineageTag: a071b85b-78d2-5974-8d4b-1a7fc542c5cc
+
+	/// Różnica marży brutto procentowej wykonania i budżetu w punktach procentowych, tylko miesiące zamknięte.
+	measure 'Odchylenie marży brutto % ACT vs BUD (pp)' = [Marża brutto % ACT] - DIVIDE ( [Marża brutto BUD (miesiące zamknięte)], [Sprzedaż netto BUD (miesiące zamknięte)] )
+		formatString: 0.0%
+		displayFolder: 4. Odchylenia
+		lineageTag: 4197561d-e38d-578e-a1bf-844cfaad3043
+
+	/// Prognoza 8+4 minus budżet w PLN dla pozycji Sprzedaż netto. Ma sens dla roku finansowego 2026/27.
+	measure 'Odchylenie sprzedaży FC vs BUD' = [Sprzedaż netto FC] - [Sprzedaż netto BUD]
+		formatString: #,0
+		displayFolder: 4. Odchylenia
+		lineageTag: 63d9a71d-9963-58c8-b177-aa63a72ecf9b
+
+	/// Odchylenie prognozy od budżetu dla pozycji Sprzedaż netto jako procent budżetu.
+	measure 'Odchylenie sprzedaży FC vs BUD %' = DIVIDE ( [Odchylenie sprzedaży FC vs BUD], [Sprzedaż netto BUD] )
+		formatString: 0.0%
+		displayFolder: 4. Odchylenia
+		lineageTag: b39b06f1-663d-5d2c-ade1-2245f57abf52
+
+	/// Prognoza 8+4 minus budżet w PLN dla pozycji EBITDA. Ma sens dla roku finansowego 2026/27.
+	measure 'Odchylenie EBITDA FC vs BUD' = [EBITDA FC] - [EBITDA BUD]
+		formatString: #,0
+		displayFolder: 4. Odchylenia
+		lineageTag: 4217a5d9-f48b-5ddd-9851-d14e3bf3e2dc
+
+	/// Odchylenie prognozy od budżetu dla pozycji EBITDA jako procent budżetu.
+	measure 'Odchylenie EBITDA FC vs BUD %' = DIVIDE ( [Odchylenie EBITDA FC vs BUD], ABS ( [EBITDA BUD] ) )
+		formatString: 0.0%
+		displayFolder: 4. Odchylenia
+		lineageTag: ccbfe5ea-d37a-555e-806b-f2cee69c8102
+
+	/// Prognoza 8+4 minus budżet w PLN dla pozycji Kwota. Ma sens dla roku finansowego 2026/27.
+	measure 'Odchylenie kwoty FC vs BUD' = [Kwota FC] - [Kwota BUD]
+		formatString: #,0
+		displayFolder: 4. Odchylenia
+		lineageTag: 013b8e08-e15f-57cb-a327-a190c012f9f8
+
+	/// Odchylenie prognozy od budżetu dla pozycji Kwota jako procent budżetu.
+	measure 'Odchylenie kwoty FC vs BUD %' = DIVIDE ( [Odchylenie kwoty FC vs BUD], [Kwota BUD] )
+		formatString: 0.0%
+		displayFolder: 4. Odchylenia
+		lineageTag: cbec7cf1-b9b6-5118-8f68-dc884b12f9ff
+
+	/// Sprzedaż netto według wykonania za analogiczne miesiące zamknięte rok wcześniej (przesunięcie o 12 miesięcy).
+	measure 'Sprzedaż netto ACT rok wcześniej' = CALCULATE ( [Sprzedaż netto ACT], DATEADD ( CALCULATETABLE ( VALUES ( 'Data'[Data] ), KEEPFILTERS ( 'Data'[Miesiąc zamknięty] = TRUE () ) ), -1, YEAR ) )
+		formatString: #,0
+		displayFolder: 5. Rok do roku
+		lineageTag: ef00e805-4c8c-535a-b8c8-ce75d8386836
+
+	/// Zmiana rok do roku pozycji Sprzedaż netto według wykonania, w procentach, za miesiące zamknięte.
+	measure 'Dynamika sprzedaży ACT r/r %' =
+			VAR _ly = [Sprzedaż netto ACT rok wcześniej]
+			RETURN
+			    DIVIDE ( [Sprzedaż netto ACT] - _ly, ABS ( _ly ) )
+		formatString: 0.0%
+		displayFolder: 5. Rok do roku
+		lineageTag: 2285c54a-cba4-5d79-aa9e-f54d47730a5d
+
+	/// EBITDA według wykonania za analogiczne miesiące zamknięte rok wcześniej (przesunięcie o 12 miesięcy).
+	measure 'EBITDA ACT rok wcześniej' = CALCULATE ( [EBITDA ACT], DATEADD ( CALCULATETABLE ( VALUES ( 'Data'[Data] ), KEEPFILTERS ( 'Data'[Miesiąc zamknięty] = TRUE () ) ), -1, YEAR ) )
+		formatString: #,0
+		displayFolder: 5. Rok do roku
+		lineageTag: 6fc38189-1c54-578a-a1f5-48589b928dbd
+
+	/// Zmiana rok do roku pozycji EBITDA według wykonania, w procentach, za miesiące zamknięte.
+	measure 'Dynamika EBITDA ACT r/r %' =
+			VAR _ly = [EBITDA ACT rok wcześniej]
+			RETURN
+			    DIVIDE ( [EBITDA ACT] - _ly, ABS ( _ly ) )
+		formatString: 0.0%
+		displayFolder: 5. Rok do roku
+		lineageTag: fd837983-9b70-5dd7-bce9-058a5b03f52d
+
+	/// Kwota według wykonania za analogiczne miesiące zamknięte rok wcześniej (przesunięcie o 12 miesięcy).
+	measure 'Kwota ACT rok wcześniej' = CALCULATE ( [Kwota ACT], DATEADD ( CALCULATETABLE ( VALUES ( 'Data'[Data] ), KEEPFILTERS ( 'Data'[Miesiąc zamknięty] = TRUE () ) ), -1, YEAR ) )
+		formatString: #,0
+		displayFolder: 5. Rok do roku
+		lineageTag: d3bf5daf-67e5-5dd7-aaf2-964931ed3035
+
+	/// Zmiana rok do roku pozycji Kwota według wykonania, w procentach, za miesiące zamknięte.
+	measure 'Dynamika kwoty ACT r/r %' =
+			VAR _ly = [Kwota ACT rok wcześniej]
+			RETURN
+			    DIVIDE ( [Kwota ACT] - _ly, ABS ( _ly ) )
+		formatString: 0.0%
+		displayFolder: 5. Rok do roku
+		lineageTag: 9376243e-88a7-542a-ab9a-5ac3ad91392a
+
+	/// Marża brutto według wykonania za analogiczne miesiące zamknięte rok wcześniej (przesunięcie o 12 miesięcy).
+	measure 'Marża brutto ACT rok wcześniej' = CALCULATE ( [Marża brutto ACT], DATEADD ( CALCULATETABLE ( VALUES ( 'Data'[Data] ), KEEPFILTERS ( 'Data'[Miesiąc zamknięty] = TRUE () ) ), -1, YEAR ) )
+		formatString: #,0
+		displayFolder: 5. Rok do roku
+		lineageTag: 9d482bbe-4b7c-51a8-ae9d-ebbb1399de79
+
+	/// Zmiana rok do roku pozycji Marża brutto według wykonania, w procentach, za miesiące zamknięte.
+	measure 'Dynamika marży brutto ACT r/r %' =
+			VAR _ly = [Marża brutto ACT rok wcześniej]
+			RETURN
+			    DIVIDE ( [Marża brutto ACT] - _ly, ABS ( _ly ) )
+		formatString: 0.0%
+		displayFolder: 5. Rok do roku
+		lineageTag: 29d9eb12-30aa-5f06-a5c2-f35ee5530ad9
+
+	/// Koszt logistyki e-commerce (konto 5220) według wykonania podzielony przez liczbę zamówień e-commerce, w PLN na zamówienie.
+	measure 'Koszt logistyki e-commerce na zamówienie ACT' =
+			DIVIDE (
+			    CALCULATE ( [Kwota ACT], REMOVEFILTERS ( 'Konto' ), 'Konto'[Numer konta] = "5220" ),
+			    CALCULATE ( [Liczba zamówień e-commerce], KEEPFILTERS ( 'Data'[Miesiąc zamknięty] = TRUE () ) )
+			)
+		formatString: #,0.00
+		displayFolder: 6. Wskaźniki
+		lineageTag: 0c06683d-70ff-537a-9f45-afb0b5d298f1
+
+	/// Budżetowy koszt logistyki e-commerce (konto 5220) podzielony przez faktyczną liczbę zamówień, w PLN na zamówienie.
+	measure 'Koszt logistyki e-commerce na zamówienie BUD' =
+			DIVIDE (
+			    CALCULATE ( [Kwota BUD (miesiące zamknięte)], REMOVEFILTERS ( 'Konto' ), 'Konto'[Numer konta] = "5220" ),
+			    CALCULATE ( [Liczba zamówień e-commerce], KEEPFILTERS ( 'Data'[Miesiąc zamknięty] = TRUE () ) )
+			)
+		formatString: #,0.00
+		displayFolder: 6. Wskaźniki
+		lineageTag: b50b8790-cafe-5a77-9a75-507f06cdfa49
+
+	/// Pierwszy dzień miesiąca, klucz do kalendarza.
+	column 'miesiac'
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: df0ff28d-663c-5e26-ac05-dbe6d9027109
+		summarizeBy: none
+		sourceColumn: miesiac
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Klucz MPK.
+	column 'mpk_id'
+		dataType: string
+		isHidden
+		lineageTag: a4291cd9-8e45-51b3-8a08-e1b16fc3819a
+		summarizeBy: none
+		sourceColumn: mpk_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Klucz konta.
+	column 'konto_id'
+		dataType: string
+		isHidden
+		lineageTag: 8d3f308a-acab-5418-8851-0d5fceb7329d
+		summarizeBy: none
+		sourceColumn: konto_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Klucz scenariusza.
+	column 'scenariusz_kod'
+		dataType: string
+		isHidden
+		lineageTag: 4d543bdc-9d17-509c-a286-855c6526e780
+		summarizeBy: none
+		sourceColumn: scenariusz_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Kwota dodatnia w PLN.
+	column 'kwota_pln'
+		dataType: double
+		isHidden
+		formatString: #,0
+		lineageTag: 2b3fbc55-7acc-5030-b675-d642f90c84ae
+		summarizeBy: none
+		sourceColumn: kwota_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Rachunek wyników' = entity
+		mode: directLake
+		source
+			entityName: fakt_pnl
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

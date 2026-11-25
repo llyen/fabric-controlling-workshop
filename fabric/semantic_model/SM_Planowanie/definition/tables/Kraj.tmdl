@@ -1,0 +1,29 @@
+/// Countries, shown as ISO codes.
+table 'Kraj'
+	lineageTag: e56bf25f-02df-52a2-93e7-0c557db87fa5
+
+	/// Country code, for example PL, DE, SE.
+	column 'Kraj'
+		dataType: string
+		lineageTag: e4108eaa-b752-5a6b-b4ea-8f108a7e6dd6
+		summarizeBy: none
+		sourceColumn: kraj_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Local currency. All amounts in this model are in PLN.
+	column 'Waluta'
+		dataType: string
+		lineageTag: f6b5e768-e689-58fa-abfb-52f8c9f16938
+		summarizeBy: none
+		sourceColumn: waluta_lokalna
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Kraj' = entity
+		mode: directLake
+		source
+			entityName: dim_kraj
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

@@ -1,0 +1,15 @@
+model Model
+	culture: pl-PL
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: pl-PL
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+ref table 'Kalendarz'
+ref table 'Marka'
+ref table 'Kraj'
+ref table 'Sprzedaz'
+
+ref cultureInfo pl-PL
+

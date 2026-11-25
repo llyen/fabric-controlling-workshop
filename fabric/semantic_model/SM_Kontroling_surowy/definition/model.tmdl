@@ -1,0 +1,21 @@
+model Model
+	culture: pl-PL
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pl-PL
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+ref table 'dim_data'
+ref table 'dim_marka'
+ref table 'dim_kraj'
+ref table 'dim_kategoria'
+ref table 'dim_scenariusz'
+ref table 'dim_konto'
+ref table 'dim_mpk'
+ref table 'fakt_pnl'
+ref table 'fakt_sprzedaz_dzienna'
+ref table 'fakt_sprzedaz_kategorie_mies'
+ref table 'fakt_kursy_walut'
+
+ref cultureInfo pl-PL
+

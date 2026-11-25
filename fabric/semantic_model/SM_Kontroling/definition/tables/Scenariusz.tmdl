@@ -1,0 +1,49 @@
+/// Scenariusze danych finansowych. ACT to wykonanie, BUD to budżet, FC to prognoza 8+4 dla roku finansowego 2026/27 (wykonanie kwiecień do listopada 2026 i prognoza grudzień 2026 do marca 2027).
+table 'Scenariusz'
+	lineageTag: 94b3ce41-a24e-5448-865e-62e4fb3ef5a2
+
+	/// ACT, BUD albo FC.
+	column 'Kod scenariusza'
+		dataType: string
+		lineageTag: 2f947070-1790-5d78-a3e2-0dffd7b3ea94
+		summarizeBy: none
+		sourceColumn: scenariusz_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nazwa scenariusza.
+	column 'Scenariusz'
+		dataType: string
+		lineageTag: b39962f3-1f32-5b33-bc77-69529cca72e8
+		summarizeBy: none
+		sourceColumn: scenariusz_nazwa
+		sortByColumn: 'Kolejność scenariusza'
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Opis zakresu scenariusza.
+	column 'Opis scenariusza'
+		dataType: string
+		lineageTag: 3270af11-8bae-5ca1-af79-73d438cd5b87
+		summarizeBy: none
+		sourceColumn: opis
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Kolejność prezentacji.
+	column 'Kolejność scenariusza'
+		dataType: int64
+		isHidden
+		lineageTag: 5bc722ff-4961-5b68-b6b2-5821b4939add
+		summarizeBy: none
+		sourceColumn: kolejnosc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Scenariusz' = entity
+		mode: directLake
+		source
+			entityName: dim_scenariusz
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

@@ -1,0 +1,182 @@
+﻿mpk_id,mpk_nazwa,typ_mpk,kanal,marka_kod,kraj_kod,miasto,format_sklepu,powierzchnia_m2,dzial_centrali,data_otwarcia_plan,data_otwarcia,data_zamkniecia,status,lfl_od
+EC-AUR-AT,Aurea e-commerce Austria,E-commerce,E-commerce,AUR,AT,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-AUR-DE,Aurea e-commerce Niemcy,E-commerce,E-commerce,AUR,DE,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-AUR-DK,Aurea e-commerce Dania,E-commerce,E-commerce,AUR,DK,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-AUR-NL,Aurea e-commerce Holandia,E-commerce,E-commerce,AUR,NL,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-AUR-PL,Aurea e-commerce Polska,E-commerce,E-commerce,AUR,PL,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-AUR-SE,Aurea e-commerce Szwecja,E-commerce,E-commerce,AUR,SE,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-KRO-AT,Kroko e-commerce Austria,E-commerce,E-commerce,KRO,AT,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-KRO-DE,Kroko e-commerce Niemcy,E-commerce,E-commerce,KRO,DE,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-KRO-DK,Kroko e-commerce Dania,E-commerce,E-commerce,KRO,DK,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-KRO-NL,Kroko e-commerce Holandia,E-commerce,E-commerce,KRO,NL,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-KRO-PL,Kroko e-commerce Polska,E-commerce,E-commerce,KRO,PL,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-KRO-SE,Kroko e-commerce Szwecja,E-commerce,E-commerce,KRO,SE,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-LUM-AT,Lumi e-commerce Austria,E-commerce,E-commerce,LUM,AT,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-LUM-DE,Lumi e-commerce Niemcy,E-commerce,E-commerce,LUM,DE,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-LUM-DK,Lumi e-commerce Dania,E-commerce,E-commerce,LUM,DK,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-LUM-NL,Lumi e-commerce Holandia,E-commerce,E-commerce,LUM,NL,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-LUM-PL,Lumi e-commerce Polska,E-commerce,E-commerce,LUM,PL,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-LUM-SE,Lumi e-commerce Szwecja,E-commerce,E-commerce,LUM,SE,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-VEN-AT,Vento e-commerce Austria,E-commerce,E-commerce,VEN,AT,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-VEN-DE,Vento e-commerce Niemcy,E-commerce,E-commerce,VEN,DE,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-VEN-DK,Vento e-commerce Dania,E-commerce,E-commerce,VEN,DK,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-VEN-NL,Vento e-commerce Holandia,E-commerce,E-commerce,VEN,NL,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-VEN-PL,Vento e-commerce Polska,E-commerce,E-commerce,VEN,PL,,,,,2018-04-01,2018-04-01,,Aktywny,
+EC-VEN-SE,Vento e-commerce Szwecja,E-commerce,E-commerce,VEN,SE,,,,,2018-04-01,2018-04-01,,Aktywny,
+HQ-ADM,Centrala Administracja i prawo,Centrala,Centrala,GRP,PL,,,,Administracja i prawo,2008-01-01,2008-01-01,,Aktywny,
+HQ-FIN,Centrala Finanse,Centrala,Centrala,GRP,PL,,,,Finanse,2008-01-01,2008-01-01,,Aktywny,
+HQ-KAD,Centrala Kadry,Centrala,Centrala,GRP,PL,,,,Kadry,2008-01-01,2008-01-01,,Aktywny,
+HQ-MKT-AUR,Centrala Marketing Aurea,Centrala,Centrala,AUR,PL,,,,Marketing,2008-01-01,2008-01-01,,Aktywny,
+HQ-MKT-KRO,Centrala Marketing Kroko,Centrala,Centrala,KRO,PL,,,,Marketing,2008-01-01,2008-01-01,,Aktywny,
+HQ-MKT-LUM,Centrala Marketing Lumi,Centrala,Centrala,LUM,PL,,,,Marketing,2008-01-01,2008-01-01,,Aktywny,
+HQ-MKT-VEN,Centrala Marketing Vento,Centrala,Centrala,VEN,PL,,,,Marketing,2008-01-01,2008-01-01,,Aktywny,
+HQ-PRD,Centrala Produkt i projektowanie,Centrala,Centrala,GRP,PL,,,,Produkt i projektowanie,2008-01-01,2008-01-01,,Aktywny,
+HQ-SCM,Centrala Łańcuch dostaw,Centrala,Centrala,GRP,PL,,,,Łańcuch dostaw,2008-01-01,2008-01-01,,Aktywny,
+HQ-TEC,Centrala Technologia,Centrala,Centrala,GRP,PL,,,,Technologia,2008-01-01,2008-01-01,,Aktywny,
+SK-AUR-AT-001,Aurea Wiedeń 1,Sklep,Sklep,AUR,AT,Wiedeń,Centrum handlowe,310,,2016-04-17,2016-04-17,,Aktywny,2017-05-01
+SK-AUR-AT-002,Aurea Graz 2,Sklep,Sklep,AUR,AT,Graz,Centrum handlowe,500,,2020-11-06,2020-11-06,,Aktywny,2021-12-01
+SK-AUR-AT-003,Aurea Linz 3,Sklep,Sklep,AUR,AT,Linz,Ulica handlowa,340,,2021-06-04,2021-06-04,,Aktywny,2022-07-01
+SK-AUR-AT-004,Aurea Salzburg 4,Sklep,Sklep,AUR,AT,Salzburg,Centrum handlowe,320,,2014-02-23,2014-02-23,,Aktywny,2015-03-01
+SK-AUR-AT-005,Aurea Wiedeń 5,Sklep,Sklep,AUR,AT,Wiedeń,Centrum handlowe,290,,2024-02-01,2024-02-01,,Aktywny,2025-02-01
+SK-AUR-DE-001,Aurea Berlin 1,Sklep,Sklep,AUR,DE,Berlin,Centrum handlowe,280,,2009-08-02,2009-08-02,,Aktywny,2010-09-01
+SK-AUR-DE-002,Aurea Monachium 2,Sklep,Sklep,AUR,DE,Monachium,Park handlowy,490,,2018-09-26,2018-09-26,,Aktywny,2019-10-01
+SK-AUR-DE-003,Aurea Hamburg 3,Sklep,Sklep,AUR,DE,Hamburg,Ulica handlowa,500,,2010-03-07,2010-03-07,,Aktywny,2011-04-01
+SK-AUR-DE-004,Aurea Kolonia 4,Sklep,Sklep,AUR,DE,Kolonia,Park handlowy,460,,2020-04-05,2020-04-05,,Aktywny,2021-05-01
+SK-AUR-DE-005,Aurea Frankfurt nad Menem 5,Sklep,Sklep,AUR,DE,Frankfurt nad Menem,Ulica handlowa,460,,2013-04-17,2013-04-17,,Aktywny,2014-05-01
+SK-AUR-DE-006,Aurea Lipsk 6,Sklep,Sklep,AUR,DE,Lipsk,Ulica handlowa,400,,2010-07-16,2010-07-16,,Aktywny,2011-08-01
+SK-AUR-DE-007,Aurea Berlin 7,Sklep,Sklep,AUR,DE,Berlin,Park handlowy,440,,2027-08-01,,,Planowany,
+SK-AUR-DK-001,Aurea Kopenhaga 1,Sklep,Sklep,AUR,DK,Kopenhaga,Park handlowy,320,,2017-05-19,2017-05-19,,Aktywny,2018-06-01
+SK-AUR-NL-001,Aurea Amsterdam 1,Sklep,Sklep,AUR,NL,Amsterdam,Ulica handlowa,470,,2012-12-24,2012-12-24,,Aktywny,2014-01-01
+SK-AUR-NL-002,Aurea Rotterdam 2,Sklep,Sklep,AUR,NL,Rotterdam,Centrum handlowe,410,,2015-07-23,2015-07-23,,Aktywny,2016-08-01
+SK-AUR-NL-003,Aurea Utrecht 3,Sklep,Sklep,AUR,NL,Utrecht,Park handlowy,360,,2010-07-21,2010-07-21,,Aktywny,2011-08-01
+SK-AUR-PL-001,Aurea Warszawa 1,Sklep,Sklep,AUR,PL,Warszawa,Ulica handlowa,310,,2018-06-27,2018-06-27,,Aktywny,2019-07-01
+SK-AUR-PL-002,Aurea Kraków 2,Sklep,Sklep,AUR,PL,Kraków,Centrum handlowe,340,,2018-11-02,2018-11-02,,Aktywny,2019-12-01
+SK-AUR-PL-003,Aurea Wrocław 3,Sklep,Sklep,AUR,PL,Wrocław,Ulica handlowa,310,,2017-06-03,2017-06-03,,Aktywny,2018-07-01
+SK-AUR-PL-004,Aurea Poznań 4,Sklep,Sklep,AUR,PL,Poznań,Ulica handlowa,260,,2008-03-13,2008-03-13,,Aktywny,2009-04-01
+SK-AUR-PL-005,Aurea Łódź 5,Sklep,Sklep,AUR,PL,Łódź,Ulica handlowa,340,,2011-04-27,2011-04-27,,Aktywny,2012-05-01
+SK-AUR-PL-006,Aurea Lublin 6,Sklep,Sklep,AUR,PL,Lublin,Centrum handlowe,390,,2021-11-03,2021-11-03,,Aktywny,2022-12-01
+SK-AUR-PL-007,Aurea Katowice 7,Sklep,Sklep,AUR,PL,Katowice,Ulica handlowa,440,,2019-06-08,2019-06-08,,Aktywny,2020-07-01
+SK-AUR-PL-008,Aurea Kielce 8,Sklep,Sklep,AUR,PL,Kielce,Ulica handlowa,360,,2014-07-15,2014-07-15,,Aktywny,2015-08-01
+SK-AUR-PL-009,Aurea Warszawa 9,Sklep,Sklep,AUR,PL,Warszawa,Centrum handlowe,440,,2010-09-06,2010-09-06,,Aktywny,2011-10-01
+SK-AUR-PL-010,Aurea Kraków 10,Sklep,Sklep,AUR,PL,Kraków,Ulica handlowa,360,,2020-01-15,2020-01-15,,Aktywny,2021-02-01
+SK-AUR-PL-011,Aurea Wrocław 11,Sklep,Sklep,AUR,PL,Wrocław,Centrum handlowe,440,,2021-02-01,2021-02-01,,Aktywny,2022-02-01
+SK-AUR-PL-012,Aurea Poznań 12,Sklep,Sklep,AUR,PL,Poznań,Ulica handlowa,360,,2025-03-01,2025-04-01,,Aktywny,2026-04-01
+SK-AUR-SE-001,Aurea Sztokholm 1,Sklep,Sklep,AUR,SE,Sztokholm,Centrum handlowe,490,,2016-11-16,2016-11-16,,Aktywny,2017-12-01
+SK-AUR-SE-002,Aurea Göteborg 2,Sklep,Sklep,AUR,SE,Göteborg,Ulica handlowa,450,,2013-03-13,2013-03-13,,Aktywny,2014-04-01
+SK-KRO-AT-001,Kroko Wiedeń 1,Sklep,Sklep,KRO,AT,Wiedeń,Centrum handlowe,310,,2021-09-08,2021-09-08,,Aktywny,2022-10-01
+SK-KRO-AT-002,Kroko Graz 2,Sklep,Sklep,KRO,AT,Graz,Centrum handlowe,290,,2019-12-14,2019-12-14,,Aktywny,2021-01-01
+SK-KRO-AT-003,Kroko Linz 3,Sklep,Sklep,KRO,AT,Linz,Centrum handlowe,320,,2021-01-22,2021-01-22,,Aktywny,2022-02-01
+SK-KRO-DE-001,Kroko Berlin 1,Sklep,Sklep,KRO,DE,Berlin,Park handlowy,180,,2012-04-09,2012-04-09,,Aktywny,2013-05-01
+SK-KRO-DE-002,Kroko Monachium 2,Sklep,Sklep,KRO,DE,Monachium,Centrum handlowe,310,,2020-11-14,2020-11-14,,Aktywny,2021-12-01
+SK-KRO-DE-003,Kroko Hamburg 3,Sklep,Sklep,KRO,DE,Hamburg,Centrum handlowe,280,,2021-03-19,2021-03-19,,Aktywny,2022-04-01
+SK-KRO-DE-004,Kroko Kolonia 4,Sklep,Sklep,KRO,DE,Kolonia,Park handlowy,320,,2017-01-24,2017-01-24,,Aktywny,2018-02-01
+SK-KRO-DE-005,Kroko Frankfurt nad Menem 5,Sklep,Sklep,KRO,DE,Frankfurt nad Menem,Park handlowy,150,,2022-08-02,2022-08-02,,Aktywny,2023-09-01
+SK-KRO-DE-006,Kroko Lipsk 6,Sklep,Sklep,KRO,DE,Lipsk,Ulica handlowa,150,,2014-11-02,2014-11-02,,Aktywny,2015-12-01
+SK-KRO-DE-007,Kroko Berlin 7,Sklep,Sklep,KRO,DE,Berlin,Centrum handlowe,310,,2016-08-28,2016-08-28,2026-01-31,Zamknięty,2017-09-01
+SK-KRO-DK-001,Kroko Kopenhaga 1,Sklep,Sklep,KRO,DK,Kopenhaga,Centrum handlowe,340,,2011-02-15,2011-02-15,,Aktywny,2012-03-01
+SK-KRO-NL-001,Kroko Amsterdam 1,Sklep,Sklep,KRO,NL,Amsterdam,Ulica handlowa,310,,2015-06-24,2015-06-24,,Aktywny,2016-07-01
+SK-KRO-NL-002,Kroko Rotterdam 2,Sklep,Sklep,KRO,NL,Rotterdam,Ulica handlowa,230,,2008-01-06,2008-01-06,,Aktywny,2009-02-01
+SK-KRO-PL-001,Kroko Warszawa 1,Sklep,Sklep,KRO,PL,Warszawa,Park handlowy,320,,2011-06-20,2011-06-20,,Aktywny,2012-07-01
+SK-KRO-PL-002,Kroko Kraków 2,Sklep,Sklep,KRO,PL,Kraków,Ulica handlowa,160,,2012-07-27,2012-07-27,,Aktywny,2013-08-01
+SK-KRO-PL-003,Kroko Wrocław 3,Sklep,Sklep,KRO,PL,Wrocław,Centrum handlowe,350,,2010-06-22,2010-06-22,,Aktywny,2011-07-01
+SK-KRO-PL-004,Kroko Poznań 4,Sklep,Sklep,KRO,PL,Poznań,Ulica handlowa,160,,2008-03-04,2008-03-04,,Aktywny,2009-04-01
+SK-KRO-PL-005,Kroko Łódź 5,Sklep,Sklep,KRO,PL,Łódź,Ulica handlowa,330,,2019-11-10,2019-11-10,,Aktywny,2020-12-01
+SK-KRO-PL-006,Kroko Lublin 6,Sklep,Sklep,KRO,PL,Lublin,Centrum handlowe,320,,2019-04-17,2019-04-17,,Aktywny,2020-05-01
+SK-KRO-PL-007,Kroko Katowice 7,Sklep,Sklep,KRO,PL,Katowice,Centrum handlowe,270,,2008-01-26,2008-01-26,,Aktywny,2009-02-01
+SK-KRO-PL-008,Kroko Kielce 8,Sklep,Sklep,KRO,PL,Kielce,Ulica handlowa,350,,2018-01-08,2018-01-08,,Aktywny,2019-02-01
+SK-KRO-PL-009,Kroko Warszawa 9,Sklep,Sklep,KRO,PL,Warszawa,Centrum handlowe,310,,2017-09-26,2017-09-26,,Aktywny,2018-10-01
+SK-KRO-PL-010,Kroko Kraków 10,Sklep,Sklep,KRO,PL,Kraków,Ulica handlowa,290,,2011-05-03,2011-05-03,,Aktywny,2012-06-01
+SK-KRO-PL-011,Kroko Wrocław 11,Sklep,Sklep,KRO,PL,Wrocław,Centrum handlowe,170,,2017-12-15,2017-12-15,,Aktywny,2019-01-01
+SK-KRO-PL-012,Kroko Poznań 12,Sklep,Sklep,KRO,PL,Poznań,Ulica handlowa,230,,2009-05-21,2009-05-21,,Aktywny,2010-06-01
+SK-KRO-PL-013,Kroko Łódź 13,Sklep,Sklep,KRO,PL,Łódź,Ulica handlowa,350,,2010-05-19,2010-05-19,,Aktywny,2011-06-01
+SK-KRO-PL-014,Kroko Lublin 14,Sklep,Sklep,KRO,PL,Lublin,Ulica handlowa,310,,2022-09-18,2022-09-18,,Aktywny,2023-10-01
+SK-KRO-PL-015,Kroko Katowice 15,Sklep,Sklep,KRO,PL,Katowice,Park handlowy,290,,2016-12-19,2016-12-19,,Aktywny,2018-01-01
+SK-KRO-PL-016,Kroko Kielce 16,Sklep,Sklep,KRO,PL,Kielce,Centrum handlowe,180,,2010-08-10,2010-08-10,,Aktywny,2011-09-01
+SK-KRO-PL-017,Kroko Warszawa 17,Sklep,Sklep,KRO,PL,Warszawa,Park handlowy,170,,2012-10-13,2012-10-13,,Aktywny,2013-11-01
+SK-KRO-PL-018,Kroko Kraków 18,Sklep,Sklep,KRO,PL,Kraków,Park handlowy,300,,2019-06-10,2019-06-10,,Aktywny,2020-07-01
+SK-KRO-PL-019,Kroko Wrocław 19,Sklep,Sklep,KRO,PL,Wrocław,Park handlowy,330,,2019-02-26,2019-02-26,,Aktywny,2020-03-01
+SK-KRO-PL-020,Kroko Poznań 20,Sklep,Sklep,KRO,PL,Poznań,Centrum handlowe,200,,2010-07-26,2010-07-26,,Aktywny,2011-08-01
+SK-KRO-PL-021,Kroko Łódź 21,Sklep,Sklep,KRO,PL,Łódź,Centrum handlowe,160,,2010-03-03,2010-03-03,,Aktywny,2011-04-01
+SK-KRO-PL-022,Kroko Lublin 22,Sklep,Sklep,KRO,PL,Lublin,Ulica handlowa,180,,2012-12-14,2012-12-14,,Aktywny,2014-01-01
+SK-KRO-PL-023,Kroko Katowice 23,Sklep,Sklep,KRO,PL,Katowice,Park handlowy,280,,2019-08-24,2019-08-24,,Aktywny,2020-09-01
+SK-KRO-PL-024,Kroko Kielce 24,Sklep,Sklep,KRO,PL,Kielce,Centrum handlowe,230,,2012-10-07,2012-10-07,,Aktywny,2013-11-01
+SK-KRO-PL-025,Kroko Warszawa 25,Sklep,Sklep,KRO,PL,Warszawa,Centrum handlowe,280,,2009-04-18,2009-04-18,2025-05-31,Zamknięty,2010-05-01
+SK-KRO-PL-026,Kroko Kraków 26,Sklep,Sklep,KRO,PL,Kraków,Park handlowy,230,,2016-05-06,2016-05-06,2025-10-31,Zamknięty,2017-06-01
+SK-KRO-PL-027,Kroko Wrocław 27,Sklep,Sklep,KRO,PL,Wrocław,Centrum handlowe,240,,2015-12-23,2015-12-23,2026-06-30,Zamknięty,2017-01-01
+SK-KRO-SE-001,Kroko Sztokholm 1,Sklep,Sklep,KRO,SE,Sztokholm,Centrum handlowe,180,,2017-04-26,2017-04-26,,Aktywny,2018-05-01
+SK-KRO-SE-002,Kroko Göteborg 2,Sklep,Sklep,KRO,SE,Göteborg,Centrum handlowe,250,,2014-01-23,2014-01-23,,Aktywny,2015-02-01
+SK-LUM-AT-001,Lumi Wiedeń 1,Sklep,Sklep,LUM,AT,Wiedeń,Park handlowy,150,,2015-07-05,2015-07-05,,Aktywny,2016-08-01
+SK-LUM-AT-002,Lumi Graz 2,Sklep,Sklep,LUM,AT,Graz,Park handlowy,180,,2015-08-09,2015-08-09,,Aktywny,2016-09-01
+SK-LUM-AT-003,Lumi Linz 3,Sklep,Sklep,LUM,AT,Linz,Centrum handlowe,200,,2027-10-01,,,Planowany,
+SK-LUM-DE-001,Lumi Berlin 1,Sklep,Sklep,LUM,DE,Berlin,Ulica handlowa,130,,2015-02-13,2015-02-13,,Aktywny,2016-03-01
+SK-LUM-DE-002,Lumi Monachium 2,Sklep,Sklep,LUM,DE,Monachium,Ulica handlowa,180,,2012-08-05,2012-08-05,,Aktywny,2013-09-01
+SK-LUM-DE-003,Lumi Hamburg 3,Sklep,Sklep,LUM,DE,Hamburg,Centrum handlowe,80,,2019-02-22,2019-02-22,,Aktywny,2020-03-01
+SK-LUM-DE-004,Lumi Kolonia 4,Sklep,Sklep,LUM,DE,Kolonia,Centrum handlowe,100,,2024-06-15,2024-07-15,,Aktywny,2025-08-01
+SK-LUM-NL-001,Lumi Amsterdam 1,Sklep,Sklep,LUM,NL,Amsterdam,Centrum handlowe,130,,2011-01-26,2011-01-26,,Aktywny,2012-02-01
+SK-LUM-NL-002,Lumi Rotterdam 2,Sklep,Sklep,LUM,NL,Rotterdam,Centrum handlowe,80,,2025-05-01,2025-06-01,,Aktywny,2026-06-01
+SK-LUM-NL-003,Lumi Utrecht 3,Sklep,Sklep,LUM,NL,Utrecht,Centrum handlowe,110,,2018-12-23,2018-12-23,2025-08-31,Zamknięty,2020-01-01
+SK-LUM-PL-001,Lumi Warszawa 1,Sklep,Sklep,LUM,PL,Warszawa,Ulica handlowa,190,,2016-07-23,2016-07-23,,Aktywny,2017-08-01
+SK-LUM-PL-002,Lumi Kraków 2,Sklep,Sklep,LUM,PL,Kraków,Centrum handlowe,80,,2015-12-22,2015-12-22,,Aktywny,2017-01-01
+SK-LUM-PL-003,Lumi Wrocław 3,Sklep,Sklep,LUM,PL,Wrocław,Park handlowy,90,,2020-12-16,2020-12-16,,Aktywny,2022-01-01
+SK-LUM-PL-004,Lumi Poznań 4,Sklep,Sklep,LUM,PL,Poznań,Centrum handlowe,200,,2015-06-07,2015-06-07,,Aktywny,2016-07-01
+SK-LUM-PL-005,Lumi Łódź 5,Sklep,Sklep,LUM,PL,Łódź,Park handlowy,160,,2010-05-18,2010-05-18,,Aktywny,2011-06-01
+SK-LUM-PL-006,Lumi Lublin 6,Sklep,Sklep,LUM,PL,Lublin,Centrum handlowe,170,,2017-02-17,2017-02-17,,Aktywny,2018-03-01
+SK-LUM-PL-007,Lumi Katowice 7,Sklep,Sklep,LUM,PL,Katowice,Park handlowy,90,,2015-09-05,2015-09-05,,Aktywny,2016-10-01
+SK-LUM-PL-008,Lumi Kielce 8,Sklep,Sklep,LUM,PL,Kielce,Park handlowy,150,,2021-12-17,2021-12-17,,Aktywny,2023-01-01
+SK-LUM-PL-009,Lumi Warszawa 9,Sklep,Sklep,LUM,PL,Warszawa,Ulica handlowa,100,,2016-04-21,2016-04-21,,Aktywny,2017-05-01
+SK-LUM-PL-010,Lumi Kraków 10,Sklep,Sklep,LUM,PL,Kraków,Centrum handlowe,120,,2017-12-13,2017-12-13,,Aktywny,2019-01-01
+SK-LUM-PL-011,Lumi Wrocław 11,Sklep,Sklep,LUM,PL,Wrocław,Park handlowy,90,,2017-05-03,2017-05-03,,Aktywny,2018-06-01
+SK-LUM-PL-012,Lumi Poznań 12,Sklep,Sklep,LUM,PL,Poznań,Ulica handlowa,170,,2011-07-12,2011-07-12,,Aktywny,2012-08-01
+SK-LUM-PL-013,Lumi Łódź 13,Sklep,Sklep,LUM,PL,Łódź,Ulica handlowa,170,,2017-07-21,2017-07-21,,Aktywny,2018-08-01
+SK-LUM-PL-014,Lumi Lublin 14,Sklep,Sklep,LUM,PL,Lublin,Ulica handlowa,140,,2010-07-27,2010-07-27,,Aktywny,2011-08-01
+SK-LUM-PL-015,Lumi Katowice 15,Sklep,Sklep,LUM,PL,Katowice,Park handlowy,150,,2023-10-01,2023-11-01,,Aktywny,2024-11-01
+SK-LUM-PL-016,Lumi Kielce 16,Sklep,Sklep,LUM,PL,Kielce,Park handlowy,170,,2015-08-05,2015-08-05,,Aktywny,2016-09-01
+SK-LUM-PL-017,Lumi Warszawa 17,Sklep,Sklep,LUM,PL,Warszawa,Ulica handlowa,190,,2027-04-01,,,Planowany,
+SK-VEN-AT-001,Vento Wiedeń 1,Sklep,Sklep,VEN,AT,Wiedeń,Ulica handlowa,990,,2019-05-10,2019-05-10,,Aktywny,2020-06-01
+SK-VEN-AT-002,Vento Graz 2,Sklep,Sklep,VEN,AT,Graz,Centrum handlowe,990,,2016-08-22,2016-08-22,,Aktywny,2017-09-01
+SK-VEN-AT-003,Vento Linz 3,Sklep,Sklep,VEN,AT,Linz,Ulica handlowa,810,,2024-03-15,2024-04-15,,Aktywny,2025-05-01
+SK-VEN-AT-004,Vento Salzburg 4,Sklep,Sklep,VEN,AT,Salzburg,Centrum handlowe,610,,2016-07-21,2016-07-21,,Aktywny,2017-08-01
+SK-VEN-AT-005,Vento Wiedeń 5,Sklep,Sklep,VEN,AT,Wiedeń,Ulica handlowa,970,,2027-09-01,,,Planowany,
+SK-VEN-DE-001,Vento Berlin 1,Sklep,Sklep,VEN,DE,Berlin,Centrum handlowe,950,,2020-10-12,2020-10-12,,Aktywny,2021-11-01
+SK-VEN-DE-002,Vento Monachium 2,Sklep,Sklep,VEN,DE,Monachium,Centrum handlowe,610,,2014-05-21,2014-05-21,,Aktywny,2015-06-01
+SK-VEN-DE-003,Vento Hamburg 3,Sklep,Sklep,VEN,DE,Hamburg,Centrum handlowe,1150,,2013-06-28,2013-06-28,,Aktywny,2014-07-01
+SK-VEN-DE-004,Vento Kolonia 4,Sklep,Sklep,VEN,DE,Kolonia,Centrum handlowe,770,,2009-07-02,2009-07-02,,Aktywny,2010-08-01
+SK-VEN-DE-005,Vento Frankfurt nad Menem 5,Sklep,Sklep,VEN,DE,Frankfurt nad Menem,Ulica handlowa,1030,,2023-11-01,2023-12-01,,Aktywny,2024-12-01
+SK-VEN-DE-006,Vento Lipsk 6,Sklep,Sklep,VEN,DE,Lipsk,Park handlowy,1000,,2017-11-02,2017-11-02,,Aktywny,2018-12-01
+SK-VEN-DE-007,Vento Berlin 7,Sklep,Sklep,VEN,DE,Berlin,Centrum handlowe,760,,2008-06-11,2008-06-11,,Aktywny,2009-07-01
+SK-VEN-DE-008,Vento Monachium 8,Sklep,Sklep,VEN,DE,Monachium,Park handlowy,800,,2008-09-27,2008-09-27,,Aktywny,2009-10-01
+SK-VEN-DE-009,Vento Hamburg 9,Sklep,Sklep,VEN,DE,Hamburg,Park handlowy,800,,2026-05-01,2026-08-01,,Aktywny,2027-08-01
+SK-VEN-DE-010,Vento Kolonia 10,Sklep,Sklep,VEN,DE,Kolonia,Park handlowy,680,,2026-05-15,2026-08-15,,Aktywny,2027-09-01
+SK-VEN-DE-011,Vento Frankfurt nad Menem 11,Sklep,Sklep,VEN,DE,Frankfurt nad Menem,Ulica handlowa,790,,2026-06-01,2026-09-01,,Aktywny,2027-09-01
+SK-VEN-DE-012,Vento Lipsk 12,Sklep,Sklep,VEN,DE,Lipsk,Centrum handlowe,870,,2026-06-15,2026-09-15,,Aktywny,2027-10-01
+SK-VEN-DE-013,Vento Berlin 13,Sklep,Sklep,VEN,DE,Berlin,Park handlowy,930,,2027-06-01,,,Planowany,
+SK-VEN-DK-001,Vento Kopenhaga 1,Sklep,Sklep,VEN,DK,Kopenhaga,Park handlowy,1070,,2015-01-21,2015-01-21,,Aktywny,2016-02-01
+SK-VEN-DK-002,Vento Aarhus 2,Sklep,Sklep,VEN,DK,Aarhus,Centrum handlowe,610,,2014-10-13,2014-10-13,,Aktywny,2015-11-01
+SK-VEN-DK-003,Vento Kopenhaga 3,Sklep,Sklep,VEN,DK,Kopenhaga,Park handlowy,800,,2027-11-01,,,Planowany,
+SK-VEN-NL-001,Vento Amsterdam 1,Sklep,Sklep,VEN,NL,Amsterdam,Ulica handlowa,870,,2008-07-11,2008-07-11,,Aktywny,2009-08-01
+SK-VEN-NL-002,Vento Rotterdam 2,Sklep,Sklep,VEN,NL,Rotterdam,Centrum handlowe,710,,2013-08-07,2013-08-07,,Aktywny,2014-09-01
+SK-VEN-NL-003,Vento Utrecht 3,Sklep,Sklep,VEN,NL,Utrecht,Ulica handlowa,1140,,2024-09-01,2024-09-01,,Aktywny,2025-09-01
+SK-VEN-PL-001,Vento Warszawa 1,Sklep,Sklep,VEN,PL,Warszawa,Centrum handlowe,810,,2021-02-23,2021-02-23,,Aktywny,2022-03-01
+SK-VEN-PL-002,Vento Kraków 2,Sklep,Sklep,VEN,PL,Kraków,Park handlowy,660,,2017-10-25,2017-10-25,,Aktywny,2018-11-01
+SK-VEN-PL-003,Vento Wrocław 3,Sklep,Sklep,VEN,PL,Wrocław,Ulica handlowa,810,,2009-03-28,2009-03-28,,Aktywny,2010-04-01
+SK-VEN-PL-004,Vento Poznań 4,Sklep,Sklep,VEN,PL,Poznań,Centrum handlowe,830,,2013-11-19,2013-11-19,,Aktywny,2014-12-01
+SK-VEN-PL-005,Vento Łódź 5,Sklep,Sklep,VEN,PL,Łódź,Centrum handlowe,1170,,2021-06-28,2021-06-28,,Aktywny,2022-07-01
+SK-VEN-PL-006,Vento Lublin 6,Sklep,Sklep,VEN,PL,Lublin,Park handlowy,620,,2014-02-20,2014-02-20,,Aktywny,2015-03-01
+SK-VEN-PL-007,Vento Katowice 7,Sklep,Sklep,VEN,PL,Katowice,Centrum handlowe,950,,2008-05-08,2008-05-08,,Aktywny,2009-06-01
+SK-VEN-PL-008,Vento Kielce 8,Sklep,Sklep,VEN,PL,Kielce,Centrum handlowe,660,,2011-07-12,2011-07-12,,Aktywny,2012-08-01
+SK-VEN-PL-009,Vento Warszawa 9,Sklep,Sklep,VEN,PL,Warszawa,Ulica handlowa,1080,,2022-03-19,2022-03-19,,Aktywny,2023-04-01
+SK-VEN-PL-010,Vento Kraków 10,Sklep,Sklep,VEN,PL,Kraków,Park handlowy,880,,2011-05-06,2011-05-06,,Aktywny,2012-06-01
+SK-VEN-PL-011,Vento Wrocław 11,Sklep,Sklep,VEN,PL,Wrocław,Ulica handlowa,1180,,2020-01-07,2020-01-07,,Aktywny,2021-02-01
+SK-VEN-PL-012,Vento Poznań 12,Sklep,Sklep,VEN,PL,Poznań,Ulica handlowa,620,,2010-01-21,2010-01-21,,Aktywny,2011-02-01
+SK-VEN-PL-013,Vento Łódź 13,Sklep,Sklep,VEN,PL,Łódź,Centrum handlowe,1010,,2022-04-22,2022-04-22,,Aktywny,2023-05-01
+SK-VEN-PL-014,Vento Lublin 14,Sklep,Sklep,VEN,PL,Lublin,Centrum handlowe,770,,2012-12-20,2012-12-20,,Aktywny,2014-01-01
+SK-VEN-PL-015,Vento Katowice 15,Sklep,Sklep,VEN,PL,Katowice,Park handlowy,1030,,2017-10-18,2017-10-18,,Aktywny,2018-11-01
+SK-VEN-PL-016,Vento Kielce 16,Sklep,Sklep,VEN,PL,Kielce,Centrum handlowe,1180,,2023-06-01,2023-07-01,,Aktywny,2024-07-01
+SK-VEN-PL-017,Vento Warszawa 17,Sklep,Sklep,VEN,PL,Warszawa,Centrum handlowe,1180,,2023-09-15,2023-09-15,,Aktywny,2024-10-01
+SK-VEN-PL-018,Vento Kraków 18,Sklep,Sklep,VEN,PL,Kraków,Ulica handlowa,1030,,2024-05-01,2024-05-01,,Aktywny,2025-05-01
+SK-VEN-PL-019,Vento Wrocław 19,Sklep,Sklep,VEN,PL,Wrocław,Centrum handlowe,710,,2025-08-01,2025-09-01,,Aktywny,2026-09-01
+SK-VEN-PL-020,Vento Poznań 20,Sklep,Sklep,VEN,PL,Poznań,Ulica handlowa,1120,,2022-12-22,2022-12-22,,Aktywny,2024-01-01
+SK-VEN-PL-021,Vento Łódź 21,Sklep,Sklep,VEN,PL,Łódź,Centrum handlowe,1130,,2027-05-01,,,Planowany,
+SK-VEN-SE-001,Vento Sztokholm 1,Sklep,Sklep,VEN,SE,Sztokholm,Centrum handlowe,760,,2008-05-17,2008-05-17,,Aktywny,2009-06-01
+SK-VEN-SE-002,Vento Göteborg 2,Sklep,Sklep,VEN,SE,Göteborg,Centrum handlowe,650,,2020-06-19,2020-06-19,,Aktywny,2021-07-01
+SK-VEN-SE-003,Vento Malmö 3,Sklep,Sklep,VEN,SE,Malmö,Centrum handlowe,1170,,2025-04-15,2025-05-15,,Aktywny,2026-06-01

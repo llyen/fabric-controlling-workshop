@@ -1,0 +1,49 @@
+/// Słownik marek. Kod GRP oznacza centralę i koszty bez przypisanej marki.
+table 'Marka'
+	lineageTag: 8f24f596-e7c7-5364-b0f5-f759746b94c8
+
+	/// Kod marki: AUR, VEN, LUM, KRO lub GRP dla centrali.
+	column 'Kod marki'
+		dataType: string
+		lineageTag: 4463fefb-6616-5910-adc5-190191043a93
+		summarizeBy: none
+		sourceColumn: marka_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nazwa marki: Aurea, Vento, Lumi, Kroko albo centrala.
+	column 'Marka'
+		dataType: string
+		lineageTag: d337d7b2-0deb-57b4-99aa-95e0bd23a7e2
+		summarizeBy: none
+		sourceColumn: marka_nazwa
+		sortByColumn: 'Kolejność marki'
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Główna grupa klientów marki.
+	column 'Grupa docelowa'
+		dataType: string
+		lineageTag: cc462107-5f58-5507-8211-a1cce325e100
+		summarizeBy: none
+		sourceColumn: grupa_docelowa
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Kolejność prezentacji marek.
+	column 'Kolejność marki'
+		dataType: int64
+		isHidden
+		lineageTag: 52ae25b4-c87b-5e61-b6d6-3f3e7537855c
+		summarizeBy: none
+		sourceColumn: kolejnosc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Marka' = entity
+		mode: directLake
+		source
+			entityName: dim_marka
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

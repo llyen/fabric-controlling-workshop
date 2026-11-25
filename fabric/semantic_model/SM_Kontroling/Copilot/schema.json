@@ -1,0 +1,1353 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/copilot/schema/1.0.0/schema.json",
+  "tables": [
+    {
+      "id": "6c2b04b9-543c-5c29-95cc-77e791f1975b",
+      "name": "Data",
+      "visibility": "Visible",
+      "synonyms": [
+        "kalendarz",
+        "calendar",
+        "date",
+        "okres"
+      ],
+      "columns": [
+        {
+          "id": "6aeda4e8-00d5-5346-8a89-8129dca1e95b",
+          "name": "Data",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "40b0deb2-2372-5484-a2a8-e07df53a81d2",
+          "name": "Rok kalendarzowy",
+          "visibility": "Visible",
+          "synonyms": [
+            "calendar year"
+          ]
+        },
+        {
+          "id": "e0f97d4e-9b0d-5627-a762-a32d2600d46f",
+          "name": "Miesiąc kalendarzowy nr",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "59afd98c-9a76-593d-b6c6-c111e8993aed",
+          "name": "Miesiąc",
+          "visibility": "Visible",
+          "synonyms": [
+            "month",
+            "nazwa miesiąca"
+          ]
+        },
+        {
+          "id": "d3d2453c-1133-55b1-a50e-6e008c6f9a71",
+          "name": "Miesiąc skrót",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "a79ebc58-3a93-5337-88eb-610306b8d3bd",
+          "name": "Początek miesiąca",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "084ce95c-21bd-5509-8d08-0e2f2bc2a8c1",
+          "name": "Okres RRRRMM",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "fc816a19-1319-5625-9158-e8233a651b39",
+          "name": "Dzień tygodnia nr",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "758b2f88-f7da-534f-86a8-6626ab1b9569",
+          "name": "Dzień tygodnia",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "3207a90a-be60-539b-a970-9b4a26de739a",
+          "name": "Tydzień ISO",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "b3562dfa-4097-5fca-9d9d-7355c31cba4d",
+          "name": "Rok finansowy",
+          "visibility": "Visible",
+          "synonyms": [
+            "fiscal year",
+            "RF",
+            "rok obrotowy",
+            "FY"
+          ]
+        },
+        {
+          "id": "ca62992e-f9f2-5430-a79d-e4a53a26af39",
+          "name": "Rok finansowy nr",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "2d1ddec8-3a1b-52d8-a1a4-b92f8a0f0e27",
+          "name": "Kwartał finansowy",
+          "visibility": "Visible",
+          "synonyms": [
+            "quarter"
+          ]
+        },
+        {
+          "id": "bc9a54ee-7ca0-5642-b6d6-02d2794f8146",
+          "name": "Kwartał finansowy pełny",
+          "visibility": "Visible",
+          "synonyms": [
+            "fiscal quarter",
+            "kwartał"
+          ]
+        },
+        {
+          "id": "f2cff45b-5148-5d0c-8e6b-cee3f4bce0ba",
+          "name": "Kwartał finansowy sort",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "d8e24f93-207e-5804-ada2-c16d8b3459da",
+          "name": "Półrocze finansowe",
+          "visibility": "Visible",
+          "synonyms": [
+            "half year",
+            "półrocze",
+            "H1",
+            "H2"
+          ]
+        },
+        {
+          "id": "06353536-f9c5-5236-a8d4-38ca31d245fa",
+          "name": "Miesiąc finansowy nr",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "fe710f03-7b6d-52f8-9aed-46dd28d93d7f",
+          "name": "Święto w Polsce",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "aed9672a-33ae-5f1a-a9d2-78843c7eaac6",
+          "name": "Nazwa święta",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "b25fce68-046f-5d30-a720-4bc9201f8df8",
+          "name": "Niedziela handlowa w Polsce",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "614208c0-6f8c-510b-9ae1-5ad92d5b87af",
+          "name": "Dzień handlowy w Polsce",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "32c9fed0-51e3-54d1-a8f4-e8d598397bd5",
+          "name": "Black Friday",
+          "visibility": "Visible",
+          "synonyms": [
+            "czarny piątek"
+          ]
+        },
+        {
+          "id": "77d2aea9-c3fa-55b6-8ed9-96c93f969644",
+          "name": "Miesiąc zamknięty",
+          "visibility": "Visible",
+          "synonyms": [
+            "closed month",
+            "zamknięcie miesiąca"
+          ]
+        }
+      ],
+      "measures": [],
+      "hierarchies": []
+    },
+    {
+      "id": "8f24f596-e7c7-5364-b0f5-f759746b94c8",
+      "name": "Marka",
+      "visibility": "Visible",
+      "synonyms": [
+        "brand",
+        "marki"
+      ],
+      "columns": [
+        {
+          "id": "4463fefb-6616-5910-adc5-190191043a93",
+          "name": "Kod marki",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "d337d7b2-0deb-57b4-99aa-95e0bd23a7e2",
+          "name": "Marka",
+          "visibility": "Visible",
+          "synonyms": [
+            "brand name",
+            "nazwa marki"
+          ]
+        },
+        {
+          "id": "cc462107-5f58-5507-8211-a1cce325e100",
+          "name": "Grupa docelowa",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "52ae25b4-c87b-5e61-b6d6-3f3e7537855c",
+          "name": "Kolejność marki",
+          "visibility": "Hidden",
+          "synonyms": []
+        }
+      ],
+      "measures": [],
+      "hierarchies": []
+    },
+    {
+      "id": "ad407d83-801a-5451-ab8b-f0b7254e04d4",
+      "name": "Kraj",
+      "visibility": "Visible",
+      "synonyms": [
+        "country",
+        "rynek",
+        "market"
+      ],
+      "columns": [
+        {
+          "id": "094b760e-a747-5829-aae1-0e8aa31535bd",
+          "name": "Kod kraju",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "7f493305-f3c1-53c3-a5c4-af6ac3ad2c0d",
+          "name": "Kraj",
+          "visibility": "Visible",
+          "synonyms": [
+            "country name",
+            "nazwa kraju"
+          ]
+        },
+        {
+          "id": "212213d3-21e7-5067-822f-f072f77f09f6",
+          "name": "Waluta lokalna",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "626be359-2bdb-59e6-973b-ebb54f61c932",
+          "name": "Region",
+          "visibility": "Visible",
+          "synonyms": []
+        }
+      ],
+      "measures": [],
+      "hierarchies": []
+    },
+    {
+      "id": "dbdc6c84-9b29-5568-bc5a-61c79fb89cc8",
+      "name": "Kategoria",
+      "visibility": "Visible",
+      "synonyms": [
+        "category",
+        "kategoria towarowa",
+        "grupa towarowa"
+      ],
+      "columns": [
+        {
+          "id": "42da9ad7-68cd-55d1-a56a-8c597da13176",
+          "name": "Kod kategorii",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "6340bfa7-c664-5792-b4ab-a3750e811d15",
+          "name": "Kategoria",
+          "visibility": "Visible",
+          "synonyms": [
+            "category name",
+            "nazwa kategorii"
+          ]
+        },
+        {
+          "id": "988a0dac-eccb-51f9-a0d4-655dc7b8cb11",
+          "name": "Grupa kategorii",
+          "visibility": "Visible",
+          "synonyms": []
+        }
+      ],
+      "measures": [],
+      "hierarchies": []
+    },
+    {
+      "id": "94b3ce41-a24e-5448-865e-62e4fb3ef5a2",
+      "name": "Scenariusz",
+      "visibility": "Visible",
+      "synonyms": [
+        "scenario",
+        "wersja danych"
+      ],
+      "columns": [
+        {
+          "id": "2f947070-1790-5d78-a3e2-0dffd7b3ea94",
+          "name": "Kod scenariusza",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "b39962f3-1f32-5b33-bc77-69529cca72e8",
+          "name": "Scenariusz",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "3270af11-8bae-5ca1-af79-73d438cd5b87",
+          "name": "Opis scenariusza",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "5bc722ff-4961-5b68-b6b2-5821b4939add",
+          "name": "Kolejność scenariusza",
+          "visibility": "Hidden",
+          "synonyms": []
+        }
+      ],
+      "measures": [],
+      "hierarchies": []
+    },
+    {
+      "id": "3c4cfd4e-fc4c-5de9-b8ee-49f198e030e2",
+      "name": "Konto",
+      "visibility": "Visible",
+      "synonyms": [
+        "account",
+        "pozycja P&L",
+        "konto księgowe"
+      ],
+      "columns": [
+        {
+          "id": "402706bb-f9c6-5d3f-9806-19e9701dc206",
+          "name": "Numer konta",
+          "visibility": "Visible",
+          "synonyms": [
+            "account number",
+            "konto nr"
+          ]
+        },
+        {
+          "id": "25ae05e9-b952-51c7-9b56-b86809d661b2",
+          "name": "Konto",
+          "visibility": "Visible",
+          "synonyms": [
+            "account name",
+            "pozycja kosztowa",
+            "rodzaj kosztu"
+          ]
+        },
+        {
+          "id": "befbeea4-53ec-5010-9fc6-4b684613060c",
+          "name": "Sekcja P&L",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "56ed09ca-4d1c-5eb9-9062-fb29b944f534",
+          "name": "Grupa kosztów",
+          "visibility": "Visible",
+          "synonyms": [
+            "cost group"
+          ]
+        },
+        {
+          "id": "823858fb-dcb9-5476-b3dc-e5965666297c",
+          "name": "Znak",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "ee3abc0d-467f-55ba-bc67-99ef288ec0ca",
+          "name": "Kolejność konta",
+          "visibility": "Hidden",
+          "synonyms": []
+        }
+      ],
+      "measures": [],
+      "hierarchies": []
+    },
+    {
+      "id": "7b7c5c24-4f80-5626-a2fd-85e72c80763c",
+      "name": "MPK",
+      "visibility": "Visible",
+      "synonyms": [
+        "cost center",
+        "miejsce powstawania kosztów",
+        "sklep",
+        "store",
+        "centrum kosztów"
+      ],
+      "columns": [
+        {
+          "id": "0e5efa09-ebcb-5a8a-ae30-6e0c65c8a408",
+          "name": "Kod MPK",
+          "visibility": "Visible",
+          "synonyms": [
+            "store code",
+            "kod sklepu"
+          ]
+        },
+        {
+          "id": "20bc19a9-3473-518a-af09-793f7fbcf48a",
+          "name": "Nazwa MPK",
+          "visibility": "Visible",
+          "synonyms": [
+            "store name",
+            "nazwa sklepu"
+          ]
+        },
+        {
+          "id": "8cdef90e-7f39-5997-89c6-843df11cb057",
+          "name": "Typ MPK",
+          "visibility": "Visible",
+          "synonyms": [
+            "cost center type",
+            "typ lokalizacji"
+          ]
+        },
+        {
+          "id": "1f1cc6de-75d1-5843-8095-b6b9ed4ed910",
+          "name": "Kanał",
+          "visibility": "Visible",
+          "synonyms": [
+            "channel",
+            "kanał sprzedaży"
+          ]
+        },
+        {
+          "id": "5ff917d1-c10f-58ba-a50b-4fe5ba6e0339",
+          "name": "Kod marki MPK",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "71e7af71-1e2b-590a-a677-52a93637ba70",
+          "name": "Kod kraju MPK",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "0699ed89-f199-56e2-987e-eef1bc400283",
+          "name": "Miasto",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "a7f9a7a3-e586-503c-9c53-e364f21058a5",
+          "name": "Format sklepu",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "c15cbcdc-079b-5c0f-af83-cf19f40be7c4",
+          "name": "Powierzchnia m2",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "ec0107bc-0949-5c44-84a7-ebbc234be4e8",
+          "name": "Dział centrali",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "f9fcb4c9-344a-58a5-9ef8-65887e185039",
+          "name": "Data otwarcia planowana",
+          "visibility": "Visible",
+          "synonyms": [
+            "planned opening date",
+            "planowane otwarcie"
+          ]
+        },
+        {
+          "id": "55a2117b-3efe-5588-9b1f-c09232b2727f",
+          "name": "Data otwarcia",
+          "visibility": "Visible",
+          "synonyms": [
+            "opening date",
+            "otwarcie sklepu"
+          ]
+        },
+        {
+          "id": "b92ccc41-58e3-5102-86b0-e280b9925853",
+          "name": "Data zamknięcia",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "8f657288-9497-585a-9d4f-31829eac5f4a",
+          "name": "Status",
+          "visibility": "Visible",
+          "synonyms": [
+            "store status",
+            "status sklepu"
+          ]
+        },
+        {
+          "id": "23bb2a9c-8b4f-558e-b18a-77fa72ec49f4",
+          "name": "LFL od",
+          "visibility": "Visible",
+          "synonyms": [
+            "LFL start",
+            "like for like od"
+          ]
+        }
+      ],
+      "measures": [
+        {
+          "id": "8ca2cfbb-e30a-5792-aad2-d504a675f46d",
+          "name": "Liczba sklepów",
+          "visibility": "Visible",
+          "synonyms": [
+            "store count",
+            "liczba lokalizacji"
+          ]
+        }
+      ],
+      "hierarchies": []
+    },
+    {
+      "id": "f801fe69-93c9-57c7-99f6-a437e8d3c0d3",
+      "name": "Rachunek wyników",
+      "visibility": "Visible",
+      "synonyms": [
+        "P&L",
+        "RZiS",
+        "rachunek zysków i strat",
+        "profit and loss",
+        "wynik finansowy"
+      ],
+      "columns": [
+        {
+          "id": "df0ff28d-663c-5e26-ac05-dbe6d9027109",
+          "name": "miesiac",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "a4291cd9-8e45-51b3-8a08-e1b16fc3819a",
+          "name": "mpk_id",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "8d3f308a-acab-5418-8851-0d5fceb7329d",
+          "name": "konto_id",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "4d543bdc-9d17-509c-a286-855c6526e780",
+          "name": "scenariusz_kod",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "2b3fbc55-7acc-5030-b675-d642f90c84ae",
+          "name": "kwota_pln",
+          "visibility": "Hidden",
+          "synonyms": []
+        }
+      ],
+      "measures": [
+        {
+          "id": "5a8c32fa-123e-551e-8e6a-710fbcfe3b73",
+          "name": "Kwota (jeden scenariusz)",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "79460134-4456-55d5-a6e7-8ec68fa8cb56",
+          "name": "Kwota ACT",
+          "visibility": "Visible",
+          "synonyms": [
+            "koszt",
+            "kwota",
+            "wartość konta",
+            "actual amount"
+          ]
+        },
+        {
+          "id": "333c17c1-a77f-5c9e-8eb2-e55a64961d90",
+          "name": "Sprzedaż netto ACT",
+          "visibility": "Visible",
+          "synonyms": [
+            "sprzedaż",
+            "przychody",
+            "obroty",
+            "net sales",
+            "revenue",
+            "wykonanie sprzedaży"
+          ]
+        },
+        {
+          "id": "746b7056-1f9e-53ae-96cb-ed22f474b67a",
+          "name": "Koszt własny ACT",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "cd8011f5-8279-5f11-ad53-1f9f08b1123c",
+          "name": "Marża brutto ACT",
+          "visibility": "Visible",
+          "synonyms": [
+            "gross margin",
+            "marża"
+          ]
+        },
+        {
+          "id": "fac8d359-5961-5064-bd2c-a88c0e6bb59b",
+          "name": "Marża brutto % ACT",
+          "visibility": "Visible",
+          "synonyms": [
+            "gross margin %",
+            "GM%",
+            "marża procentowa",
+            "rentowność brutto"
+          ]
+        },
+        {
+          "id": "c5b02147-12a9-5c7b-80c2-d8e9e35d9a02",
+          "name": "Koszty operacyjne ACT",
+          "visibility": "Visible",
+          "synonyms": [
+            "opex",
+            "koszty działalności"
+          ]
+        },
+        {
+          "id": "1eb05cca-d017-5b81-b63c-24cc09e78e9b",
+          "name": "EBITDA ACT",
+          "visibility": "Visible",
+          "synonyms": [
+            "EBITDA",
+            "wynik EBITDA"
+          ]
+        },
+        {
+          "id": "973c3c3e-6b5b-5e73-b818-0b529fc1d51a",
+          "name": "EBITDA % ACT",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "cc924f2f-76e8-56f6-ac87-d9da96787149",
+          "name": "Amortyzacja ACT",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "2be8cca8-057c-52b3-aa17-4a19cf5f5464",
+          "name": "EBIT ACT",
+          "visibility": "Visible",
+          "synonyms": [
+            "EBIT",
+            "wynik operacyjny",
+            "operating profit"
+          ]
+        },
+        {
+          "id": "65687a6c-2036-5b23-ae2c-ae6c093e8581",
+          "name": "Kwota BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "7a973b2b-426c-5ddd-bf4d-4fdd78323376",
+          "name": "Sprzedaż netto BUD",
+          "visibility": "Visible",
+          "synonyms": [
+            "budżet sprzedaży",
+            "sales budget",
+            "planowana sprzedaż"
+          ]
+        },
+        {
+          "id": "7d5a8dd1-2732-5a2f-950c-3b4d3059c8dc",
+          "name": "Koszt własny BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "f103aa95-b561-51d0-83d4-aa3cd6cacdce",
+          "name": "Marża brutto BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "8b79f502-479d-5ff7-b7d3-790d932eed0a",
+          "name": "Marża brutto % BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "4e12bf89-e473-5343-bfe4-56b22e76e6f7",
+          "name": "Koszty operacyjne BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "515905e6-6bf9-5e80-ade1-0cd7c4ecaf5d",
+          "name": "EBITDA BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "2eb62ecf-5a58-57d6-b53f-0eda5945215f",
+          "name": "EBITDA % BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "79d5ad4f-e978-53cb-a587-b21d2bfb083c",
+          "name": "Amortyzacja BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "e3b4e97b-d4be-57ae-9fd0-79caf68040d3",
+          "name": "EBIT BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "9af3d8fa-befc-5d07-bc25-6a098533dee4",
+          "name": "Kwota FC",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "ecaffdc5-1693-5afb-bb85-aaf410dc490d",
+          "name": "Sprzedaż netto FC",
+          "visibility": "Visible",
+          "synonyms": [
+            "prognoza sprzedaży",
+            "sales forecast",
+            "forecast 8+4"
+          ]
+        },
+        {
+          "id": "8ccf66a5-1222-5151-9c13-ec3feafb0ead",
+          "name": "Koszt własny FC",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "89028a83-3e25-582c-9517-3d92b3d5a04e",
+          "name": "Marża brutto FC",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "63a70286-d9c3-5832-95ec-8a29e378ef85",
+          "name": "Marża brutto % FC",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "e4237197-2511-5219-a8cf-3f2b874b00a0",
+          "name": "Koszty operacyjne FC",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "fee7d65b-0009-5f8c-bc4e-52821670ff29",
+          "name": "EBITDA FC",
+          "visibility": "Visible",
+          "synonyms": [
+            "prognoza EBITDA",
+            "EBITDA forecast"
+          ]
+        },
+        {
+          "id": "93c01938-3759-58cb-8d4c-4d642f066cfd",
+          "name": "EBITDA % FC",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "5043bcf5-1210-5e79-9439-4a840e5026f5",
+          "name": "Amortyzacja FC",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "44464765-0ea8-5c65-99eb-524c9e895f8c",
+          "name": "EBIT FC",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "84108c2d-90f9-5f21-9922-7574c84fd7d0",
+          "name": "Kwota BUD (miesiące zamknięte)",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "f5cf860d-43a8-5c8f-994b-9059002dfff3",
+          "name": "Sprzedaż netto BUD (miesiące zamknięte)",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "f4b18636-7f76-5b0c-91ae-d0b96fa53f75",
+          "name": "Marża brutto BUD (miesiące zamknięte)",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "7a6f859b-0138-50d6-9545-89d89c0daabc",
+          "name": "Koszty operacyjne BUD (miesiące zamknięte)",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "476db7f4-3184-52f8-9d1d-015e76ce2085",
+          "name": "EBITDA BUD (miesiące zamknięte)",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "e5446a19-b79f-5ac4-a425-8af47dbd31a5",
+          "name": "Odchylenie sprzedaży ACT vs BUD",
+          "visibility": "Visible",
+          "synonyms": [
+            "sales variance",
+            "odchylenie od budżetu",
+            "różnica do budżetu"
+          ]
+        },
+        {
+          "id": "e36dd082-c1c1-5131-b99c-6ffa97a0bc32",
+          "name": "Odchylenie sprzedaży ACT vs BUD %",
+          "visibility": "Visible",
+          "synonyms": [
+            "sales variance %",
+            "odchylenie procentowe sprzedaży"
+          ]
+        },
+        {
+          "id": "f8ad52f4-d14c-55a6-9c4e-34365e1638bf",
+          "name": "Odchylenie marży brutto ACT vs BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "77710cb3-d2a9-5db0-9bd0-a5a5579e280b",
+          "name": "Odchylenie marży brutto ACT vs BUD %",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "2768658c-2f80-5a1d-88a1-6923cb311352",
+          "name": "Odchylenie kosztów operacyjnych ACT vs BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "3045ae50-b799-5791-97ca-b5fe2f5f9840",
+          "name": "Odchylenie kosztów operacyjnych ACT vs BUD %",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "989fc0a3-9947-50e0-bde0-c6db78a81c05",
+          "name": "Odchylenie EBITDA ACT vs BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "6aa63d65-a678-5c06-aae2-45ed00a30618",
+          "name": "Odchylenie EBITDA ACT vs BUD %",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "990e5d2f-e60b-502e-8462-5113451be83c",
+          "name": "Odchylenie kwoty ACT vs BUD",
+          "visibility": "Visible",
+          "synonyms": [
+            "cost variance",
+            "przekroczenie budżetu",
+            "odchylenie kosztów"
+          ]
+        },
+        {
+          "id": "a071b85b-78d2-5974-8d4b-1a7fc542c5cc",
+          "name": "Odchylenie kwoty ACT vs BUD %",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "4197561d-e38d-578e-a1bf-844cfaad3043",
+          "name": "Odchylenie marży brutto % ACT vs BUD (pp)",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "63d9a71d-9963-58c8-b177-aa63a72ecf9b",
+          "name": "Odchylenie sprzedaży FC vs BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "b39b06f1-663d-5d2c-ade1-2245f57abf52",
+          "name": "Odchylenie sprzedaży FC vs BUD %",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "4217a5d9-f48b-5ddd-9851-d14e3bf3e2dc",
+          "name": "Odchylenie EBITDA FC vs BUD",
+          "visibility": "Visible",
+          "synonyms": [
+            "EBITDA forecast variance"
+          ]
+        },
+        {
+          "id": "ccbfe5ea-d37a-555e-806b-f2cee69c8102",
+          "name": "Odchylenie EBITDA FC vs BUD %",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "013b8e08-e15f-57cb-a327-a190c012f9f8",
+          "name": "Odchylenie kwoty FC vs BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "cbec7cf1-b9b6-5118-8f68-dc884b12f9ff",
+          "name": "Odchylenie kwoty FC vs BUD %",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "ef00e805-4c8c-535a-b8c8-ce75d8386836",
+          "name": "Sprzedaż netto ACT rok wcześniej",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "2285c54a-cba4-5d79-aa9e-f54d47730a5d",
+          "name": "Dynamika sprzedaży ACT r/r %",
+          "visibility": "Visible",
+          "synonyms": [
+            "sales growth",
+            "wzrost sprzedaży",
+            "dynamika r/r",
+            "YoY"
+          ]
+        },
+        {
+          "id": "6fc38189-1c54-578a-a1f5-48589b928dbd",
+          "name": "EBITDA ACT rok wcześniej",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "fd837983-9b70-5dd7-bce9-058a5b03f52d",
+          "name": "Dynamika EBITDA ACT r/r %",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "d3bf5daf-67e5-5dd7-aaf2-964931ed3035",
+          "name": "Kwota ACT rok wcześniej",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "9376243e-88a7-542a-ab9a-5ac3ad91392a",
+          "name": "Dynamika kwoty ACT r/r %",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "9d482bbe-4b7c-51a8-ae9d-ebbb1399de79",
+          "name": "Marża brutto ACT rok wcześniej",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "29d9eb12-30aa-5f06-a5c2-f35ee5530ad9",
+          "name": "Dynamika marży brutto ACT r/r %",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "0c06683d-70ff-537a-9f45-afb0b5d298f1",
+          "name": "Koszt logistyki e-commerce na zamówienie ACT",
+          "visibility": "Visible",
+          "synonyms": [
+            "cost per order",
+            "koszt na zamówienie",
+            "koszt dostawy na zamówienie"
+          ]
+        },
+        {
+          "id": "b50b8790-cafe-5a77-9a75-507f06cdfa49",
+          "name": "Koszt logistyki e-commerce na zamówienie BUD",
+          "visibility": "Visible",
+          "synonyms": []
+        }
+      ],
+      "hierarchies": []
+    },
+    {
+      "id": "4a1db8a3-059b-5aab-9d63-e37d8419c758",
+      "name": "Sprzedaż dzienna",
+      "visibility": "Visible",
+      "synonyms": [
+        "daily sales",
+        "sprzedaż bieżąca",
+        "paragony",
+        "transakcje"
+      ],
+      "columns": [
+        {
+          "id": "cbdefefb-47ed-5a0a-a310-a34cede27b0e",
+          "name": "data",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "bb830924-76e4-58a3-9dec-92ee62f85d24",
+          "name": "mpk_id",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "c71f3b14-1d30-51c7-90c1-648e30ce7e37",
+          "name": "sprzedaz_netto_pln",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "cb543785-f848-599d-a496-713f1f7d854a",
+          "name": "koszt_wlasny_pln",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "9747ef16-4db3-5949-ad9c-5f17a369ba46",
+          "name": "liczba_paragonow",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "fc8efcde-e8c7-55f8-b850-56052cb322cf",
+          "name": "liczba_sztuk",
+          "visibility": "Hidden",
+          "synonyms": []
+        }
+      ],
+      "measures": [
+        {
+          "id": "2cd575d3-afb4-571c-9cb2-4196e9a11383",
+          "name": "Sprzedaż netto (dane dzienne)",
+          "visibility": "Visible",
+          "synonyms": [
+            "daily sales",
+            "sprzedaż dzienna",
+            "sprzedaż bieżąca"
+          ]
+        },
+        {
+          "id": "c51a35a7-6803-5694-88b1-8686ad6c4054",
+          "name": "Koszt własny (dane dzienne)",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "c20e07b9-3c68-57a2-a2da-2e240eeebf87",
+          "name": "Marża brutto (dane dzienne)",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "fcd7127a-86dd-5471-b413-3e725c1da42e",
+          "name": "Marża brutto % (dane dzienne)",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "4685c4c9-3603-52d3-b910-a4d808e4e894",
+          "name": "Liczba paragonów",
+          "visibility": "Visible",
+          "synonyms": [
+            "receipts",
+            "transactions",
+            "transakcje",
+            "liczba transakcji"
+          ]
+        },
+        {
+          "id": "5bc5e7a8-5b2e-509a-8141-20552ef30160",
+          "name": "Liczba zamówień e-commerce",
+          "visibility": "Visible",
+          "synonyms": [
+            "online orders",
+            "zamówienia",
+            "zamówienia internetowe"
+          ]
+        },
+        {
+          "id": "f2b02e1e-c2d9-59a7-b188-1014e99517ac",
+          "name": "Liczba sztuk",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "b59181f0-7f6a-51fb-a735-3142f56da82a",
+          "name": "Średnia wartość paragonu",
+          "visibility": "Visible",
+          "synonyms": [
+            "average basket",
+            "ATV",
+            "średni koszyk",
+            "średni paragon"
+          ]
+        },
+        {
+          "id": "ff009977-2536-54e9-b296-c28ada691f54",
+          "name": "Sztuki na paragon",
+          "visibility": "Visible",
+          "synonyms": [
+            "UPT",
+            "units per transaction"
+          ]
+        },
+        {
+          "id": "1018c824-9d93-55bd-bb15-8ac4dc8472a2",
+          "name": "Ostatni dzień z danymi dziennymi",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "0b523252-2053-5e10-ab6e-ca79db7831c4",
+          "name": "Sprzedaż netto (dane dzienne) rok wcześniej",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "940fa1f6-74dc-5a50-954e-ab7fe51ba160",
+          "name": "Dynamika sprzedaży (dane dzienne) r/r %",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "54356b22-7143-56a2-ad19-b95df17ea3c7",
+          "name": "Sprzedaż LFL",
+          "visibility": "Visible",
+          "synonyms": [
+            "like-for-like sales",
+            "sprzedaż porównywalna",
+            "LFL"
+          ]
+        },
+        {
+          "id": "cf1983e9-0870-501f-8ae7-b59b0061d9ec",
+          "name": "Sprzedaż LFL rok wcześniej",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "36acd479-f49a-55f2-a649-1d8081aee1fd",
+          "name": "Dynamika LFL r/r %",
+          "visibility": "Visible",
+          "synonyms": [
+            "LFL growth",
+            "dynamika LFL",
+            "LFL r/r"
+          ]
+        },
+        {
+          "id": "42faa77e-1562-5df2-b0f9-8fba707929d7",
+          "name": "Udział e-commerce %",
+          "visibility": "Visible",
+          "synonyms": [
+            "e-commerce share",
+            "udział online",
+            "penetracja e-commerce"
+          ]
+        },
+        {
+          "id": "7e050425-7572-5eb2-a385-ff492676d607",
+          "name": "Liczba sklepów ze sprzedażą",
+          "visibility": "Visible",
+          "synonyms": []
+        }
+      ],
+      "hierarchies": []
+    },
+    {
+      "id": "8cdbc3ea-985b-57c6-9261-79f987575678",
+      "name": "Sprzedaż według kategorii",
+      "visibility": "Visible",
+      "synonyms": [
+        "category sales",
+        "sprzedaż kategorii",
+        "sprzedaż asortymentu"
+      ],
+      "columns": [
+        {
+          "id": "1ae43894-9f70-5e8f-8657-7b92d728b46a",
+          "name": "miesiac",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "77d00ea1-dbd6-52b9-9d82-a618063bdcb3",
+          "name": "marka_kod",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "3eacfca3-8f1c-5340-a2cf-d01fb3a9659c",
+          "name": "kraj_kod",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "b1b89051-6979-5261-8eaa-9e1f2a95de0f",
+          "name": "Kanał sprzedaży",
+          "visibility": "Visible",
+          "synonyms": [
+            "channel",
+            "kanał"
+          ]
+        },
+        {
+          "id": "de854091-5dae-5dbb-aee0-3884401fb09d",
+          "name": "kategoria_kod",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "a177a1bf-d13e-5f90-bf2f-ba213a8e41b3",
+          "name": "sprzedaz_netto_pln",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "dc06a28e-a18a-5b8b-9bc6-c8d35c392b0e",
+          "name": "koszt_wlasny_pln",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "de1cc944-ccc1-572a-9f83-c899957fbfae",
+          "name": "liczba_sztuk",
+          "visibility": "Hidden",
+          "synonyms": []
+        }
+      ],
+      "measures": [
+        {
+          "id": "3e46ddc5-c0e7-5e95-bb72-6e56ffd40ebe",
+          "name": "Sprzedaż netto (kategorie)",
+          "visibility": "Visible",
+          "synonyms": [
+            "category sales",
+            "sprzedaż kategorii"
+          ]
+        },
+        {
+          "id": "96476e47-e688-5a03-b28a-d57d230f1c25",
+          "name": "Sprzedaż netto (kategorie) rok wcześniej",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "2273eeef-940e-5f28-bb1d-0e7ea909dd94",
+          "name": "Dynamika sprzedaży (kategorie) r/r %",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "31a38a4e-cd1e-5106-a1bd-79a761df8237",
+          "name": "Udział kategorii %",
+          "visibility": "Visible",
+          "synonyms": [
+            "category share",
+            "udział w sprzedaży"
+          ]
+        },
+        {
+          "id": "595f7227-7aad-53bd-bcf0-498946549887",
+          "name": "Marża brutto % (kategorie)",
+          "visibility": "Visible",
+          "synonyms": []
+        },
+        {
+          "id": "b70ca8dd-e2e0-58b6-8035-a4e251d2293f",
+          "name": "Liczba sztuk (kategorie)",
+          "visibility": "Visible",
+          "synonyms": []
+        }
+      ],
+      "hierarchies": []
+    },
+    {
+      "id": "2a01721d-448c-5829-9797-fe53cf861a1f",
+      "name": "Kursy walut",
+      "visibility": "Hidden",
+      "synonyms": [],
+      "columns": [
+        {
+          "id": "e7a68907-633e-534e-9978-bfc2ec9e3be4",
+          "name": "miesiac",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "6b261574-dd26-5142-9ad9-88cc16dbbbfd",
+          "name": "Waluta",
+          "visibility": "Hidden",
+          "synonyms": []
+        },
+        {
+          "id": "0f7f2b13-1167-567d-8432-774049f58b82",
+          "name": "kurs_sredni_pln",
+          "visibility": "Hidden",
+          "synonyms": []
+        }
+      ],
+      "measures": [
+        {
+          "id": "30d406f7-1d0b-5877-802b-a7955d5ab11d",
+          "name": "Średni kurs PLN",
+          "visibility": "Hidden",
+          "synonyms": []
+        }
+      ],
+      "hierarchies": []
+    }
+  ]
+}

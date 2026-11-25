@@ -1,0 +1,22 @@
+model Model
+	culture: pl-PL
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: pl-PL
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+ref table 'Data'
+ref table 'Marka'
+ref table 'Kraj'
+ref table 'Kategoria'
+ref table 'Scenariusz'
+ref table 'Konto'
+ref table 'MPK'
+ref table 'Rachunek wyników'
+ref table 'Sprzedaż dzienna'
+ref table 'Sprzedaż według kategorii'
+ref table 'Kursy walut'
+
+ref cultureInfo pl-PL
+

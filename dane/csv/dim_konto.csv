@@ -1,0 +1,14 @@
+﻿konto_id,konto_nazwa,sekcja,grupa_kosztow,znak,kolejnosc
+4010,Przychody ze sprzedaży netto,Przychody,Przychody,1,10
+4510,Koszt własny sprzedaży,Koszt własny,Koszt własny,-1,20
+5110,Wynagrodzenia personelu sklepów,Koszty operacyjne,Koszty sklepów,-1,40
+5120,Czynsze,Koszty operacyjne,Koszty sklepów,-1,41
+5130,Media i utrzymanie,Koszty operacyjne,Koszty sklepów,-1,42
+5210,Marketing,Koszty operacyjne,Marketing,-1,50
+5220,Logistyka e-commerce,Koszty operacyjne,Koszty e-commerce,-1,55
+5230,Prowizje płatnicze,Koszty operacyjne,Koszty e-commerce,-1,56
+5310,Logistyka magazynowa,Koszty operacyjne,Logistyka,-1,58
+5410,Wynagrodzenia centrali,Koszty operacyjne,Koszty centrali,-1,60
+5420,IT i licencje,Koszty operacyjne,Koszty centrali,-1,61
+5910,Pozostałe koszty operacyjne,Koszty operacyjne,Pozostałe,-1,70
+6010,Amortyzacja,Amortyzacja,Amortyzacja,-1,90

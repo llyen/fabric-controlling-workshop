@@ -1,0 +1,136 @@
+/// Monthly net sales and cost of goods sold by brand, country, channel and scenario (ACT, BUD, FC), in PLN. Source for planning sheets.
+table 'Sprzedaz'
+	lineageTag: 5328221e-3d4c-5631-b0a5-add09e3de85e
+
+	/// Net sales PLN, actuals, closed months only.
+	measure 'Sprzedaz ACT' = CALCULATE ( SUM ( 'Sprzedaz'[sprzedaz_netto_pln] ), KEEPFILTERS ( 'Sprzedaz'[Scenariusz] = "ACT" ) )
+		formatString: #,0
+		displayFolder: 1. Scenariusze
+		lineageTag: 055047d0-d4c6-5b31-ba15-2d53d1d97fe2
+
+	/// Net sales PLN, budget.
+	measure 'Sprzedaz BUD' = CALCULATE ( SUM ( 'Sprzedaz'[sprzedaz_netto_pln] ), KEEPFILTERS ( 'Sprzedaz'[Scenariusz] = "BUD" ) )
+		formatString: #,0
+		displayFolder: 1. Scenariusze
+		lineageTag: c6826678-b06b-57af-9ef6-adea89c575a4
+
+	/// Net sales PLN, forecast 8+4 for 2026/27.
+	measure 'Sprzedaz FC' = CALCULATE ( SUM ( 'Sprzedaz'[sprzedaz_netto_pln] ), KEEPFILTERS ( 'Sprzedaz'[Scenariusz] = "FC" ) )
+		formatString: #,0
+		displayFolder: 1. Scenariusze
+		lineageTag: 6a0a8ea8-24b0-5255-bdd6-0eb3efe424ff
+
+	/// Gross margin PLN, actuals.
+	measure 'Marza brutto ACT' = CALCULATE ( SUM ( 'Sprzedaz'[sprzedaz_netto_pln] ) - SUM ( 'Sprzedaz'[koszt_wlasny_pln] ), KEEPFILTERS ( 'Sprzedaz'[Scenariusz] = "ACT" ) )
+		formatString: #,0
+		displayFolder: 1. Scenariusze
+		lineageTag: f6c870e2-1a74-5cbf-8ff2-7499d9e1cbb3
+
+	/// Gross margin as a share of net sales, actuals.
+	measure 'Marza brutto % ACT' = DIVIDE ( [Marza brutto ACT], [Sprzedaz ACT] )
+		formatString: 0.0%
+		displayFolder: 1. Scenariusze
+		lineageTag: 055c5a4a-4d5d-55ec-98ba-0db96d2a31e2
+
+	/// Sprzedaz ACT for fiscal year 2024/25 regardless of the year in context. Month and quarter of the fiscal year (Miesiac, Kwartal) still apply, so the measure can seed a plan for another year.
+	measure 'Sprzedaz ACT 2024/25' = CALCULATE ( [Sprzedaz ACT], REMOVEFILTERS ( 'Kalendarz'[Rok finansowy], 'Kalendarz'[Rok finansowy nr], 'Kalendarz'[Kwartal pelny], 'Kalendarz'[Kwartal sort], 'Kalendarz'[Data miesiaca], 'Kalendarz'[Okres], 'Kalendarz'[Rok kalendarzowy], 'Kalendarz'[Miesiac zamkniety] ), 'Kalendarz'[Rok finansowy] = "2024/25" )
+		formatString: #,0
+		displayFolder: 2. Bazy do planu
+		lineageTag: f80aaeb5-a87f-5aff-abab-bfd3bc10708e
+
+	/// Sprzedaz ACT for fiscal year 2025/26 regardless of the year in context. Month and quarter of the fiscal year (Miesiac, Kwartal) still apply, so the measure can seed a plan for another year.
+	measure 'Sprzedaz ACT 2025/26' = CALCULATE ( [Sprzedaz ACT], REMOVEFILTERS ( 'Kalendarz'[Rok finansowy], 'Kalendarz'[Rok finansowy nr], 'Kalendarz'[Kwartal pelny], 'Kalendarz'[Kwartal sort], 'Kalendarz'[Data miesiaca], 'Kalendarz'[Okres], 'Kalendarz'[Rok kalendarzowy], 'Kalendarz'[Miesiac zamkniety] ), 'Kalendarz'[Rok finansowy] = "2025/26" )
+		formatString: #,0
+		displayFolder: 2. Bazy do planu
+		lineageTag: 4a9dfa2a-8b47-5204-a80f-a633c6b7e350
+
+	/// Sprzedaz BUD for fiscal year 2026/27 regardless of the year in context. Month and quarter of the fiscal year (Miesiac, Kwartal) still apply, so the measure can seed a plan for another year.
+	measure 'Sprzedaz BUD 2026/27' = CALCULATE ( [Sprzedaz BUD], REMOVEFILTERS ( 'Kalendarz'[Rok finansowy], 'Kalendarz'[Rok finansowy nr], 'Kalendarz'[Kwartal pelny], 'Kalendarz'[Kwartal sort], 'Kalendarz'[Data miesiaca], 'Kalendarz'[Okres], 'Kalendarz'[Rok kalendarzowy], 'Kalendarz'[Miesiac zamkniety] ), 'Kalendarz'[Rok finansowy] = "2026/27" )
+		formatString: #,0
+		displayFolder: 2. Bazy do planu
+		lineageTag: 59b168e6-644b-5f10-b5f1-dd864ee8dc6a
+
+	/// Sprzedaz FC for fiscal year 2026/27 regardless of the year in context. Month and quarter of the fiscal year (Miesiac, Kwartal) still apply, so the measure can seed a plan for another year.
+	measure 'Sprzedaz FC 2026/27' = CALCULATE ( [Sprzedaz FC], REMOVEFILTERS ( 'Kalendarz'[Rok finansowy], 'Kalendarz'[Rok finansowy nr], 'Kalendarz'[Kwartal pelny], 'Kalendarz'[Kwartal sort], 'Kalendarz'[Data miesiaca], 'Kalendarz'[Okres], 'Kalendarz'[Rok kalendarzowy], 'Kalendarz'[Miesiac zamkniety] ), 'Kalendarz'[Rok finansowy] = "2026/27" )
+		formatString: #,0
+		displayFolder: 2. Bazy do planu
+		lineageTag: ac536634-0e99-5e2a-9120-41b8aaec2b1e
+
+	/// Month key.
+	column 'miesiac'
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: 4ae2de46-2056-5824-85f8-7cd2d0b31f02
+		summarizeBy: none
+		sourceColumn: miesiac
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Brand key.
+	column 'marka_kod'
+		dataType: string
+		isHidden
+		lineageTag: b60b4685-c9b7-5613-b0b8-aa736d0a468c
+		summarizeBy: none
+		sourceColumn: marka_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Country key.
+	column 'kraj_kod'
+		dataType: string
+		isHidden
+		lineageTag: a0d26ddb-160b-5b74-9480-8a9fc963ad5c
+		summarizeBy: none
+		sourceColumn: kraj_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Channel: Sklep (stores) or E-commerce.
+	column 'Kanal'
+		dataType: string
+		lineageTag: a6ca6235-cf71-57d0-877f-2bfb309b5d8d
+		summarizeBy: none
+		sourceColumn: kanal
+
+		annotation SummarizationSetBy = Automatic
+
+	/// ACT actuals, BUD budget, FC forecast 8+4.
+	column 'Scenariusz'
+		dataType: string
+		lineageTag: fd0f50b1-bdb9-5b3b-be30-13996aadb4b3
+		summarizeBy: none
+		sourceColumn: scenariusz_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Net sales PLN.
+	column 'sprzedaz_netto_pln'
+		dataType: double
+		isHidden
+		formatString: #,0
+		lineageTag: 2953ab16-07be-59cb-a5ea-e715aebef21c
+		summarizeBy: none
+		sourceColumn: sprzedaz_netto_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Cost of goods sold PLN.
+	column 'koszt_wlasny_pln'
+		dataType: double
+		isHidden
+		formatString: #,0
+		lineageTag: 0ff1bec6-4d04-51f1-83b4-fa856b13cda6
+		summarizeBy: none
+		sourceColumn: koszt_wlasny_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sprzedaz' = entity
+		mode: directLake
+		source
+			entityName: agg_sprzedaz_mies
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

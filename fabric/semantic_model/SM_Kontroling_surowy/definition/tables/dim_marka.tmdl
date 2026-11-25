@@ -1,0 +1,42 @@
+table 'dim_marka'
+	lineageTag: 341b8903-7f46-54a2-9281-ea4de4bf9d05
+
+	column 'marka_kod'
+		dataType: string
+		lineageTag: 98d7f6a9-4b35-54a7-bfbc-bc3eae0d07f8
+		summarizeBy: none
+		sourceColumn: marka_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'marka_nazwa'
+		dataType: string
+		lineageTag: f199956d-bc26-5802-b523-0cb044fd86a5
+		summarizeBy: none
+		sourceColumn: marka_nazwa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'grupa_docelowa'
+		dataType: string
+		lineageTag: 3c49afe3-c376-5a0e-a813-120b95c4127e
+		summarizeBy: none
+		sourceColumn: grupa_docelowa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kolejnosc'
+		dataType: int64
+		lineageTag: 6e7bd8f2-75ce-5417-9bb6-16666501e424
+		summarizeBy: sum
+		sourceColumn: kolejnosc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim_marka' = entity
+		mode: directLake
+		source
+			entityName: dim_marka
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

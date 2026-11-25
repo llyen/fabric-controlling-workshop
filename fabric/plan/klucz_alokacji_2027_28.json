@@ -1,0 +1,361 @@
+{
+ "act_2025_26_grupa": 866150411.86,
+ "fc_2026_27_grupa": 910086752.27,
+ "bud_2026_27_grupa": 937391962.08,
+ "cel_2027_28_grupa": 976694000.0,
+ "cele_marek": {
+  "AUR": 274514000.0,
+  "VEN": 422704000.0,
+  "LUM": 134204000.0,
+  "KRO": 145272000.0
+ },
+ "act_2025_26_marek": {
+  "AUR": 247413778.3,
+  "VEN": 344103947.82,
+  "LUM": 110434702.06,
+  "KRO": 164197983.68
+ },
+ "marka_miesiac": [
+  {
+   "marka": "AUR",
+   "miesiac": "Kwi",
+   "miesiac_fin_nr": 1,
+   "act_2025_26": 18806084.98,
+   "plan_2027_28": 20865990.76
+  },
+  {
+   "marka": "AUR",
+   "miesiac": "Maj",
+   "miesiac_fin_nr": 2,
+   "act_2025_26": 20964344.58,
+   "plan_2027_28": 23260653.18
+  },
+  {
+   "marka": "AUR",
+   "miesiac": "Cze",
+   "miesiac_fin_nr": 3,
+   "act_2025_26": 19268740.77,
+   "plan_2027_28": 21379323.09
+  },
+  {
+   "marka": "AUR",
+   "miesiac": "Lip",
+   "miesiac_fin_nr": 4,
+   "act_2025_26": 18762245.72,
+   "plan_2027_28": 20817349.61
+  },
+  {
+   "marka": "AUR",
+   "miesiac": "Sie",
+   "miesiac_fin_nr": 5,
+   "act_2025_26": 19478035.65,
+   "plan_2027_28": 21611542.88
+  },
+  {
+   "marka": "AUR",
+   "miesiac": "Wrz",
+   "miesiac_fin_nr": 6,
+   "act_2025_26": 19794351.42,
+   "plan_2027_28": 21962505.98
+  },
+  {
+   "marka": "AUR",
+   "miesiac": "Paz",
+   "miesiac_fin_nr": 7,
+   "act_2025_26": 21458671.49,
+   "plan_2027_28": 23809125.69
+  },
+  {
+   "marka": "AUR",
+   "miesiac": "Lis",
+   "miesiac_fin_nr": 8,
+   "act_2025_26": 26887329.41,
+   "plan_2027_28": 29832406.25
+  },
+  {
+   "marka": "AUR",
+   "miesiac": "Gru",
+   "miesiac_fin_nr": 9,
+   "act_2025_26": 34255809.99,
+   "plan_2027_28": 38007986.01
+  },
+  {
+   "marka": "AUR",
+   "miesiac": "Sty",
+   "miesiac_fin_nr": 10,
+   "act_2025_26": 16006365.44,
+   "plan_2027_28": 17759606.73
+  },
+  {
+   "marka": "AUR",
+   "miesiac": "Lut",
+   "miesiac_fin_nr": 11,
+   "act_2025_26": 13725477.96,
+   "plan_2027_28": 15228884.51
+  },
+  {
+   "marka": "AUR",
+   "miesiac": "Mar",
+   "miesiac_fin_nr": 12,
+   "act_2025_26": 18006320.89,
+   "plan_2027_28": 19978625.31
+  },
+  {
+   "marka": "KRO",
+   "miesiac": "Kwi",
+   "miesiac_fin_nr": 1,
+   "act_2025_26": 13219209.78,
+   "plan_2027_28": 11695521.47
+  },
+  {
+   "marka": "KRO",
+   "miesiac": "Maj",
+   "miesiac_fin_nr": 2,
+   "act_2025_26": 14018719.05,
+   "plan_2027_28": 12402876.75
+  },
+  {
+   "marka": "KRO",
+   "miesiac": "Cze",
+   "miesiac_fin_nr": 3,
+   "act_2025_26": 12816908.02,
+   "plan_2027_28": 11339590.29
+  },
+  {
+   "marka": "KRO",
+   "miesiac": "Lip",
+   "miesiac_fin_nr": 4,
+   "act_2025_26": 12584785.66,
+   "plan_2027_28": 11134223.1
+  },
+  {
+   "marka": "KRO",
+   "miesiac": "Sie",
+   "miesiac_fin_nr": 5,
+   "act_2025_26": 13057444.24,
+   "plan_2027_28": 11552401.54
+  },
+  {
+   "marka": "KRO",
+   "miesiac": "Wrz",
+   "miesiac_fin_nr": 6,
+   "act_2025_26": 13197030.42,
+   "plan_2027_28": 11675898.57
+  },
+  {
+   "marka": "KRO",
+   "miesiac": "Paz",
+   "miesiac_fin_nr": 7,
+   "act_2025_26": 14306111.3,
+   "plan_2027_28": 12657143.25
+  },
+  {
+   "marka": "KRO",
+   "miesiac": "Lis",
+   "miesiac_fin_nr": 8,
+   "act_2025_26": 17160555.76,
+   "plan_2027_28": 15182575.33
+  },
+  {
+   "marka": "KRO",
+   "miesiac": "Gru",
+   "miesiac_fin_nr": 9,
+   "act_2025_26": 22941401.64,
+   "plan_2027_28": 20297102.46
+  },
+  {
+   "marka": "KRO",
+   "miesiac": "Sty",
+   "miesiac_fin_nr": 10,
+   "act_2025_26": 10541779.97,
+   "plan_2027_28": 9326700.76
+  },
+  {
+   "marka": "KRO",
+   "miesiac": "Lut",
+   "miesiac_fin_nr": 11,
+   "act_2025_26": 8797907.52,
+   "plan_2027_28": 7783832.62
+  },
+  {
+   "marka": "KRO",
+   "miesiac": "Mar",
+   "miesiac_fin_nr": 12,
+   "act_2025_26": 11556130.32,
+   "plan_2027_28": 10224133.85
+  },
+  {
+   "marka": "LUM",
+   "miesiac": "Kwi",
+   "miesiac_fin_nr": 1,
+   "act_2025_26": 8584304.49,
+   "plan_2027_28": 10431938.32
+  },
+  {
+   "marka": "LUM",
+   "miesiac": "Maj",
+   "miesiac_fin_nr": 2,
+   "act_2025_26": 9211966.06,
+   "plan_2027_28": 11194693.97
+  },
+  {
+   "marka": "LUM",
+   "miesiac": "Cze",
+   "miesiac_fin_nr": 3,
+   "act_2025_26": 8736711.81,
+   "plan_2027_28": 10617148.87
+  },
+  {
+   "marka": "LUM",
+   "miesiac": "Lip",
+   "miesiac_fin_nr": 4,
+   "act_2025_26": 8447382.86,
+   "plan_2027_28": 10265546.5
+  },
+  {
+   "marka": "LUM",
+   "miesiac": "Sie",
+   "miesiac_fin_nr": 5,
+   "act_2025_26": 8789970.26,
+   "plan_2027_28": 10681870.34
+  },
+  {
+   "marka": "LUM",
+   "miesiac": "Wrz",
+   "miesiac_fin_nr": 6,
+   "act_2025_26": 8778258.34,
+   "plan_2027_28": 10667637.62
+  },
+  {
+   "marka": "LUM",
+   "miesiac": "Paz",
+   "miesiac_fin_nr": 7,
+   "act_2025_26": 9464436.13,
+   "plan_2027_28": 11501504.17
+  },
+  {
+   "marka": "LUM",
+   "miesiac": "Lis",
+   "miesiac_fin_nr": 8,
+   "act_2025_26": 11839517.1,
+   "plan_2027_28": 14387783.22
+  },
+  {
+   "marka": "LUM",
+   "miesiac": "Gru",
+   "miesiac_fin_nr": 9,
+   "act_2025_26": 15351597.04,
+   "plan_2027_28": 18655782.02
+  },
+  {
+   "marka": "LUM",
+   "miesiac": "Sty",
+   "miesiac_fin_nr": 10,
+   "act_2025_26": 7075744.89,
+   "plan_2027_28": 8598685.46
+  },
+  {
+   "marka": "LUM",
+   "miesiac": "Lut",
+   "miesiac_fin_nr": 11,
+   "act_2025_26": 6063606.9,
+   "plan_2027_28": 7368701.01
+  },
+  {
+   "marka": "LUM",
+   "miesiac": "Mar",
+   "miesiac_fin_nr": 12,
+   "act_2025_26": 8091206.18,
+   "plan_2027_28": 9832708.5
+  },
+  {
+   "marka": "VEN",
+   "miesiac": "Kwi",
+   "miesiac_fin_nr": 1,
+   "act_2025_26": 25703558.15,
+   "plan_2027_28": 31574752.09
+  },
+  {
+   "marka": "VEN",
+   "miesiac": "Maj",
+   "miesiac_fin_nr": 2,
+   "act_2025_26": 28214961.16,
+   "plan_2027_28": 34659808.52
+  },
+  {
+   "marka": "VEN",
+   "miesiac": "Cze",
+   "miesiac_fin_nr": 3,
+   "act_2025_26": 26519443.6,
+   "plan_2027_28": 32577001.68
+  },
+  {
+   "marka": "VEN",
+   "miesiac": "Lip",
+   "miesiac_fin_nr": 4,
+   "act_2025_26": 26046536.63,
+   "plan_2027_28": 31996073.54
+  },
+  {
+   "marka": "VEN",
+   "miesiac": "Sie",
+   "miesiac_fin_nr": 5,
+   "act_2025_26": 26974109.81,
+   "plan_2027_28": 33135522.52
+  },
+  {
+   "marka": "VEN",
+   "miesiac": "Wrz",
+   "miesiac_fin_nr": 6,
+   "act_2025_26": 27634343.3,
+   "plan_2027_28": 33946566.22
+  },
+  {
+   "marka": "VEN",
+   "miesiac": "Paz",
+   "miesiac_fin_nr": 7,
+   "act_2025_26": 30036487.85,
+   "plan_2027_28": 36897407.43
+  },
+  {
+   "marka": "VEN",
+   "miesiac": "Lis",
+   "miesiac_fin_nr": 8,
+   "act_2025_26": 37234028.94,
+   "plan_2027_28": 45739007.26
+  },
+  {
+   "marka": "VEN",
+   "miesiac": "Gru",
+   "miesiac_fin_nr": 9,
+   "act_2025_26": 48316512.18,
+   "plan_2027_28": 59352945.8
+  },
+  {
+   "marka": "VEN",
+   "miesiac": "Sty",
+   "miesiac_fin_nr": 10,
+   "act_2025_26": 22543876.37,
+   "plan_2027_28": 27693337.37
+  },
+  {
+   "marka": "VEN",
+   "miesiac": "Lut",
+   "miesiac_fin_nr": 11,
+   "act_2025_26": 19431304.65,
+   "plan_2027_28": 23869793.57
+  },
+  {
+   "marka": "VEN",
+   "miesiac": "Mar",
+   "miesiac_fin_nr": 12,
+   "act_2025_26": 25448785.18,
+   "plan_2027_28": 31261784.0
+  }
+ ],
+ "ven_de": {
+  "udzial_act_2025_26": 0.24166529278966525,
+  "alokacja_z_gory": 102152885.92336266,
+  "cel_z_excela": 114756000.0
+ }
+}

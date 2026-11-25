@@ -1,0 +1,132 @@
+/// Miesięczna sprzedaż według kategorii towarowych, marek, krajów i kanałów (Sklep, E-commerce) za miesiące zamknięte, od kwietnia 2023 do listopada 2026, w PLN. Sumy zgadzają się z danymi dziennymi.
+table 'Sprzedaż według kategorii'
+	lineageTag: 8cdbc3ea-985b-57c6-9261-79f987575678
+
+	/// Sprzedaż netto w PLN według kategorii towarowych, miesiące zamknięte.
+	measure 'Sprzedaż netto (kategorie)' = SUM ( 'Sprzedaż według kategorii'[sprzedaz_netto_pln] )
+		formatString: #,0
+		displayFolder: Sprzedaż według kategorii
+		lineageTag: 3e46ddc5-c0e7-5e95-bb72-6e56ffd40ebe
+
+	/// Sprzedaż netto według kategorii w analogicznym okresie rok wcześniej.
+	measure 'Sprzedaż netto (kategorie) rok wcześniej' = CALCULATE ( [Sprzedaż netto (kategorie)], DATEADD ( 'Data'[Data], -1, YEAR ) )
+		formatString: #,0
+		displayFolder: Sprzedaż według kategorii
+		lineageTag: 96476e47-e688-5a03-b28a-d57d230f1c25
+
+	/// Zmiana sprzedaży kategorii rok do roku w procentach.
+	measure 'Dynamika sprzedaży (kategorie) r/r %' =
+			VAR _ly = [Sprzedaż netto (kategorie) rok wcześniej]
+			RETURN
+			    DIVIDE ( [Sprzedaż netto (kategorie)] - _ly, _ly )
+		formatString: 0.0%
+		displayFolder: Sprzedaż według kategorii
+		lineageTag: 2273eeef-940e-5f28-bb1d-0e7ea909dd94
+
+	/// Udział kategorii w sprzedaży wszystkich kategorii w tym samym kontekście.
+	measure 'Udział kategorii %' = DIVIDE ( [Sprzedaż netto (kategorie)], CALCULATE ( [Sprzedaż netto (kategorie)], REMOVEFILTERS ( 'Kategoria' ) ) )
+		formatString: 0.0%
+		displayFolder: Sprzedaż według kategorii
+		lineageTag: 31a38a4e-cd1e-5106-a1bd-79a761df8237
+
+	/// Marża brutto procentowa według kategorii.
+	measure 'Marża brutto % (kategorie)' = DIVIDE ( [Sprzedaż netto (kategorie)] - SUM ( 'Sprzedaż według kategorii'[koszt_wlasny_pln] ), [Sprzedaż netto (kategorie)] )
+		formatString: 0.0%
+		displayFolder: Sprzedaż według kategorii
+		lineageTag: 595f7227-7aad-53bd-bcf0-498946549887
+
+	/// Liczba sprzedanych sztuk według kategorii.
+	measure 'Liczba sztuk (kategorie)' = SUM ( 'Sprzedaż według kategorii'[liczba_sztuk] )
+		formatString: #,0
+		displayFolder: Sprzedaż według kategorii
+		lineageTag: b70ca8dd-e2e0-58b6-8035-a4e251d2293f
+
+	/// Pierwszy dzień miesiąca.
+	column 'miesiac'
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: 1ae43894-9f70-5e8f-8657-7b92d728b46a
+		summarizeBy: none
+		sourceColumn: miesiac
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Klucz marki.
+	column 'marka_kod'
+		dataType: string
+		isHidden
+		lineageTag: 77d00ea1-dbd6-52b9-9d82-a618063bdcb3
+		summarizeBy: none
+		sourceColumn: marka_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Klucz kraju.
+	column 'kraj_kod'
+		dataType: string
+		isHidden
+		lineageTag: 3eacfca3-8f1c-5340-a2cf-d01fb3a9659c
+		summarizeBy: none
+		sourceColumn: kraj_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Sklep albo E-commerce. Tą kolumną filtruj kanał w analizach kategorii.
+	column 'Kanał sprzedaży'
+		dataType: string
+		lineageTag: b1b89051-6979-5261-8eaa-9e1f2a95de0f
+		summarizeBy: none
+		sourceColumn: kanal
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Klucz kategorii.
+	column 'kategoria_kod'
+		dataType: string
+		isHidden
+		lineageTag: de854091-5dae-5dbb-aee0-3884401fb09d
+		summarizeBy: none
+		sourceColumn: kategoria_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Sprzedaż netto PLN.
+	column 'sprzedaz_netto_pln'
+		dataType: double
+		isHidden
+		formatString: #,0
+		lineageTag: a177a1bf-d13e-5f90-bf2f-ba213a8e41b3
+		summarizeBy: none
+		sourceColumn: sprzedaz_netto_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Koszt własny PLN.
+	column 'koszt_wlasny_pln'
+		dataType: double
+		isHidden
+		formatString: #,0
+		lineageTag: dc06a28e-a18a-5b8b-9bc6-c8d35c392b0e
+		summarizeBy: none
+		sourceColumn: koszt_wlasny_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Liczba sztuk.
+	column 'liczba_sztuk'
+		dataType: int64
+		isHidden
+		lineageTag: de1cc944-ccc1-572a-9f83-c899957fbfae
+		summarizeBy: none
+		sourceColumn: liczba_sztuk
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sprzedaż według kategorii' = entity
+		mode: directLake
+		source
+			entityName: fakt_sprzedaz_kategorie_mies
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

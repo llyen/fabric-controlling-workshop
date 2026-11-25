@@ -1,0 +1,40 @@
+/// Brands. GRP is headquarters and has no sales.
+table 'Marka'
+	lineageTag: 808f57b3-aa76-551d-938a-1313caa4b249
+
+	/// Brand code: AUR, VEN, LUM, KRO.
+	column 'Kod marki'
+		dataType: string
+		lineageTag: f97bfeda-8baa-54b4-97d1-96b407b11229
+		summarizeBy: none
+		sourceColumn: marka_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Brand name.
+	column 'Marka'
+		dataType: string
+		lineageTag: 2b554d0d-42dc-5671-998a-6d259ee5373e
+		summarizeBy: none
+		sourceColumn: marka_nazwa
+		sortByColumn: 'Kolejnosc marki'
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Display order.
+	column 'Kolejnosc marki'
+		dataType: int64
+		isHidden
+		lineageTag: 6ea209aa-160a-57bb-9297-dd8aac20d6a2
+		summarizeBy: none
+		sourceColumn: kolejnosc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Marka' = entity
+		mode: directLake
+		source
+			entityName: dim_marka
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

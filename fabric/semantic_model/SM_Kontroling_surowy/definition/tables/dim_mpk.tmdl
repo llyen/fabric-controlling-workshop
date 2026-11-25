@@ -1,0 +1,134 @@
+table 'dim_mpk'
+	lineageTag: a4a2071d-e636-5b48-a207-5c89e04d47b4
+
+	column 'mpk_id'
+		dataType: string
+		lineageTag: 47273864-d3fc-55d7-b581-7fb19ec81b60
+		summarizeBy: none
+		sourceColumn: mpk_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'mpk_nazwa'
+		dataType: string
+		lineageTag: c0da1e89-6b0b-518b-a95b-8786dbf3c0b1
+		summarizeBy: none
+		sourceColumn: mpk_nazwa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'typ_mpk'
+		dataType: string
+		lineageTag: c8a5c668-f496-5f86-b85b-cf256e5990d5
+		summarizeBy: none
+		sourceColumn: typ_mpk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kanal'
+		dataType: string
+		lineageTag: dfe465cc-0c5d-54eb-95de-209e4914dd79
+		summarizeBy: none
+		sourceColumn: kanal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'marka_kod'
+		dataType: string
+		lineageTag: 6728b308-1795-541d-baff-ef4e1bf9976c
+		summarizeBy: none
+		sourceColumn: marka_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kraj_kod'
+		dataType: string
+		lineageTag: 0a3f2d05-c697-5ba4-99ae-ed3310ea5f44
+		summarizeBy: none
+		sourceColumn: kraj_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'miasto'
+		dataType: string
+		lineageTag: 3d707026-d15f-5565-94f5-d0d6a6d32ebf
+		summarizeBy: none
+		sourceColumn: miasto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'format_sklepu'
+		dataType: string
+		lineageTag: 9ced9cf7-43ce-502f-8cde-389763b4a9a7
+		summarizeBy: none
+		sourceColumn: format_sklepu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'powierzchnia_m2'
+		dataType: int64
+		lineageTag: 524e4b6e-09b8-527d-a762-80359008135f
+		summarizeBy: sum
+		sourceColumn: powierzchnia_m2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'dzial_centrali'
+		dataType: string
+		lineageTag: 4f0fe0a7-d6c7-5de7-abea-5542ed530f86
+		summarizeBy: none
+		sourceColumn: dzial_centrali
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data_otwarcia_plan'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 606c960c-04da-5236-a26e-953718766b6c
+		summarizeBy: none
+		sourceColumn: data_otwarcia_plan
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data_otwarcia'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 0e399e48-822d-5057-89ca-ad738b01d90e
+		summarizeBy: none
+		sourceColumn: data_otwarcia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data_zamkniecia'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 259e00d0-b46f-5c72-8feb-26f2f820d1b7
+		summarizeBy: none
+		sourceColumn: data_zamkniecia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'status'
+		dataType: string
+		lineageTag: 680c1f13-f596-5bba-a1d6-84865c725371
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'lfl_od'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: c750fd4d-02ad-5f44-a3d3-86e9385574c2
+		summarizeBy: none
+		sourceColumn: lfl_od
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim_mpk' = entity
+		mode: directLake
+		source
+			entityName: dim_mpk
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

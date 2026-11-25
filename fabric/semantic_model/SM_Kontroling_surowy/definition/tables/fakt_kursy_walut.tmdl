@@ -1,0 +1,35 @@
+table 'fakt_kursy_walut'
+	lineageTag: 3e56d674-6600-58ce-8a2e-207e89fe78f6
+
+	column 'miesiac'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 15f7e029-f2ae-52d1-b9d3-83c11051b547
+		summarizeBy: none
+		sourceColumn: miesiac
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'waluta'
+		dataType: string
+		lineageTag: 87686dfd-b65c-5240-a866-88caa5771fd6
+		summarizeBy: none
+		sourceColumn: waluta
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kurs_sredni_pln'
+		dataType: double
+		lineageTag: 34a00869-6916-524c-b72b-7534bdfeea18
+		summarizeBy: sum
+		sourceColumn: kurs_sredni_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fakt_kursy_walut' = entity
+		mode: directLake
+		source
+			entityName: fakt_kursy_walut
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

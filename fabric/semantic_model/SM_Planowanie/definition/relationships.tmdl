@@ -1,0 +1,12 @@
+relationship cfb6305c-b772-5583-bb89-ae1c6f37559e
+	fromColumn: 'Sprzedaz'.'miesiac'
+	toColumn: 'Kalendarz'.'Data miesiaca'
+
+relationship 7ed9b31b-42e3-57ed-8669-59d1e6fa2467
+	fromColumn: 'Sprzedaz'.'marka_kod'
+	toColumn: 'Marka'.'Kod marki'
+
+relationship e3b99280-b1e0-59e6-9b9a-232577fb7ea0
+	fromColumn: 'Sprzedaz'.'kraj_kod'
+	toColumn: 'Kraj'.'Kraj'
+

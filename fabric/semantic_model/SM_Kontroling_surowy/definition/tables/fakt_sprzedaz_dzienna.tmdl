@@ -1,0 +1,59 @@
+table 'fakt_sprzedaz_dzienna'
+	lineageTag: 449f8cff-6f85-5f21-8de4-170465772a32
+
+	column 'data'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: f5d5f8a6-4b3a-536d-b288-da10ef3689fd
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'mpk_id'
+		dataType: string
+		lineageTag: f009e369-c416-5c78-841a-0ffdc4e7532d
+		summarizeBy: none
+		sourceColumn: mpk_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'sprzedaz_netto_pln'
+		dataType: double
+		lineageTag: 3b67d6f4-33a2-5046-8a48-cd8295bc42b4
+		summarizeBy: sum
+		sourceColumn: sprzedaz_netto_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'koszt_wlasny_pln'
+		dataType: double
+		lineageTag: 4a5c1fad-1587-5c65-88a3-9aa5c29906d6
+		summarizeBy: sum
+		sourceColumn: koszt_wlasny_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'liczba_paragonow'
+		dataType: int64
+		lineageTag: 8dec0084-1369-534b-be6d-0f92f0692088
+		summarizeBy: sum
+		sourceColumn: liczba_paragonow
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'liczba_sztuk'
+		dataType: int64
+		lineageTag: dc0d588e-657b-56a0-b836-b4c6ca332572
+		summarizeBy: sum
+		sourceColumn: liczba_sztuk
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fakt_sprzedaz_dzienna' = entity
+		mode: directLake
+		source
+			entityName: fakt_sprzedaz_dzienna
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

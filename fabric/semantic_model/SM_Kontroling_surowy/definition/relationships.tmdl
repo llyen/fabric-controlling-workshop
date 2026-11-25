@@ -1,0 +1,52 @@
+relationship 179ec0d9-4927-5e0b-946b-217496354f7a
+	fromColumn: 'fakt_pnl'.'miesiac'
+	toColumn: 'dim_data'.'data'
+
+relationship 96dfb956-3c67-5c2f-a4fd-218ff89395ca
+	fromColumn: 'fakt_pnl'.'mpk_id'
+	toColumn: 'dim_mpk'.'mpk_id'
+
+relationship acded63d-878a-5d4a-82b8-3de1b34f219c
+	fromColumn: 'fakt_pnl'.'konto_id'
+	toColumn: 'dim_konto'.'konto_id'
+
+relationship 103c7b6a-9680-5693-97b4-7e7ea6e3b9ac
+	fromColumn: 'fakt_pnl'.'scenariusz_kod'
+	toColumn: 'dim_scenariusz'.'scenariusz_kod'
+
+relationship f077df0f-9bcb-5290-816f-421d248dbae2
+	fromColumn: 'fakt_sprzedaz_dzienna'.'data'
+	toColumn: 'dim_data'.'data'
+
+relationship 590ff096-f9e0-563b-8e97-380a5582e4f7
+	fromColumn: 'fakt_sprzedaz_dzienna'.'mpk_id'
+	toColumn: 'dim_mpk'.'mpk_id'
+
+relationship 05bb1860-fb45-5770-b833-7db8759910d9
+	fromColumn: 'dim_mpk'.'marka_kod'
+	toColumn: 'dim_marka'.'marka_kod'
+
+relationship 0c2b759e-e2be-58c3-8d2a-5df362881412
+	fromColumn: 'dim_mpk'.'kraj_kod'
+	toColumn: 'dim_kraj'.'kraj_kod'
+
+relationship 9025578e-0cdb-5972-9978-18730f0df264
+	fromColumn: 'fakt_sprzedaz_kategorie_mies'.'miesiac'
+	toColumn: 'dim_data'.'data'
+
+relationship 5d0f448f-0e05-5eaa-8ece-bcdcf08a1dd6
+	fromColumn: 'fakt_sprzedaz_kategorie_mies'.'marka_kod'
+	toColumn: 'dim_marka'.'marka_kod'
+
+relationship f26f8cad-8a16-5ca3-b2bf-d00c3a6048c6
+	fromColumn: 'fakt_sprzedaz_kategorie_mies'.'kraj_kod'
+	toColumn: 'dim_kraj'.'kraj_kod'
+
+relationship d8603576-eb50-53dd-8da0-eba674f03089
+	fromColumn: 'fakt_sprzedaz_kategorie_mies'.'kategoria_kod'
+	toColumn: 'dim_kategoria'.'kategoria_kod'
+
+relationship 3fbfa6be-6929-5f12-98d2-15bc06167105
+	fromColumn: 'fakt_kursy_walut'.'miesiac'
+	toColumn: 'dim_data'.'data'
+

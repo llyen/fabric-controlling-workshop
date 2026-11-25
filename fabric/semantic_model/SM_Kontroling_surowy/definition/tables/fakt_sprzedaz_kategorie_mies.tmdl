@@ -1,0 +1,75 @@
+table 'fakt_sprzedaz_kategorie_mies'
+	lineageTag: bb43ca9d-a5f7-5ca0-ad3f-0bc91bc236b4
+
+	column 'miesiac'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 554f13c4-2311-54c9-ba7f-87030ab699f4
+		summarizeBy: none
+		sourceColumn: miesiac
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'marka_kod'
+		dataType: string
+		lineageTag: 626f7518-740a-56ef-92b7-9c80bf3fa5d0
+		summarizeBy: none
+		sourceColumn: marka_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kraj_kod'
+		dataType: string
+		lineageTag: c49c39ca-d07b-53e3-8e2b-517007731865
+		summarizeBy: none
+		sourceColumn: kraj_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kanal'
+		dataType: string
+		lineageTag: 8d901ce9-2ca0-57b2-a0df-26ae09432c7d
+		summarizeBy: none
+		sourceColumn: kanal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kategoria_kod'
+		dataType: string
+		lineageTag: 89ed03f9-30f0-53de-8d51-c4f087e51bb6
+		summarizeBy: none
+		sourceColumn: kategoria_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'sprzedaz_netto_pln'
+		dataType: double
+		lineageTag: 279a9c3c-57bc-54ab-856d-0aec2b940758
+		summarizeBy: sum
+		sourceColumn: sprzedaz_netto_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'koszt_wlasny_pln'
+		dataType: double
+		lineageTag: 3b93a120-81fa-5901-93f3-1833665f9514
+		summarizeBy: sum
+		sourceColumn: koszt_wlasny_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'liczba_sztuk'
+		dataType: int64
+		lineageTag: 8f8a7cd0-0441-57f2-b7da-9e3582a190c1
+		summarizeBy: sum
+		sourceColumn: liczba_sztuk
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fakt_sprzedaz_kategorie_mies' = entity
+		mode: directLake
+		source
+			entityName: fakt_sprzedaz_kategorie_mies
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

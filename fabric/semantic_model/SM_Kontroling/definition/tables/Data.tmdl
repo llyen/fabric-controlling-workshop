@@ -1,0 +1,228 @@
+/// Kalendarz dzienny od 1.04.2023 do 31.03.2028 z atrybutami roku finansowego. Rok finansowy trwa od 1 kwietnia do 31 marca, np. 2026/27 to okres od 1.04.2026 do 31.03.2027. Kwartały finansowe: 1Q kwiecień do czerwca, 2Q lipiec do września, 3Q październik do grudnia, 4Q styczeń do marca. Tabele miesięczne są połączone z pierwszym dniem miesiąca, dlatego okresy miesięczne filtruj kolumnami roku, kwartału lub miesiąca, a nie pojedynczym dniem.
+table 'Data'
+	lineageTag: 6c2b04b9-543c-5c29-95cc-77e791f1975b
+	dataCategory: Time
+
+	/// Dzień kalendarzowy, klucz kalendarza.
+	column 'Data'
+		dataType: dateTime
+		isKey
+		formatString: yyyy-mm-dd
+		lineageTag: 6aeda4e8-00d5-5346-8a89-8129dca1e95b
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Rok kalendarzowy (styczeń do grudnia). Nie myl z rokiem finansowym.
+	column 'Rok kalendarzowy'
+		dataType: int64
+		lineageTag: 40b0deb2-2372-5484-a2a8-e07df53a81d2
+		summarizeBy: none
+		sourceColumn: rok
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Numer miesiąca kalendarzowego, 1 to styczeń.
+	column 'Miesiąc kalendarzowy nr'
+		dataType: int64
+		lineageTag: e0f97d4e-9b0d-5627-a762-a32d2600d46f
+		summarizeBy: none
+		sourceColumn: miesiac
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nazwa miesiąca po polsku, sortowana w kolejności roku finansowego (od kwietnia).
+	column 'Miesiąc'
+		dataType: string
+		lineageTag: 59afd98c-9a76-593d-b6c6-c111e8993aed
+		summarizeBy: none
+		sourceColumn: miesiac_nazwa
+		sortByColumn: 'Miesiąc finansowy nr'
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Skrót nazwy miesiąca, np. wrz.
+	column 'Miesiąc skrót'
+		dataType: string
+		lineageTag: d3d2453c-1133-55b1-a50e-6e008c6f9a71
+		summarizeBy: none
+		sourceColumn: miesiac_skrot
+		sortByColumn: 'Miesiąc finansowy nr'
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Pierwszy dzień miesiąca.
+	column 'Początek miesiąca'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: a79ebc58-3a93-5337-88eb-610306b8d3bd
+		summarizeBy: none
+		sourceColumn: miesiac_poczatek
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Okres kalendarzowy jako liczba, np. 202609 to wrzesień 2026.
+	column 'Okres RRRRMM'
+		dataType: int64
+		lineageTag: 084ce95c-21bd-5509-8d08-0e2f2bc2a8c1
+		summarizeBy: none
+		sourceColumn: okres_rrrrmm
+
+		annotation SummarizationSetBy = Automatic
+
+	/// 1 to poniedziałek, 7 to niedziela.
+	column 'Dzień tygodnia nr'
+		dataType: int64
+		lineageTag: fc816a19-1319-5625-9158-e8233a651b39
+		summarizeBy: none
+		sourceColumn: dzien_tygodnia_nr
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nazwa dnia tygodnia po polsku.
+	column 'Dzień tygodnia'
+		dataType: string
+		lineageTag: 758b2f88-f7da-534f-86a8-6626ab1b9569
+		summarizeBy: none
+		sourceColumn: dzien_tygodnia_nazwa
+		sortByColumn: 'Dzień tygodnia nr'
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Numer tygodnia według ISO 8601.
+	column 'Tydzień ISO'
+		dataType: int64
+		lineageTag: 3207a90a-be60-539b-a970-9b4a26de739a
+		summarizeBy: none
+		sourceColumn: tydzien_iso
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Rok finansowy od kwietnia do marca, np. 2026/27. Domyślny sens słowa rok w pytaniach o wyniki.
+	column 'Rok finansowy'
+		dataType: string
+		lineageTag: b3562dfa-4097-5fca-9d9d-7355c31cba4d
+		summarizeBy: none
+		sourceColumn: rok_finansowy
+		sortByColumn: 'Rok finansowy nr'
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Rok kalendarzowy, w którym zaczyna się rok finansowy, np. 2026 dla 2026/27.
+	column 'Rok finansowy nr'
+		dataType: int64
+		lineageTag: ca62992e-f9f2-5430-a79d-e4a53a26af39
+		summarizeBy: none
+		sourceColumn: rok_finansowy_nr
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Kwartał roku finansowego: 1Q, 2Q, 3Q lub 4Q.
+	column 'Kwartał finansowy'
+		dataType: string
+		lineageTag: 2d1ddec8-3a1b-52d8-a1a4-b92f8a0f0e27
+		summarizeBy: none
+		sourceColumn: kwartal_finansowy
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Kwartał z rokiem finansowym, np. 3Q 2026/27.
+	column 'Kwartał finansowy pełny'
+		dataType: string
+		lineageTag: bc9a54ee-7ca0-5642-b6d6-02d2794f8146
+		summarizeBy: none
+		sourceColumn: kwartal_finansowy_pelny
+		sortByColumn: 'Kwartał finansowy sort'
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Klucz sortowania kwartałów.
+	column 'Kwartał finansowy sort'
+		dataType: int64
+		isHidden
+		lineageTag: f2cff45b-5148-5d0c-8e6b-cee3f4bce0ba
+		summarizeBy: none
+		sourceColumn: kwartal_finansowy_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	/// 1H to kwiecień do września, 2H to październik do marca.
+	column 'Półrocze finansowe'
+		dataType: string
+		lineageTag: d8e24f93-207e-5804-ada2-c16d8b3459da
+		summarizeBy: none
+		sourceColumn: polrocze_finansowe
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Numer miesiąca w roku finansowym, 1 to kwiecień, 12 to marzec.
+	column 'Miesiąc finansowy nr'
+		dataType: int64
+		lineageTag: 06353536-f9c5-5236-a8d4-38ca31d245fa
+		summarizeBy: none
+		sourceColumn: miesiac_finansowy_nr
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Prawda, jeśli dzień jest świętem ustawowo wolnym w Polsce.
+	column 'Święto w Polsce'
+		dataType: boolean
+		lineageTag: fe710f03-7b6d-52f8-9aed-46dd28d93d7f
+		summarizeBy: none
+		sourceColumn: czy_swieto_pl
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nazwa święta w Polsce.
+	column 'Nazwa święta'
+		dataType: string
+		lineageTag: aed9672a-33ae-5f1a-a9d2-78843c7eaac6
+		summarizeBy: none
+		sourceColumn: nazwa_swieta
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Prawda dla niedzieli handlowej w Polsce.
+	column 'Niedziela handlowa w Polsce'
+		dataType: boolean
+		lineageTag: b25fce68-046f-5d30-a720-4bc9201f8df8
+		summarizeBy: none
+		sourceColumn: czy_niedziela_handlowa_pl
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Prawda, jeśli sklepy stacjonarne w Polsce mogły być otwarte.
+	column 'Dzień handlowy w Polsce'
+		dataType: boolean
+		lineageTag: 614208c0-6f8c-510b-9ae1-5ad92d5b87af
+		summarizeBy: none
+		sourceColumn: czy_dzien_handlowy_pl
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Prawda dla ostatniego piątku listopada.
+	column 'Black Friday'
+		dataType: boolean
+		lineageTag: 32c9fed0-51e3-54d1-a8f4-e8d598397bd5
+		summarizeBy: none
+		sourceColumn: czy_black_friday
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Prawda dla miesięcy zamkniętych księgowo (do listopada 2026 włącznie). Wykonanie (ACT) w rachunku wyników istnieje tylko dla tych miesięcy.
+	column 'Miesiąc zamknięty'
+		dataType: boolean
+		lineageTag: 77d2aea9-c3fa-55b6-8ed9-96c93f969644
+		summarizeBy: none
+		sourceColumn: czy_miesiac_zamkniety
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Data' = entity
+		mode: directLake
+		source
+			entityName: dim_data
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

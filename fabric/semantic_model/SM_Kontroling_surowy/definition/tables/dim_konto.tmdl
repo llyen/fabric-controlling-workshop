@@ -1,0 +1,58 @@
+table 'dim_konto'
+	lineageTag: 9a26b1e4-105c-513e-862d-85f07ee5a84a
+
+	column 'konto_id'
+		dataType: string
+		lineageTag: f2b5199f-1682-5e5f-a44a-a856135a5e85
+		summarizeBy: none
+		sourceColumn: konto_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'konto_nazwa'
+		dataType: string
+		lineageTag: 43de9f0f-14a3-5f6e-a7a7-714e98a163d9
+		summarizeBy: none
+		sourceColumn: konto_nazwa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'sekcja'
+		dataType: string
+		lineageTag: e5900aef-3e25-5c05-8cfe-777b3734c9f1
+		summarizeBy: none
+		sourceColumn: sekcja
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'grupa_kosztow'
+		dataType: string
+		lineageTag: 5142707f-8a1c-546a-8672-9751ee5389aa
+		summarizeBy: none
+		sourceColumn: grupa_kosztow
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'znak'
+		dataType: int64
+		lineageTag: 7167e86d-d0d5-5f56-9d0a-fbebb9ace353
+		summarizeBy: sum
+		sourceColumn: znak
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kolejnosc'
+		dataType: int64
+		lineageTag: dbd4e8aa-e152-5b5d-8dc7-49fd0aa0475c
+		summarizeBy: sum
+		sourceColumn: kolejnosc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim_konto' = entity
+		mode: directLake
+		source
+			entityName: dim_konto
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

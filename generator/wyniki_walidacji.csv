@@ -1,0 +1,141 @@
+﻿test,wartosc,oczekiwane,wynik
+Pliki Parquet,14,14 nazw zgodnych ze schematem,PASS
+Kontrakt dim_data,23,dokładne kolumny i typy Arrow,PASS
+Kontrakt dim_marka,4,dokładne kolumny i typy Arrow,PASS
+Kontrakt dim_kraj,4,dokładne kolumny i typy Arrow,PASS
+Kontrakt dim_kategoria,3,dokładne kolumny i typy Arrow,PASS
+Kontrakt dim_scenariusz,4,dokładne kolumny i typy Arrow,PASS
+Kontrakt dim_konto,6,dokładne kolumny i typy Arrow,PASS
+Kontrakt dim_mpk,15,dokładne kolumny i typy Arrow,PASS
+Kontrakt fakt_sprzedaz_dzienna,6,dokładne kolumny i typy Arrow,PASS
+Kontrakt fakt_sprzedaz_kategorie_mies,8,dokładne kolumny i typy Arrow,PASS
+Kontrakt fakt_pnl,5,dokładne kolumny i typy Arrow,PASS
+Kontrakt fakt_kursy_walut,3,dokładne kolumny i typy Arrow,PASS
+Kontrakt agg_sprzedaz_mies,7,dokładne kolumny i typy Arrow,PASS
+Kontrakt plan_kalendarz,12,dokładne kolumny i typy Arrow,PASS
+Kontrakt ref_plan_2027_28_rozklad,9,dokładne kolumny i typy Arrow,PASS
+Unikalność wszystkich ziaren,0,"0, tolerancja 0",PASS
+Brak nulli w wymaganych kolumnach,0,"0, tolerancja 0",PASS
+Kompresja Parquet,SNAPPY,SNAPPY,PASS
+Pełny kalendarz i wszystkie atrybuty,1827,1827 poprawnych dni,PASS
+Daty Wielkanocy,"2023, 2024, 2025, 2026, 2027","09.04, 31.03, 20.04, 05.04, 28.03",PASS
+Wigilia wolna od 2025,"[0, 0, 1, 1, 1]","0, 0, 1, 1, 1",PASS
+Sieć aktywna na 08.12.2026,135,"135 sklepów, liczebności SPEC",PASS
+Kanały i centrala,"24, 10","24 E-commerce, 10 Centrala",PASS
+Domeny wymiarów i GRP,5/6/9/3/13,pełne słowniki SPEC,PASS
+Powierzchnie sklepów i null poza sklepami,147 sklepów,zakresy powierzchni według marki,PASS
+Formaty i atrybuty nieużywane poza MPK,"Sklep, E-commerce, Centrala",właściwe domeny i puste atrybuty nieadekwatne,PASS
+Definicja lfl_od,140,12 pełnych miesięcy i pierwszy dzień miesiąca,PASS
+Siedem planowanych otwarć RF 2027/28,7,"VEN 4, LUM 2, AUR 1, rzeczywiste daty null",PASS
+Historia pięciu zamknięć,5,"4 KRO od kwietnia 2025 do czerwca 2026, 1 LUM w 2025",PASS
+Pozostałe otwarcia historyczne,13,"8 VEN, 3 LUM, 2 AUR, przesunięcie najwyżej miesiąc",PASS
+Rozruch od 70% do 100% w sześć miesięcy,"70.00%, 85.00%, 100.00%, 100.00%","70%, około 85%, 100%, 100%",PASS
+Integralność wszystkich kluczy,0,"0, tolerancja 0",PASS
+Kwoty nieujemne i skończone,0,"0, tolerancja 0",PASS
+Kwoty zaokrąglone do groszy,0,"0, tolerancja 1e-06",PASS
+GRP wyłącznie poza sprzedażą,3 tabele sprzedażowe,brak GRP,PASS
+Domeny SR i asortyment KRO,0,"0, tolerancja 0",PASS
+Brak sklepów Lumi w SE i DK,24,Lumi w SE i DK wyłącznie E-commerce,PASS
+Dodatnie paragony i sztuki,0,"0, tolerancja 0",PASS
+Kursy i zakres miesięcy,135 wierszy; maks. odchylenie 3.868%,"45 miesięcy × 3 waluty, odchylenie od bazy <10%",PASS
+Polskie sklepy w dniach zamknięcia,0,"0, tolerancja 0",PASS
+Zagraniczne sklepy w dniach zamknięcia,0,"0, tolerancja 0",PASS
+Sprzedaż poza okresem działalności,0,"0, tolerancja 0",PASS
+E-commerce codziennie,32352,32352,PASS
+Zakres danych dziennych,2023-04-01 do 2026-12-08,2023-04-01 do 2026-12-08,PASS
+Paragony ze sprzedaży i średniego koszyka,0,"0, tolerancja 0",PASS
+Uzgodnienie ACT 4010 do dni,4.65661e-10,"0, tolerancja 1",PASS
+Uzgodnienie ACT 4510 do dni,2.32831e-10,"0, tolerancja 1",PASS
+Kategorie: sprzedaz_netto_pln,1.86265e-09,"0, tolerancja 1",PASS
+Kategorie: koszt_wlasny_pln,1.86265e-09,"0, tolerancja 1",PASS
+Kategorie: liczba_sztuk,0,"0, tolerancja 0",PASS
+Kategorie: udział OW jesienią i zimą,15.962525%,13 do 19%,PASS
+Kategorie: udział OW latem,2.877200%,2 do 4%,PASS
+Kategorie: sezonowość pozostałego asortymentu,"SW, TS, SU, AK, BI","SW zimą, TS i SU latem, AK i BI w grudniu",PASS
+"Agregat do P&L, wszystkie scenariusze",3.72529e-09,"0, tolerancja 0.01",PASS
+Brak faktów planowanych sklepów 2027/28,0,"0, tolerancja 0",PASS
+Konta właściwe dla rodzaju MPK,0,"0, tolerancja 0",PASS
+"Kompletność ACT, miesiąc × MPK × konto",0,"0, tolerancja 0",PASS
+"Kompletność BUD, miesiąc × MPK × konto",0,"0, tolerancja 0",PASS
+"Kompletność FC, miesiąc × MPK × konto",0,"0, tolerancja 0",PASS
+FC kwiecień do listopada jest kopią ACT,0,"0, tolerancja 0",PASS
+Czynsze ACT: indeksacja w kwietniu i renegocjacja,0.005,"0, tolerancja 0.011",PASS
+"Koszty sklepów: płace, media, pozostałe, amortyzacja",0.005,"0, tolerancja 0.011",PASS
+Koszty e-commerce według zamówień i sprzedaży,0.005,"0, tolerancja 0.011",PASS
+"Logistyka magazynowa = 2,8% sprzedaży sklepów",0.00484,"0, tolerancja 0.011",PASS
+Koszty centrali RF 2025/26,10.279761%,9 do 12%,PASS
+IT i licencje głównie w MPK IT,90.000001%,85 do 100%,PASS
+Historia 1: Vento DE 1H ACT/BUD,-14.377131%,-20 do -9%,PASS
+Historia 1: daty czterech opóźnień,"4 sklepów, 3 do 3 mies.","plan maj i czerwiec, ACT sierpień i wrzesień, opóźnienie 3 mies.",PASS
+Historia 1: BUD przed rzeczywistym otwarciem,4,4 MPK z dodatnim BUD,PASS
+Historia 2: czynsze Aurea AT ACT/BUD,11.650485%,9 do 14%,PASS
+Historia 3: logistyka DE październik ACT/BUD,25.382488%,15 do 30%,PASS
+Historia 3: logistyka DE listopad ACT/BUD,21.317814%,15 do 30%,PASS
+Historia 3: logistyka DE łącznie ACT/BUD,23.066683%,15 do 30%,PASS
+Historia 4: odzież wierzchnia listopad r/r,-27.901822%,-35 do -20%,PASS
+"Historia 4: listopad bez Black Friday, marża niższa o 1 pp",2.50622e-05,"0, tolerancja 0.001",PASS
+Historia 5: sklepy Kroko kwiecień do listopada r/r,-13.802924%,-18 do -9%,PASS
+Historia 5: Kroko LFL RF 2025,-1.663655%,-4 do 0%,PASS
+Historia 5: Kroko LFL RF 2026,-7.373350%,-10 do -4%,PASS
+Historia 6: Black Friday maksimum grupy w listopadzie,2025-11-28,2025-11-28,PASS
+Historia 6: Black Friday maksimum e-commerce w RF,2025-11-28,2025-11-28,PASS
+Historia 7: udział e-commerce RF 2023/24,18.000000%,16 do 20%,PASS
+Historia 7: udział e-commerce RF 2026/27 YTD,23.087530%,21 do 26%,PASS
+Historia 7: udział e-commerce rośnie co RF,"18.00%, 18.98%, 20.63%, 23.09%",ściśle rosnący,PASS
+Historia 8: szczyt grudniowy RF 2023,2023-12-01,"2023-12-01, pełne 12 miesięcy",PASS
+Historia 8: szczyt grudniowy RF 2024,2024-12-01,"2024-12-01, pełne 12 miesięcy",PASS
+Historia 8: szczyt grudniowy RF 2025,2025-12-01,"2025-12-01, pełne 12 miesięcy",PASS
+Sprzedaż grupy RF 2025/26,0.866150 mld PLN,0.7 do 1.1 mld PLN,PASS
+Marża EBITDA grupy RF 2025/26,17.307319%,12 do 22%,PASS
+Pełna siatka otwartych dni wszystkich MPK,0,"0, tolerancja 0",PASS
+BUD: baza ACT poprzedniego RF i gładki profil,0.00499955,"0, tolerancja 0.011",PASS
+BUD: koszt własny i normalna pogoda,0.00499949,"0, tolerancja 0.011",PASS
+BUD: czynsze z poprzedniego ACT plus 3%,0.005,"0, tolerancja 0.011",PASS
+"Historia 4: pogoda, sprzedaż AUR względem trendu",-4.373500%,-6.5 do -3.5%,PASS
+"Historia 4: pogoda, sprzedaż VEN względem trendu",-8.097075%,-9.5 do -6.5%,PASS
+"Historia 4: pogoda, sprzedaż LUM względem trendu",-0.926862%,-2.5 do 0.5%,PASS
+"Historia 4: pogoda, sprzedaż KRO względem trendu",-4.758131%,-6.5 do -3.5%,PASS
+FC: Kroko i rzeczywisty rozruch VEN DE,0.005,"0, tolerancja 0.011",PASS
+FC: nowa stawka czynszów AUR AT,0.000582524,"0, tolerancja 0.011",PASS
+FC: nowa stawka przewoźnika DE,0.004658,"0, tolerancja 0.011",PASS
+FC: pozostałe niezmienione koszty BUD,0,"0, tolerancja 0",PASS
+FC: koszty powiązane ze zmienioną sprzedażą,0.00505,"0, tolerancja 0.011",PASS
+Plan: 12 miesięcy na kombinację,552,46 kombinacji × 12 miesięcy,PASS
+Plan: udziały sumują się do 1,1.11022e-16,"0, tolerancja 1e-12",PASS
+Plan: cel razy udział,0,"0, tolerancja 1e-06",PASS
+Plan: miesięczne plany do rocznego celu,0.02,"0, tolerancja 0.1",PASS
+Plan: źródło LY i średnia udziałów dwóch lat,0,"0, tolerancja 1e-12",PASS
+Excel: arkusze i czytelne formatowanie,3 pliki,"nazwy arkuszy, nagłówki bold, szerokości, zamrożony wiersz",PASS
+"Excel Cele: FC, wzrost, cel, zgodność z ref_plan",1.49012e-08,"0, tolerancja 0.011",PASS
+Excel Cele bez GRP,46,"46 kombinacji, cztery marki",PASS
+Excel Założenia i Nowe_sklepy,"24, 7",24 założeń i 7 planowanych sklepów,PASS
+"Excel Budzet: używane konta, puste miesiące, SUM",45,45 wierszy i tyle samo formuł SUM,PASS
+Excel Budzet: sumy ACT i FC z P&L,9.31323e-10,"0, tolerancja 0.011",PASS
+Klucz 14 pytań policzony z tabel,14,14 pytań dosłownie z SPEC i zgodny wynik,PASS
+Pytanie 13: brak danych 2029,"brak faktów, celu i kalendarza 2029",odmowa zgadywania,PASS
+Pytanie 14: dwa składniki niepełnego 3Q,"zamknięty październik i listopad, grudzień do 08.12",bez pełnego grudnia ACT,PASS
+PowerTable: nagłówki ASCII i kolejność,19,"19 zgodnych nazw, litera na początku",PASS
+PowerTable: płaski układ od A1,"Import, Opis","Import pierwszy, Opis drugi, brak scaleń",PASS
+PowerTable: brak formuł,0,"0, tolerancja 0",PASS
+PowerTable: brak pustych wierszy,0,"0, tolerancja 0",PASS
+PowerTable: kompletne kolumny liczbowe,45 × 14,"ACT, FC i 12 miesięcy, liczby bez nulli",PASS
+PowerTable: wiersze i klucze jak w szablonie,45,45 unikalnych par MPK i konto,PASS
+"PowerTable: opisy, ACT i FC jak w szablonie",6 kolumn źródłowych,identyczne zapisane wartości,PASS
+PowerTable: formatowanie,pogrubienie i separator tysięcy,"pogrubiony nagłówek, liczby z separatorem",PASS
+PowerTable: krótki arkusz Opis,4,nagłówek i 3 wiersze opisu,PASS
+"PowerTable: indeksacja, miesiące i zaokrąglenie do 100",0,"0, tolerancja 0.001",PASS
+PowerTable: jednorazowa dopłata wyłącznie HQ-TEC × 5420,180 000 PLN,październik = baza + 180 000 PLN  suma roczna = 12 × baza + dopłata,PASS
+PowerTable: pozostałe MPK konta 5420 bez skoku w październiku,0,"0, tolerancja 0.001",PASS
+PowerTable: jedyny komentarz przy HQ-TEC × 5420,1,"jeden komentarz, pozostałe puste",PASS
+PowerTable: suma projektu za 12 miesięcy,98 014 800 PLN,98 014 800 PLN,PASS
+Plan kalendarz: 60 kolejnych miesięcy,60,"60 miesięcy, 2023-04-01 do 2028-03-01",PASS
+Plan kalendarz: unikalny klucz,0,"0, tolerancja 0",PASS
+Plan kalendarz: wszystkie teksty ASCII,0,"0, tolerancja 0",PASS
+Plan kalendarz: pokrycie miesięcy agregatu,0,"0, tolerancja 0",PASS
+Plan kalendarz: zgodność z dim_data,12 kolumn,atrybuty pierwszych dni miesięcy i skróty ASCII,PASS
+"Pliki CSV, tylko fakt dzienny gzip",14,14 plików,PASS
+"CSV BOM UTF-8, separator i wartości",14 tabel porównanych,zgodność z Parquet,PASS
+Słownik obejmuje wszystkie tabele i kolumny,14,"14 opisów, ziarna, liczności i kolumny",PASS
+Styl: brak półpauzy i pauzy,0,"0, tolerancja 0",PASS
+Styl: brak pogrubionych etykiet z dwukropkiem,0,"0, tolerancja 0",PASS
+Rozmiar dane,12.510 MB,<60 MB,PASS

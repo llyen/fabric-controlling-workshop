@@ -1,0 +1,220 @@
+/// Sprzedaż dzienna sklepów i e-commerce w PLN od 1.04.2023 do 8.12.2026. Obejmuje także dni miesięcy jeszcze niezamkniętych (grudzień 2026), dlatego służy do bieżącej sprzedaży, analiz dziennych, paragonów i LFL. Brak wiersza oznacza dzień, w którym sklep był zamknięty. W e-commerce liczba paragonów oznacza liczbę zamówień.
+table 'Sprzedaż dzienna'
+	lineageTag: 4a1db8a3-059b-5aab-9d63-e37d8419c758
+
+	/// Sprzedaż netto w PLN z danych dziennych, dostępna do 8.12.2026, także dla miesięcy niezamkniętych.
+	measure 'Sprzedaż netto (dane dzienne)' = SUM ( 'Sprzedaż dzienna'[sprzedaz_netto_pln] )
+		formatString: #,0
+		displayFolder: Sprzedaż dzienna
+		lineageTag: 2cd575d3-afb4-571c-9cb2-4196e9a11383
+
+	/// Koszt własny sprzedaży w PLN z danych dziennych.
+	measure 'Koszt własny (dane dzienne)' = SUM ( 'Sprzedaż dzienna'[koszt_wlasny_pln] )
+		formatString: #,0
+		displayFolder: Sprzedaż dzienna
+		lineageTag: c51a35a7-6803-5694-88b1-8686ad6c4054
+
+	/// Marża brutto w PLN z danych dziennych.
+	measure 'Marża brutto (dane dzienne)' = [Sprzedaż netto (dane dzienne)] - [Koszt własny (dane dzienne)]
+		formatString: #,0
+		displayFolder: Sprzedaż dzienna
+		lineageTag: c20e07b9-3c68-57a2-a2da-2e240eeebf87
+
+	/// Marża brutto procentowa z danych dziennych.
+	measure 'Marża brutto % (dane dzienne)' = DIVIDE ( [Marża brutto (dane dzienne)], [Sprzedaż netto (dane dzienne)] )
+		formatString: 0.0%
+		displayFolder: Sprzedaż dzienna
+		lineageTag: fcd7127a-86dd-5471-b413-3e725c1da42e
+
+	/// Liczba paragonów w sklepach, a w e-commerce liczba zamówień.
+	measure 'Liczba paragonów' = SUM ( 'Sprzedaż dzienna'[liczba_paragonow] )
+		formatString: #,0
+		displayFolder: Sprzedaż dzienna
+		lineageTag: 4685c4c9-3603-52d3-b910-a4d808e4e894
+
+	/// Liczba zamówień w kanale e-commerce.
+	measure 'Liczba zamówień e-commerce' = CALCULATE ( [Liczba paragonów], KEEPFILTERS ( 'MPK'[Typ MPK] = "E-commerce" ) )
+		formatString: #,0
+		displayFolder: Sprzedaż dzienna
+		lineageTag: 5bc5e7a8-5b2e-509a-8141-20552ef30160
+
+	/// Liczba sprzedanych sztuk.
+	measure 'Liczba sztuk' = SUM ( 'Sprzedaż dzienna'[liczba_sztuk] )
+		formatString: #,0
+		displayFolder: Sprzedaż dzienna
+		lineageTag: f2b02e1e-c2d9-59a7-b188-1014e99517ac
+
+	/// Średnia wartość paragonu lub zamówienia netto w PLN.
+	measure 'Średnia wartość paragonu' = DIVIDE ( [Sprzedaż netto (dane dzienne)], [Liczba paragonów] )
+		formatString: #,0.00
+		displayFolder: Sprzedaż dzienna
+		lineageTag: b59181f0-7f6a-51fb-a735-3142f56da82a
+
+	/// Średnia liczba sztuk na paragon lub zamówienie.
+	measure 'Sztuki na paragon' = DIVIDE ( [Liczba sztuk], [Liczba paragonów] )
+		formatString: #,0.00
+		displayFolder: Sprzedaż dzienna
+		lineageTag: ff009977-2536-54e9-b296-c28ada691f54
+
+	/// Ostatni dzień, dla którego istnieją dane dzienne (stan danych).
+	measure 'Ostatni dzień z danymi dziennymi' = CALCULATE ( MAX ( 'Sprzedaż dzienna'[data] ), REMOVEFILTERS () )
+		formatString: yyyy-mm-dd
+		displayFolder: Sprzedaż dzienna
+		lineageTag: 1018c824-9d93-55bd-bb15-8ac4dc8472a2
+
+	/// Sprzedaż netto z danych dziennych za te same dni rok wcześniej. Okres bieżący jest obcinany do ostatniego dnia z danymi.
+	measure 'Sprzedaż netto (dane dzienne) rok wcześniej' =
+			VAR _ost = [Ostatni dzień z danymi dziennymi]
+			RETURN
+			    CALCULATE (
+			        [Sprzedaż netto (dane dzienne)],
+			        DATEADD ( FILTER ( VALUES ( 'Data'[Data] ), 'Data'[Data] <= _ost ), -1, YEAR )
+			    )
+		formatString: #,0
+		displayFolder: Sprzedaż dzienna
+		lineageTag: 0b523252-2053-5e10-ab6e-ca79db7831c4
+
+	/// Zmiana sprzedaży netto rok do roku z danych dziennych, dla tych samych dni.
+	measure 'Dynamika sprzedaży (dane dzienne) r/r %' =
+			VAR _ly = [Sprzedaż netto (dane dzienne) rok wcześniej]
+			VAR _ost = [Ostatni dzień z danymi dziennymi]
+			VAR _cy = CALCULATE ( [Sprzedaż netto (dane dzienne)], KEEPFILTERS ( 'Data'[Data] <= _ost ) )
+			RETURN
+			    DIVIDE ( _cy - _ly, _ly )
+		formatString: 0.0%
+		displayFolder: Sprzedaż dzienna
+		lineageTag: 940fa1f6-74dc-5a50-954e-ab7fe51ba160
+
+	/// Sprzedaż sklepów porównywalnych (LFL): sklepy, których data LFL od jest nie późniejsza niż początek okresu i które nie zostały zamknięte przed końcem okresu.
+	measure 'Sprzedaż LFL' =
+			VAR _od = MIN ( 'Data'[Data] )
+			VAR _do = MIN ( MAX ( 'Data'[Data] ), [Ostatni dzień z danymi dziennymi] )
+			VAR _sklepy =
+			    CALCULATETABLE (
+			        VALUES ( 'MPK'[Kod MPK] ),
+			        KEEPFILTERS ( 'MPK'[Typ MPK] = "Sklep" ),
+			        KEEPFILTERS ( 'MPK'[LFL od] <= _od ),
+			        KEEPFILTERS ( OR ( ISBLANK ( 'MPK'[Data zamknięcia] ), 'MPK'[Data zamknięcia] > _do ) )
+			    )
+			RETURN
+			    CALCULATE ( [Sprzedaż netto (dane dzienne)], _sklepy, KEEPFILTERS ( 'Data'[Data] <= _do ) )
+		formatString: #,0
+		displayFolder: Sprzedaż dzienna
+		lineageTag: 54356b22-7143-56a2-ad19-b95df17ea3c7
+
+	/// Sprzedaż tych samych sklepów porównywalnych (LFL) w analogicznym okresie rok wcześniej.
+	measure 'Sprzedaż LFL rok wcześniej' =
+			VAR _od = MIN ( 'Data'[Data] )
+			VAR _do = MIN ( MAX ( 'Data'[Data] ), [Ostatni dzień z danymi dziennymi] )
+			VAR _sklepy =
+			    CALCULATETABLE (
+			        VALUES ( 'MPK'[Kod MPK] ),
+			        KEEPFILTERS ( 'MPK'[Typ MPK] = "Sklep" ),
+			        KEEPFILTERS ( 'MPK'[LFL od] <= _od ),
+			        KEEPFILTERS ( OR ( ISBLANK ( 'MPK'[Data zamknięcia] ), 'MPK'[Data zamknięcia] > _do ) )
+			    )
+			RETURN
+			    CALCULATE (
+			        [Sprzedaż netto (dane dzienne)],
+			        _sklepy,
+			        DATEADD ( FILTER ( VALUES ( 'Data'[Data] ), 'Data'[Data] <= _do ), -1, YEAR )
+			    )
+		formatString: #,0
+		displayFolder: Sprzedaż dzienna
+		lineageTag: cf1983e9-0870-501f-8ae7-b59b0061d9ec
+
+	/// Dynamika sprzedaży porównywalnej (LFL) rok do roku w procentach.
+	measure 'Dynamika LFL r/r %' =
+			VAR _ly = [Sprzedaż LFL rok wcześniej]
+			RETURN
+			    DIVIDE ( [Sprzedaż LFL] - _ly, _ly )
+		formatString: 0.0%
+		displayFolder: Sprzedaż dzienna
+		lineageTag: 36acd479-f49a-55f2-a649-1d8081aee1fd
+
+	/// Udział kanału e-commerce w sprzedaży netto (sklepy plus e-commerce) według danych dziennych.
+	measure 'Udział e-commerce %' =
+			DIVIDE (
+			    CALCULATE ( [Sprzedaż netto (dane dzienne)], KEEPFILTERS ( 'MPK'[Typ MPK] = "E-commerce" ) ),
+			    CALCULATE ( [Sprzedaż netto (dane dzienne)], REMOVEFILTERS ( 'MPK'[Typ MPK] ), REMOVEFILTERS ( 'MPK'[Kanał] ) )
+			)
+		formatString: 0.0%
+		displayFolder: Sprzedaż dzienna
+		lineageTag: 42faa77e-1562-5df2-b0f9-8fba707929d7
+
+	/// Liczba sklepów, które miały sprzedaż w wybranym okresie.
+	measure 'Liczba sklepów ze sprzedażą' = CALCULATE ( DISTINCTCOUNT ( 'Sprzedaż dzienna'[mpk_id] ), KEEPFILTERS ( 'MPK'[Typ MPK] = "Sklep" ) )
+		formatString: #,0
+		displayFolder: Sprzedaż dzienna
+		lineageTag: 7e050425-7572-5eb2-a385-ff492676d607
+
+	/// Dzień sprzedaży.
+	column 'data'
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: cbdefefb-47ed-5a0a-a310-a34cede27b0e
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Klucz MPK.
+	column 'mpk_id'
+		dataType: string
+		isHidden
+		lineageTag: bb830924-76e4-58a3-9dec-92ee62f85d24
+		summarizeBy: none
+		sourceColumn: mpk_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Sprzedaż netto PLN.
+	column 'sprzedaz_netto_pln'
+		dataType: double
+		isHidden
+		formatString: #,0
+		lineageTag: c71f3b14-1d30-51c7-90c1-648e30ce7e37
+		summarizeBy: none
+		sourceColumn: sprzedaz_netto_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Koszt własny PLN.
+	column 'koszt_wlasny_pln'
+		dataType: double
+		isHidden
+		formatString: #,0
+		lineageTag: cb543785-f848-599d-a496-713f1f7d854a
+		summarizeBy: none
+		sourceColumn: koszt_wlasny_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Liczba paragonów lub zamówień.
+	column 'liczba_paragonow'
+		dataType: int64
+		isHidden
+		lineageTag: 9747ef16-4db3-5949-ad9c-5f17a369ba46
+		summarizeBy: none
+		sourceColumn: liczba_paragonow
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Liczba sztuk.
+	column 'liczba_sztuk'
+		dataType: int64
+		isHidden
+		lineageTag: fc8efcde-e8c7-55f8-b850-56052cb322cf
+		summarizeBy: none
+		sourceColumn: liczba_sztuk
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sprzedaż dzienna' = entity
+		mode: directLake
+		source
+			entityName: fakt_sprzedaz_dzienna
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

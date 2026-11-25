@@ -1,0 +1,46 @@
+{
+  "seed": 731905,
+  "identical_parquet": true,
+  "runs": [
+    {
+      "seconds": 3.967,
+      "sha256": {
+        "agg_sprzedaz_mies.parquet": "48b270d709c6bd52d2e93e7940015ab299ed245b60780776cf20495fc9be62aa",
+        "dim_data.parquet": "c7d9ba7f40c62b96dce3ed1c222d7b9ca89aa5ae22e75b4ad0a6394f06fa9f68",
+        "dim_kategoria.parquet": "516cc7df10b872c30e2cedd04a6578abb12917b4a3c4532bad8f3c5eea922afd",
+        "dim_konto.parquet": "02e0f49b942dd54747c5a54dea02c50b0764c6e1a0e9a76b0d30d50371564d63",
+        "dim_kraj.parquet": "fd04b3405ea1b8ea9bd6d1e565742ed5bf2a538aaf8ecb4c579b4e73331eb6d3",
+        "dim_marka.parquet": "cf85490850efc4c77350c07226b4fd8ea53bbdd62f7db488bedf6be656ba2adc",
+        "dim_mpk.parquet": "3f91dbaae39b77139798c345359d81ea09667d83a184284a77c07c30ca868ada",
+        "dim_scenariusz.parquet": "be2ceafa6e9452332f6e935073028985c9fc621186b685371f7730cc0962ad65",
+        "fakt_kursy_walut.parquet": "e1bb52a539ce75f1ba0ff200866d0d9b1bebdcb82f0e3140773ad2f53fac0967",
+        "fakt_pnl.parquet": "73815485872bdec6510800c392a368f4c0a542096aca30f52f8ff646a77bd561",
+        "fakt_sprzedaz_dzienna.parquet": "426bc7cf4320603cbc477bd5f0ad6c584b415fbddbcf5a27a181a0c61869f0f5",
+        "fakt_sprzedaz_kategorie_mies.parquet": "f64354f66149bb363a864be385bf47d40af02f06011c97b4c62a77d6cad80d7b",
+        "plan_kalendarz.parquet": "212e8a37d68f725454f4af8d0ecb45a92bc6fd9ec45b16ec67fb4e696adf838b",
+        "ref_plan_2027_28_rozklad.parquet": "820bed99d0dfb5c092a6b2ee9a4d0ee5f9336e04ab36a20f83923bab9728a4b4"
+      }
+    },
+    {
+      "seconds": 3.939,
+      "sha256": {
+        "agg_sprzedaz_mies.parquet": "48b270d709c6bd52d2e93e7940015ab299ed245b60780776cf20495fc9be62aa",
+        "dim_data.parquet": "c7d9ba7f40c62b96dce3ed1c222d7b9ca89aa5ae22e75b4ad0a6394f06fa9f68",
+        "dim_kategoria.parquet": "516cc7df10b872c30e2cedd04a6578abb12917b4a3c4532bad8f3c5eea922afd",
+        "dim_konto.parquet": "02e0f49b942dd54747c5a54dea02c50b0764c6e1a0e9a76b0d30d50371564d63",
+        "dim_kraj.parquet": "fd04b3405ea1b8ea9bd6d1e565742ed5bf2a538aaf8ecb4c579b4e73331eb6d3",
+        "dim_marka.parquet": "cf85490850efc4c77350c07226b4fd8ea53bbdd62f7db488bedf6be656ba2adc",
+        "dim_mpk.parquet": "3f91dbaae39b77139798c345359d81ea09667d83a184284a77c07c30ca868ada",
+        "dim_scenariusz.parquet": "be2ceafa6e9452332f6e935073028985c9fc621186b685371f7730cc0962ad65",
+        "fakt_kursy_walut.parquet": "e1bb52a539ce75f1ba0ff200866d0d9b1bebdcb82f0e3140773ad2f53fac0967",
+        "fakt_pnl.parquet": "73815485872bdec6510800c392a368f4c0a542096aca30f52f8ff646a77bd561",
+        "fakt_sprzedaz_dzienna.parquet": "426bc7cf4320603cbc477bd5f0ad6c584b415fbddbcf5a27a181a0c61869f0f5",
+        "fakt_sprzedaz_kategorie_mies.parquet": "f64354f66149bb363a864be385bf47d40af02f06011c97b4c62a77d6cad80d7b",
+        "plan_kalendarz.parquet": "212e8a37d68f725454f4af8d0ecb45a92bc6fd9ec45b16ec67fb4e696adf838b",
+        "ref_plan_2027_28_rozklad.parquet": "820bed99d0dfb5c092a6b2ee9a4d0ee5f9336e04ab36a20f83923bab9728a4b4"
+      }
+    }
+  ],
+  "numpy": "2.4.3",
+  "pandas": "3.0.1"
+}

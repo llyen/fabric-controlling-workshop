@@ -1,0 +1,38 @@
+/// Słownik kategorii towarowych używanych w tabeli Sprzedaż według kategorii.
+table 'Kategoria'
+	lineageTag: dbdc6c84-9b29-5568-bc5a-61c79fb89cc8
+
+	/// Kod kategorii towarowej, np. OW to odzież wierzchnia.
+	column 'Kod kategorii'
+		dataType: string
+		lineageTag: 42da9ad7-68cd-55d1-a56a-8c597da13176
+		summarizeBy: none
+		sourceColumn: kategoria_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nazwa kategorii towarowej, np. Odzież wierzchnia.
+	column 'Kategoria'
+		dataType: string
+		lineageTag: 6340bfa7-c664-5792-b4ab-a3750e811d15
+		summarizeBy: none
+		sourceColumn: kategoria_nazwa
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Grupa kategorii, np. Odzież, Obuwie, Akcesoria.
+	column 'Grupa kategorii'
+		dataType: string
+		lineageTag: 988a0dac-eccb-51f9-a0d4-655dc7b8cb11
+		summarizeBy: none
+		sourceColumn: grupa
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Kategoria' = entity
+		mode: directLake
+		source
+			entityName: dim_kategoria
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

@@ -1,0 +1,127 @@
+/// Monthly fiscal calendar, April 2023 to March 2028. Fiscal year runs April to March.
+table 'Kalendarz'
+	lineageTag: 9b26781a-a7e8-55a4-99c8-d381d5e4a3b9
+
+	/// First day of the month, key.
+	column 'Data miesiaca'
+		dataType: dateTime
+		isKey
+		formatString: yyyy-mm-dd
+		lineageTag: 09ece5a4-f170-5651-834e-599437f1f5fc
+		summarizeBy: none
+		sourceColumn: miesiac
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Fiscal year, for example 2026/27.
+	column 'Rok finansowy'
+		dataType: string
+		lineageTag: e2947d35-85e8-53ab-ae46-f27aee1cd5f2
+		summarizeBy: none
+		sourceColumn: rok_finansowy
+		sortByColumn: 'Rok finansowy nr'
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Calendar year in which the fiscal year starts.
+	column 'Rok finansowy nr'
+		dataType: int64
+		isHidden
+		lineageTag: 27a0cb62-6ccb-5749-802e-c115f761554b
+		summarizeBy: none
+		sourceColumn: rok_finansowy_nr
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Fiscal quarter 1Q to 4Q (1Q = Apr to Jun).
+	column 'Kwartal'
+		dataType: string
+		lineageTag: 1689f531-5bf6-5bce-b456-364ea480f18d
+		summarizeBy: none
+		sourceColumn: kwartal
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Fiscal quarter with year, for example 3Q 2026/27.
+	column 'Kwartal pelny'
+		dataType: string
+		lineageTag: 8e9f1cdf-e6c5-5840-8dd5-bbd5e3010604
+		summarizeBy: none
+		sourceColumn: kwartal_pelny
+		sortByColumn: 'Kwartal sort'
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Sort key.
+	column 'Kwartal sort'
+		dataType: int64
+		isHidden
+		lineageTag: dc8088e5-58d7-5ea1-92e9-dd1b8d20dbce
+		summarizeBy: none
+		sourceColumn: kwartal_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Month number in the fiscal year, 1 = April.
+	column 'Miesiac fin nr'
+		dataType: int64
+		isHidden
+		lineageTag: 0fc81678-315e-5fdd-b65a-421e84db458e
+		summarizeBy: none
+		sourceColumn: miesiac_fin_nr
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Month short name without diacritics, sorted from April.
+	column 'Miesiac'
+		dataType: string
+		lineageTag: 6e5f2558-21b8-5afb-a6ff-90ae7b501265
+		summarizeBy: none
+		sourceColumn: miesiac_nazwa
+		sortByColumn: 'Miesiac fin nr'
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Calendar period YYYY-MM.
+	column 'Okres'
+		dataType: string
+		lineageTag: decbfb24-f3c7-5382-a6bb-abda6c49eaf7
+		summarizeBy: none
+		sourceColumn: okres
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Calendar year.
+	column 'Rok kalendarzowy'
+		dataType: int64
+		lineageTag: cafab7e1-8593-5e5c-b100-e56736988d8b
+		summarizeBy: none
+		sourceColumn: rok
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Calendar month number, 1 = January.
+	column 'Miesiac kalendarzowy nr'
+		dataType: int64
+		lineageTag: a56eb0de-ea86-5d7b-ab2d-024d5272d4f9
+		summarizeBy: none
+		sourceColumn: miesiac_nr
+
+		annotation SummarizationSetBy = Automatic
+
+	/// True for closed months (up to November 2026).
+	column 'Miesiac zamkniety'
+		dataType: boolean
+		lineageTag: 174b8ae7-91f1-50cb-b218-0b838e286ba6
+		summarizeBy: none
+		sourceColumn: czy_miesiac_zamkniety
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Kalendarz' = entity
+		mode: directLake
+		source
+			entityName: plan_kalendarz
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

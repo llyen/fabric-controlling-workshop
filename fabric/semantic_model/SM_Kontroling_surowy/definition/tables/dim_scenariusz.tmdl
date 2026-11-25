@@ -1,0 +1,42 @@
+table 'dim_scenariusz'
+	lineageTag: 5d9eefb3-078f-5d22-866c-46f73c80e9a3
+
+	column 'scenariusz_kod'
+		dataType: string
+		lineageTag: 937a2e8c-29f8-5b99-b127-0db33e23bb08
+		summarizeBy: none
+		sourceColumn: scenariusz_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'scenariusz_nazwa'
+		dataType: string
+		lineageTag: 415a9c5d-3a0f-56aa-89cb-5a47d3fc4838
+		summarizeBy: none
+		sourceColumn: scenariusz_nazwa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'opis'
+		dataType: string
+		lineageTag: 70dc534d-bdf6-53a3-9c27-992bd6021370
+		summarizeBy: none
+		sourceColumn: opis
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kolejnosc'
+		dataType: int64
+		lineageTag: 576e7192-635b-5697-8015-41fecf7c9489
+		summarizeBy: sum
+		sourceColumn: kolejnosc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim_scenariusz' = entity
+		mode: directLake
+		source
+			entityName: dim_scenariusz
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

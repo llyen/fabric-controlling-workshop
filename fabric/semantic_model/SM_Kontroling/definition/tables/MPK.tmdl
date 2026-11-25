@@ -1,0 +1,158 @@
+/// Miejsca powstawania kosztów: sklepy stacjonarne, kanały e-commerce (jeden na markę i kraj) oraz działy centrali. Zawiera daty otwarcia planowane i rzeczywiste, datę zamknięcia oraz datę, od której sklep jest porównywalny rok do roku (LFL). Porównanie daty planowanej z rzeczywistą wyjaśnia opóźnienia otwarć.
+table 'MPK'
+	lineageTag: 7b7c5c24-4f80-5626-a2fd-85e72c80763c
+
+	/// Liczba sklepów w słowniku MPK. Filtruj kolumną Status, aby policzyć np. tylko aktywne.
+	measure 'Liczba sklepów' = CALCULATE ( COUNTROWS ( 'MPK' ), KEEPFILTERS ( 'MPK'[Typ MPK] = "Sklep" ) )
+		formatString: #,0
+		displayFolder: Słownik
+		lineageTag: 8ca2cfbb-e30a-5792-aad2-d504a675f46d
+
+	/// Kod MPK, np. SK-AUR-AT-001 dla sklepu, EC-AUR-PL dla e-commerce, HQ-TEC dla działu centrali.
+	column 'Kod MPK'
+		dataType: string
+		lineageTag: 0e5efa09-ebcb-5a8a-ae30-6e0c65c8a408
+		summarizeBy: none
+		sourceColumn: mpk_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nazwa MPK, np. Aurea Graz 2.
+	column 'Nazwa MPK'
+		dataType: string
+		lineageTag: 20bc19a9-3473-518a-af09-793f7fbcf48a
+		summarizeBy: none
+		sourceColumn: mpk_nazwa
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Sklep, E-commerce albo Centrala.
+	column 'Typ MPK'
+		dataType: string
+		lineageTag: 8cdef90e-7f39-5997-89c6-843df11cb057
+		summarizeBy: none
+		sourceColumn: typ_mpk
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Kanał: Sklep, E-commerce albo Centrala.
+	column 'Kanał'
+		dataType: string
+		lineageTag: 1f1cc6de-75d1-5843-8095-b6b9ed4ed910
+		summarizeBy: none
+		sourceColumn: kanal
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Klucz do tabeli Marka.
+	column 'Kod marki MPK'
+		dataType: string
+		isHidden
+		lineageTag: 5ff917d1-c10f-58ba-a50b-4fe5ba6e0339
+		summarizeBy: none
+		sourceColumn: marka_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Klucz do tabeli Kraj.
+	column 'Kod kraju MPK'
+		dataType: string
+		isHidden
+		lineageTag: 71e7af71-1e2b-590a-a677-52a93637ba70
+		summarizeBy: none
+		sourceColumn: kraj_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Miasto sklepu. Puste dla e-commerce i centrali.
+	column 'Miasto'
+		dataType: string
+		lineageTag: 0699ed89-f199-56e2-987e-eef1bc400283
+		summarizeBy: none
+		sourceColumn: miasto
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Format lokalizacji sklepu.
+	column 'Format sklepu'
+		dataType: string
+		lineageTag: a7f9a7a3-e586-503c-9c53-e364f21058a5
+		summarizeBy: none
+		sourceColumn: format_sklepu
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Powierzchnia sprzedaży sklepu w metrach kwadratowych.
+	column 'Powierzchnia m2'
+		dataType: int64
+		lineageTag: c15cbcdc-079b-5c0f-af83-cf19f40be7c4
+		summarizeBy: sum
+		sourceColumn: powierzchnia_m2
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Dział centrali, np. Technologia, Finanse, Marketing.
+	column 'Dział centrali'
+		dataType: string
+		lineageTag: ec0107bc-0949-5c44-84a7-ebbc234be4e8
+		summarizeBy: none
+		sourceColumn: dzial_centrali
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Data otwarcia przyjęta w budżecie.
+	column 'Data otwarcia planowana'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: f9fcb4c9-344a-58a5-9ef8-65887e185039
+		summarizeBy: none
+		sourceColumn: data_otwarcia_plan
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Rzeczywista data otwarcia. Pusta dla sklepów planowanych.
+	column 'Data otwarcia'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 55a2117b-3efe-5588-9b1f-c09232b2727f
+		summarizeBy: none
+		sourceColumn: data_otwarcia
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Data zamknięcia sklepu, pusta dla działających.
+	column 'Data zamknięcia'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: b92ccc41-58e3-5102-86b0-e280b9925853
+		summarizeBy: none
+		sourceColumn: data_zamkniecia
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Aktywny, Zamknięty albo Planowany.
+	column 'Status'
+		dataType: string
+		lineageTag: 8f657288-9497-585a-9d4f-31829eac5f4a
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Pierwszy dzień miesiąca, od którego sklep wchodzi do bazy porównywalnej (LFL), czyli po 12 pełnych miesiącach działania.
+	column 'LFL od'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 23bb2a9c-8b4f-558e-b18a-77fa72ec49f4
+		summarizeBy: none
+		sourceColumn: lfl_od
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'MPK' = entity
+		mode: directLake
+		source
+			entityName: dim_mpk
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

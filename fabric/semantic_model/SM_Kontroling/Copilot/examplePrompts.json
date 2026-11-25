@@ -1,0 +1,10 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/copilot/examplePrompts/1.0.0/schema.json",
+  "prompts": [
+    "Jaka była sprzedaż netto grupy w 2Q 2026/27 i jak wypadła względem budżetu?",
+    "Która marka ma największe odchylenie sprzedaży od budżetu narastająco w 2026/27?",
+    "Dlaczego Vento w Niemczech jest poniżej budżetu w 1H 2026/27?",
+    "Które 5 sklepów ma największe przekroczenie budżetu czynszów w 2026/27?",
+    "Jaka jest prognoza EBITDA grupy na 2026/27 i jak wypada względem budżetu?"
+  ]
+}

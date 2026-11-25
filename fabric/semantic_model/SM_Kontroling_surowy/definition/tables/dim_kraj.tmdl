@@ -1,0 +1,42 @@
+table 'dim_kraj'
+	lineageTag: 12c8d76c-617a-5033-9ade-39783b518f15
+
+	column 'kraj_kod'
+		dataType: string
+		lineageTag: d43e51ec-eba7-5f8c-8226-493e0d6a9ea1
+		summarizeBy: none
+		sourceColumn: kraj_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kraj_nazwa'
+		dataType: string
+		lineageTag: 9d7406a1-76e2-55e6-ab9d-8c7e0813d64c
+		summarizeBy: none
+		sourceColumn: kraj_nazwa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'waluta_lokalna'
+		dataType: string
+		lineageTag: dd9612c9-5459-5779-9fa7-eadccfb04696
+		summarizeBy: none
+		sourceColumn: waluta_lokalna
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'region'
+		dataType: string
+		lineageTag: 3c9113cd-7150-5f62-ba87-2009e26ac30d
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim_kraj' = entity
+		mode: directLake
+		source
+			entityName: dim_kraj
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Narzędzia i system
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+~$*
+*.tmp
+fabric/deploy/.stan_wdrozenia.json

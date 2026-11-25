@@ -1,0 +1,52 @@
+relationship f9a679cd-f71f-56fb-a4da-58ca185cd7c5
+	fromColumn: 'Rachunek wyników'.'miesiac'
+	toColumn: 'Data'.'Data'
+
+relationship 2e350a42-5080-5043-bc03-a9475ea44f75
+	fromColumn: 'Rachunek wyników'.'mpk_id'
+	toColumn: 'MPK'.'Kod MPK'
+
+relationship 1307a369-da03-5eac-9631-e023b8e42397
+	fromColumn: 'Rachunek wyników'.'konto_id'
+	toColumn: 'Konto'.'Numer konta'
+
+relationship 16297f44-8e4d-5c79-a61b-ed7a3b2e29b0
+	fromColumn: 'Rachunek wyników'.'scenariusz_kod'
+	toColumn: 'Scenariusz'.'Kod scenariusza'
+
+relationship c8178d98-90c5-549b-9501-f0c0bc95e561
+	fromColumn: 'Sprzedaż dzienna'.'data'
+	toColumn: 'Data'.'Data'
+
+relationship b96c22a1-81da-5133-b530-2e1128b2e6c7
+	fromColumn: 'Sprzedaż dzienna'.'mpk_id'
+	toColumn: 'MPK'.'Kod MPK'
+
+relationship 67780144-212e-5182-adbb-c0125ab246b4
+	fromColumn: 'MPK'.'Kod marki MPK'
+	toColumn: 'Marka'.'Kod marki'
+
+relationship edfca4fb-d42f-550a-8666-1fd42fd66dd5
+	fromColumn: 'MPK'.'Kod kraju MPK'
+	toColumn: 'Kraj'.'Kod kraju'
+
+relationship 9bbc17ee-7a3f-55d8-85bc-15fc9f39442c
+	fromColumn: 'Sprzedaż według kategorii'.'miesiac'
+	toColumn: 'Data'.'Data'
+
+relationship 68af0ed1-1878-5a5d-88fb-12af5f0cc957
+	fromColumn: 'Sprzedaż według kategorii'.'marka_kod'
+	toColumn: 'Marka'.'Kod marki'
+
+relationship 34c6c5e1-38a8-5eb3-954e-1833fd44918b
+	fromColumn: 'Sprzedaż według kategorii'.'kraj_kod'
+	toColumn: 'Kraj'.'Kod kraju'
+
+relationship 42b2c997-9875-581b-b8f7-4f0935777409
+	fromColumn: 'Sprzedaż według kategorii'.'kategoria_kod'
+	toColumn: 'Kategoria'.'Kod kategorii'
+
+relationship 0409d3da-73f7-5676-988e-a792d224f428
+	fromColumn: 'Kursy walut'.'miesiac'
+	toColumn: 'Data'.'Data'
+

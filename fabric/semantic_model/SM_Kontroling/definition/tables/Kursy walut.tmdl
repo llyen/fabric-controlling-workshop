@@ -1,0 +1,47 @@
+/// Średnie miesięczne kursy walut w PLN za jednostkę waluty. Informacyjnie, kwoty w modelu są już w PLN.
+table 'Kursy walut'
+	lineageTag: 2a01721d-448c-5829-9797-fe53cf861a1f
+
+	/// Średni kurs waluty w PLN za jednostkę.
+	measure 'Średni kurs PLN' = AVERAGE ( 'Kursy walut'[kurs_sredni_pln] )
+		formatString: 0.0000
+		displayFolder: Kursy
+		lineageTag: 30d406f7-1d0b-5877-802b-a7955d5ab11d
+
+	/// Pierwszy dzień miesiąca.
+	column 'miesiac'
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: e7a68907-633e-534e-9978-bfc2ec9e3be4
+		summarizeBy: none
+		sourceColumn: miesiac
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Kod waluty: EUR, SEK, DKK.
+	column 'Waluta'
+		dataType: string
+		lineageTag: 6b261574-dd26-5142-9ad9-88cc16dbbbfd
+		summarizeBy: none
+		sourceColumn: waluta
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Średni kurs w PLN.
+	column 'kurs_sredni_pln'
+		dataType: double
+		isHidden
+		lineageTag: 0f7f2b13-1167-567d-8432-774049f58b82
+		summarizeBy: none
+		sourceColumn: kurs_sredni_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Kursy walut' = entity
+		mode: directLake
+		source
+			entityName: fakt_kursy_walut
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

@@ -1,0 +1,51 @@
+table 'fakt_pnl'
+	lineageTag: 8a05cdda-68d0-558d-8fdf-ccdfa277893e
+
+	column 'miesiac'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: aadc198a-6df6-5726-891b-6a18b3f472dc
+		summarizeBy: none
+		sourceColumn: miesiac
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'mpk_id'
+		dataType: string
+		lineageTag: f54e1b51-6b7a-5030-a787-509db759549e
+		summarizeBy: none
+		sourceColumn: mpk_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'konto_id'
+		dataType: string
+		lineageTag: 756c0253-9121-5e45-9f21-bc87130f51cd
+		summarizeBy: none
+		sourceColumn: konto_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'scenariusz_kod'
+		dataType: string
+		lineageTag: f2b5bf32-b66c-53a4-b3dc-b055cf4fd5af
+		summarizeBy: none
+		sourceColumn: scenariusz_kod
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kwota_pln'
+		dataType: double
+		lineageTag: 6a219e12-abd2-5da9-9ea2-a44ffe9a8049
+		summarizeBy: sum
+		sourceColumn: kwota_pln
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fakt_pnl' = entity
+		mode: directLake
+		source
+			entityName: fakt_pnl
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
