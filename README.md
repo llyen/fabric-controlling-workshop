@@ -1,42 +1,34 @@
-# Microsoft Fabric workshop for controlling and finance teams
+# Warsztat Microsoft Fabric dla kontrolingu i finansów
 
-[Wersja polska](README.pl.md)
+[English version](README.en.md)
 
-This repository contains a complete, reproducible 90-minute workshop showing how a corporate controlling and finance team can use Microsoft Fabric. It covers three areas:
+Materiały do warsztatu dla zespołu kontrolingu i finansów fikcyjnej sieci odzieżowej Fabrikam Fashion. Warsztat pokazuje Plan w Fabric IQ (Planning), agentów danych Fabric i model semantyczny Direct Lake na lakehouse. W repozytorium są scenariusz, generator danych syntetycznych razem z gotowymi danymi, definicje trzech modeli semantycznych oraz skrypty, które wdrażają środowisko do obszaru roboczego Fabric i sprawdzają, czy liczy poprawnie.
 
-* Plan in Fabric IQ (Planning): spreading a sales target, a cost budget in PowerTable, simulation and forecast, comments, approval and writeback to Fabric SQL database,
-* Fabric data agents: the same agent on a model prepared for AI and on a raw model, measured against a fixed set of test questions,
-* Direct Lake semantic models on a lakehouse, with DAX checks of every measure.
+Wszystkie dane są syntetyczne. Fabrikam Fashion i jej cztery marki (Aurea, Vento, Lumi, Kroko) działające w sześciu krajach są fikcyjne, prawdziwe są tylko nazwy krajów i miast. Sklepy, MPK, kwoty i zdarzenia wymyślił generator, więc liczby nie opisują wyników żadnej firmy, a podobieństwo do istniejących marek jest przypadkowe.
 
-The workshop is built around Fabrikam Fashion, a fictional apparel retailer with four fictional brands (Aurea, Vento, Lumi, Kroko) operating in six European countries. Its fiscal year runs from April to March and the data is frozen on 9 December 2026. All documentation except this file is in Polish.
+## Scenariusz
 
-> **Disclaimer.** All data in this repository is synthetic and was produced by the generator in `generator/`. Fabrikam Fashion and its brands are fictional; only country and city names are real. Stores, cost centres, amounts and business events are invented and do not describe the results of any real company. Any resemblance to real brands or companies is coincidental.
+Główny dokument to [dokumentacja/Scenariusz_warsztatu.md](dokumentacja/Scenariusz_warsztatu.md). Rozdział 4 służy do przeklikania warsztatu z klientem, bo przy każdym kroku podaje ścieżkę kliknięć i liczbę kontrolną. Pozostałe rozdziały omawiają licencje i koszty, warianty pilotażu oraz luki i pytania do zespołu klienta, a w załącznikach są wyniki testów, opis odtworzenia środowiska i źródła w Microsoft Learn.
 
-## Contents
+Polecenie `python dokumentacja\eksport_docx.py` tworzy z niego plik dokumentacja/docx/Scenariusz_warsztatu.docx, który też jest w repozytorium.
+
+## Zawartość
 
 ```text
-dane/                   14 tables in CSV and Parquet, 5 Excel files, data dictionary, answer key for 14 test questions
-generator/              synthetic data generator and validation (generator/README.md, generator/SPEC.md)
-fabric/semantic_model/  TMDL for SM_Kontroling, SM_Kontroling_surowy and SM_Planowanie, AI instructions
-fabric/data_agent/      data agent instructions
-fabric/plan/            2027/28 sales target allocation key, fallback Excel source for Plan
-fabric/deploy/          deployment to Fabric via REST API, DAX checks, agent test over MCP
-dokumentacja/           workshop scenario (Markdown and docx), test results, docx export script
+dane/                   14 tabel w CSV i Parquet, 5 plików Excel, słownik danych, klucz 14 pytań testowych
+generator/              generator danych i walidacja, opis w generator/README.md i generator/SPEC.md
+fabric/semantic_model/  TMDL modeli SM_Kontroling, SM_Kontroling_surowy i SM_Planowanie, instrukcje AI
+fabric/data_agent/      instrukcje agenta danych
+fabric/plan/            klucz alokacji celu sprzedaży 2027/28, skrypt pliku awaryjnego Planu
+fabric/deploy/          wdrożenie do Fabric, kontrole DAX, test agentów przez MCP
+dokumentacja/           scenariusz, wyniki testów, eksport do docx
 ```
 
-The main document is `dokumentacja/Scenariusz_warsztatu.md`. Chapter 4 is a click-by-click script where every step lists the path in the UI and a control figure the screen should show. Other chapters cover licensing and capacity costs, pilot options, open questions and gaps in the documentation. Appendices hold the agent test results, environment reproduction steps and Microsoft Learn sources. `dokumentacja/docx/Scenariusz_warsztatu.docx` is a Word export of the same document.
+## Uruchomienie
 
-## Requirements
+Skrypty działały na Pythonie 3.13 w Windows. Generator korzysta z pakietów wymienionych w generator/requirements.txt, wdrożenie potrzebuje jeszcze pakietu requests, test agentów pakietu mcp, a eksport do docx programu pandoc. Skrypty z fabric/deploy pobierają token przez Azure CLI. Przed ich uruchomieniem trzeba wykonać `az login` na koncie, które może tworzyć obszary robocze w docelowej dzierżawie.
 
-* Python 3.13 (tested on Windows) with the packages from `generator/requirements.txt` (pandas, numpy, pyarrow, openpyxl),
-* `requests` for deployment and `mcp` for the agent test,
-* Azure CLI, signed in with `az login` to an account that can create workspaces in the target Fabric tenant,
-* a paid Fabric capacity (F2 or larger) for data agents and Copilot,
-* pandoc, only if you want to rebuild the docx files.
-
-## Reproducing the workshop
-
-Data, TMDL definitions and the allocation key are already committed, so deployment alone needs only the second block. The first block rebuilds those files from scratch and is fully deterministic.
+Dane, definicje TMDL i klucz alokacji są już w repozytorium, dlatego do samego wdrożenia wystarczą polecenia z drugiego bloku. Pierwszy blok odtwarza te pliki od zera.
 
 ```powershell
 python generator\generate_data.py
@@ -48,28 +40,32 @@ python fabric\plan\excel_awaryjny_planu.py
 
 ```powershell
 $env:FABRIC_WORKSPACE = "Fabrikam Kontroling Warsztat"
-$env:FABRIC_CAPACITY_ID = "<CAPACITY_ID>"
+$env:FABRIC_CAPACITY_ID = "<identyfikator capacity>"
 python fabric\deploy\deploy.py
 python fabric\deploy\weryfikuj_model.py
 python fabric\deploy\testuj_agenta.py
 ```
 
-`FABRIC_CAPACITY_ID` is the capacity ID from the Fabric API, not the Azure resource ID. It is needed only when the workspace has to be created or moved to another capacity. `deploy.py` runs nine steps (obszar, lakehouse, pliki, tabele, sql, modele, odswiez, sqldb, agenci); `--kroki` runs a subset. IDs of created items are stored in `fabric/deploy/.stan_wdrozenia.json`, which is git-ignored.
+FABRIC_CAPACITY_ID to identyfikator capacity z API Fabric, a nie identyfikator zasobu Azure. Skrypt potrzebuje go tylko wtedy, gdy obszar roboczy trzeba utworzyć albo przepiąć na inną capacity. Wdrożenie ma dziewięć kroków (obszar, lakehouse, pliki, tabele, sql, modele, odswiez, sqldb, agenci), a przełącznik `--kroki` pozwala uruchomić wybrane. Identyfikatory utworzonych elementów skrypt zapisuje w fabric/deploy/.stan_wdrozenia.json. Plik nie trafia do repozytorium, a korzystają z niego weryfikuj_model.py i testuj_agenta.py.
 
-To rebuild the docx files run `python dokumentacja\eksport_docx.py`. Set the `PANDOC` environment variable if pandoc is not on PATH.
+Pełny przebieg testuj_agenta.py nadpisuje dokumentacja/wyniki_testu_agentow.md razem z ręczną oceną odpowiedzi. Pojedyncze pytania lepiej sprawdzać z przełącznikami `--pytania`, `--agent` albo `--pytanie`, bo wtedy wynik trafia tylko na ekran.
 
-## Results of tenant runs
+## Co zostaje do zrobienia ręcznie
 
-The synthetic data was regenerated for this public release. The DAX check results and the data agent answers from the original tenant run no longer match the data, so `dokumentacja/wyniki_weryfikacji_dax.md` and `dokumentacja/wyniki_testu_agentow.md` are placeholders. Run `weryfikuj_model.py` and `testuj_agenta.py` after deployment to fill them in. The expected values are in `dane/oczekiwane_odpowiedzi.md`.
+Skrypty nie tworzą planu w Fabric IQ ani raportu Power BI. Plan_Kontroling powstaje według kroku P0 scenariusza, a powody opisuje punkt 3.5. Wcześniej trzeba w ustawieniach SM_Planowanie przypisać model do połączenia chmurowego ze stałą tożsamością (OAuth 2.0, jednostka usługi albo tożsamość obszaru roboczego, bez SSO), bo z domyślnym SSO plan nie łączy się z modelem Direct Lake. Krok modele w deploy.py ostrzega, gdy takiego połączenia brakuje. Ręcznie ustawia się także ustawienia dzierżawy i capacity z punktu 5.1, a verified answers i oznaczenie Approved for Copilot dodaje się tylko wtedy, gdy mają być częścią pokazu. Pełną listę podaje załącznik B scenariusza.
 
-## Manual steps
+## Wyniki kontroli
 
-The scripts do not create the Plan item or the Power BI report. Plan_Kontroling is built by hand following step P0 of the scenario. Before that, SM_Planowanie must be mapped to a shareable cloud connection with a fixed identity (OAuth 2.0, service principal or workspace identity, SSO off). With the default SSO the plan does not connect to a Direct Lake model. The `modele` step of `deploy.py` warns when such a connection is missing. Tenant and capacity settings, verified answers and the Approved for Copilot flag are also manual; appendix B of the scenario lists all of them.
+Dane wygenerowano ponownie na potrzeby publicznej wersji, więc wyniki z pierwotnego przebiegu w dzierżawie przestały do nich pasować. Pliki dokumentacja/wyniki_weryfikacji_dax.md i dokumentacja/wyniki_testu_agentow.md czekają na ponowny przebieg: po wdrożeniu wypełnią je weryfikuj_model.py i testuj_agenta.py. Wartości oczekiwane są w dane/oczekiwane_odpowiedzi.md.
 
-## Notes on identifiers
+## Capacity i koszty
 
-The repository contains no passwords, keys, or tenant, subscription, capacity, workspace or item IDs. The GUIDs in the TMDL files and in the Copilot folder (lineageTag and related) are not taken from any tenant: `build_tmdl.py` derives them deterministically as UUIDv5 values from model object names.
+Środowisko warsztatowe potrzebuje capacity Fabric (F SKU lub trial). Gdy capacity jest wstrzymana, modele, agenci i plan nie odpowiadają, więc przed pracą trzeba ją wznowić. Każda osoba, która otworzy, utworzy albo zmieni plan, uruchamia 30-dniową sesję liczoną w CU, której nie da się zakończyć wcześniej. Szczegóły i przeliczenie na udział w capacity są w punkcie 5.2 scenariusza.
 
-## License
+## Dane wrażliwe
 
-MIT, see [LICENSE](LICENSE).
+W repozytorium nie ma haseł, kluczy ani identyfikatorów dzierżawy, subskrypcji i capacity. Plik stanu wdrożenia z identyfikatorami utworzonych elementów jest wyłączony w .gitignore. GUID-y w plikach TMDL i w folderze Copilot (lineageTag i pokrewne) nie pochodzą z żadnej dzierżawy. build_tmdl.py wylicza je deterministycznie jako UUID w wersji 5 z nazw obiektów modelu.
+
+## Licencja
+
+MIT, treść w pliku [LICENSE](LICENSE).
